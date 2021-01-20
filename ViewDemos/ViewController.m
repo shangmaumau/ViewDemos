@@ -40,7 +40,10 @@
 - (void)__showPickerView {
     
     UserInfoEditPopModel *model = [UserInfoEditPopModel new];
-    model.contentType = PopContentTypeTextField;
+    model.viewName = PopViewNameBirthday;
+    model.contentType = PopContentTypeDatePicker;
+    
+   //  model.contentType = PopContentTypeTextField;
     
 //    model.contentType = PopContentTypeTextField;
 //    model.contentType = PopContentTypeTextField;

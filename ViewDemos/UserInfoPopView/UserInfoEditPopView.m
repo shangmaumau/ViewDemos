@@ -13,8 +13,8 @@
 
 #import "LocalJSONManager.h"
 
-#define kUIPadding (16.0)
-#define kUIPaddingHalf (8.0)
+#define kUIPadding      (16.0)
+#define kUIPaddingHalf  (8.0)
 
 @implementation UserInfoEditPopModel
 
@@ -52,6 +52,8 @@
     NSUInteger _firstRowIdx;
     NSUInteger _secondRowIdx;
     NSUInteger _thirdRowIdx;
+    
+    CGFloat _contentTopMargin;
 }
 
 @property (nonatomic, strong) UIView *backgroundView_c;
@@ -166,12 +168,14 @@
 - (void)_addBirthdayAddView {
     
     _birthdayView = [UserInfoBirthdayView new];
+    _birthdayView.backgroundColor = [[UIColor doubleFishThemeColor] colorWithAlphaComponent:0.04];
+    _birthdayView.layer.cornerRadius = 8.0;
     [_contentView_c addSubview:_birthdayView];
     
     CGSize bsize = CGSizeMake(0, 51.5);
     [_birthdayView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(bsize.height));
-        make.top.equalTo(_contentBeginView.mas_bottom).offset(8.0);
+        make.top.equalTo(_contentBeginView.mas_bottom).offset(24.0);
         make.left.equalTo(_contentView_c.mas_left).offset(kUIPadding);
         make.right.equalTo(_contentView_c.mas_right).offset(-kUIPadding);
     }];
@@ -286,7 +290,7 @@
     
     if ([self isContentViewStay]) {
         [_contentView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_contentBeginView.mas_bottom);
+            make.top.equalTo(_contentBeginView.mas_bottom).offset(_contentTopMargin);
         }];
         return;
     }
@@ -300,6 +304,7 @@
     CGSize csize = CGSizeMake(0, 225.0);
     CGFloat leftPad = kUIPadding;
     CGFloat rightPad = kUIPadding;
+    CGFloat topMargin = 24.0;
     
     switch (_model.contentType) {
         case PopContentTypePickerView:
@@ -310,6 +315,7 @@
             
             leftPad = 0;
             rightPad = 0;
+            topMargin = 0;
         }
             break;
             
@@ -323,6 +329,7 @@
             
             leftPad = 0;
             rightPad = 0;
+            topMargin = 0;
         }
             break;
             
@@ -351,15 +358,28 @@
             break;
     }
     
+    _contentTopMargin = topMargin;
+    
     [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(csize.height));
-        make.top.equalTo(_contentBeginView.mas_bottom);
+        make.top.equalTo(_contentBeginView.mas_bottom).offset(topMargin);
         make.left.equalTo(_contentView_c.mas_left).offset(leftPad);
         make.right.equalTo(_contentView_c.mas_right).offset(-rightPad);
     }];
 }
 
 // MARK: - 配置和更新数据
+
+- (void)_resetPickerIndices {
+    _firstRowIdx = 0;
+    _secondRowIdx = 0;
+    _thirdRowIdx = 0;
+}
+
+- (void)_updateModel:(UserInfoEditPopModel *)model {
+    _lastModel = _model;
+    _model = model;
+}
 
 - (void)_configPickerData {
     switch (_model.viewName) {
@@ -379,17 +399,6 @@
             _pickerData = _model.dataSource;
             break;
     }
-}
-
-- (void)_resetPickerIndices {
-    _firstRowIdx = 0;
-    _secondRowIdx = 0;
-    _thirdRowIdx = 0;
-}
-
-- (void)_updateModel:(UserInfoEditPopModel *)model {
-    _lastModel = _model;
-    _model = model;
 }
 
 // MARK: - 更新界面

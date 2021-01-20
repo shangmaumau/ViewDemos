@@ -16,6 +16,8 @@
 #define kUIPadding      (16.0)
 #define kUIPaddingHalf  (8.0)
 
+#define kWidthScale     ([UIScreen widthScale])
+
 @implementation UserInfoEditPopModel
 
 
@@ -57,6 +59,7 @@
 }
 
 @property (nonatomic, strong) UIView *backgroundView_c;
+@property (nonatomic, strong) UIView *animateView;
 @property (nonatomic, strong) UIView *contentView_c;
 
 @property (nonatomic, strong) UIButton *cancelButton;
@@ -112,10 +115,24 @@
     
     [self _updateTitleText];
     
+    
+    [UIView animateWithDuration:0.35 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.animateView.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
+    } completion:^(BOOL finished) {
+        
+    }];
+    
 }
 
 - (void)dismiss {
-    [self removeFromSuperview];
+
+    [UIView animateWithDuration:0.35 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.animateView.frame = CGRectMake(0, [UIScreen height_c], self.bounds.size.width, self.bounds.size.height);
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+
+    }];
+    
 }
 
 // MARK: - 按钮点击事件
@@ -146,14 +163,14 @@
     [_contentView_c addSubview:_subtitleText];
     
     [_titleText mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(30.0));
+        make.height.equalTo(@(30.0*kWidthScale));
         make.top.equalTo(_viewTitleText.mas_bottom).offset(30.0);
         make.left.equalTo(_contentView_c.mas_left).offset(kUIPadding);
         make.right.equalTo(_contentView_c.mas_right).offset(-kUIPadding);
     }];
     
     [_subtitleText mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(20.0));
+        make.height.equalTo(@(20.0*kWidthScale));
         make.top.equalTo(_titleText.mas_bottom).offset(2.0);
         make.left.equalTo(_contentView_c.mas_left).offset(kUIPadding);
         make.right.equalTo(_contentView_c.mas_right).offset(-kUIPadding);
@@ -172,7 +189,7 @@
     _birthdayView.layer.cornerRadius = 8.0;
     [_contentView_c addSubview:_birthdayView];
     
-    CGSize bsize = CGSizeMake(0, 51.5);
+    CGSize bsize = CGSizeMake(0, 51.5*kWidthScale);
     [_birthdayView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(bsize.height));
         make.top.equalTo(_contentBeginView.mas_bottom).offset(24.0);
@@ -191,6 +208,8 @@
     
     _backgroundView_c = [UIView new];
     _backgroundView_c.backgroundColor = [[UIColor doubleFishThemeColor] colorWithAlphaComponent:0.3];
+    
+    _animateView = [[UIView alloc] initWithFrame:CGRectMake(0, [UIScreen height_c], self.bounds.size.width, self.bounds.size.height)];
     
     _contentView_c = [UIView new];
     _contentView_c.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.88];
@@ -213,7 +232,8 @@
     [_doneButton addTarget:self action:@selector(doneButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
     [self addSubview:_backgroundView_c];
-    [self addSubview:_contentView_c];
+    [self addSubview:_animateView];
+    [_animateView addSubview:_contentView_c];
     [_contentView_c addSubview:_viewTitleText];
     [_contentView_c addSubview:_cancelButton];
     [_contentView_c addSubview:_doneButton];
@@ -222,21 +242,21 @@
         make.edges.equalTo(self);
     }];
     
-    CGSize csize = CGSizeMake(375.0, 445.0);
+    CGSize csize = CGSizeMake(375.0*kWidthScale, 445.0*kWidthScale);
     [_contentView_c mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.equalTo(@(csize));
-        make.centerX.equalTo(self.mas_centerX);
-        make.bottom.equalTo(self.mas_bottom);
+        make.centerX.equalTo(_animateView.mas_centerX);
+        make.bottom.equalTo(_animateView.mas_bottom);
     }];
     
     [_viewTitleText mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(_contentView_c.mas_width).multipliedBy(0.6);
-        make.height.equalTo(@(30.0));
+        make.height.equalTo(@(30.0*kWidthScale));
         make.centerX.equalTo(_contentView_c.mas_centerX);
         make.top.equalTo(_contentView_c.mas_top).offset(kUIPadding);
     }];
     
-    CGSize btnsize = CGSizeMake(30.0, 20.0);
+    CGSize btnsize = CGSizeMake(30.0*kWidthScale, 20.0*kWidthScale);
     [_cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.equalTo(@(btnsize));
         make.centerY.equalTo(_viewTitleText.mas_centerY);
@@ -261,7 +281,7 @@
             
         case PopTitleModeNull: {
             [self _removeTitleViews];
-            CGSize csize = CGSizeMake(375.0, 261.0);
+            CGSize csize = CGSizeMake(375.0*kWidthScale, 261.0*kWidthScale);
             [_contentView_c mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.size.equalTo(@(csize));
             }];
@@ -272,7 +292,7 @@
             
         case PopTitleModeNormal: {
             [self _addTitleViews];
-            CGSize csize = CGSizeMake(375.0, 445.0);
+            CGSize csize = CGSizeMake(375.0*kWidthScale, 445.0*kWidthScale);
             [_contentView_c mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.size.equalTo(@(csize));
             }];
@@ -301,7 +321,7 @@
     _contentView = [self gimmeContentView];
     [_contentView_c addSubview:_contentView];
     
-    CGSize csize = CGSizeMake(0, 225.0);
+    CGSize csize = CGSizeMake(0, 225.0*kWidthScale);
     CGFloat leftPad = kUIPadding;
     CGFloat rightPad = kUIPadding;
     CGFloat topMargin = 24.0;
@@ -336,21 +356,21 @@
         case PopContentTypeTextField:
         {
             _textField = _contentView;
-            csize.height = 51.5;
+            csize.height = 51.5*kWidthScale;
         }
             break;
             
         case PopContentTypeTextView:
         {
             _textView = _contentView;
-            csize.height = 96.5;
+            csize.height = 96.5*kWidthScale;
         }
             break;
             
         case PopContentTypeSearchBar:
         {
             // _searchBar = _contentView;
-            csize.height = 51.5;
+            csize.height = 51.5*kWidthScale;
         }
             break;
             
@@ -543,7 +563,7 @@
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
-    return 31.5;
+    return 31.5*kWidthScale;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {

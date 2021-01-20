@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (CGFloat)width_c;
 + (CGFloat)height_c;
 
++ (CGFloat)widthScale;
++ (CGFloat)heigthScale;
+
 @end
 
 NS_ASSUME_NONNULL_END

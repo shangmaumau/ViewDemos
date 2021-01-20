@@ -17,7 +17,7 @@
 		9A476ED025B81A56004C9B3F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476ECF25B81A56004C9B3F /* main.m */; };
 		9A476EDA25B81A57004C9B3F /* ViewDemosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476ED925B81A57004C9B3F /* ViewDemosTests.m */; };
 		9A476EE525B81A57004C9B3F /* ViewDemosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EE425B81A57004C9B3F /* ViewDemosUITests.m */; };
-		9A476EF725B81C06004C9B3F /* MyUserInfoPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EF625B81C06004C9B3F /* MyUserInfoPickerView.m */; };
+		9A476EF725B81C06004C9B3F /* UserInfoEditPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EF625B81C06004C9B3F /* UserInfoEditPopView.m */; };
 		9A476F0625B82050004C9B3F /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A476F0325B8204F004C9B3F /* cities.json */; };
 		9A476F0725B82050004C9B3F /* professions.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A476F0425B8204F004C9B3F /* professions.json */; };
 		9A476F0825B82050004C9B3F /* universities.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A476F0525B82050004C9B3F /* universities.json */; };
@@ -76,8 +76,8 @@
 		9A476EE025B81A57004C9B3F /* ViewDemosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViewDemosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A476EE425B81A57004C9B3F /* ViewDemosUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewDemosUITests.m; sourceTree = "<group>"; };
 		9A476EE625B81A57004C9B3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9A476EF525B81C06004C9B3F /* MyUserInfoPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyUserInfoPickerView.h; sourceTree = "<group>"; };
-		9A476EF625B81C06004C9B3F /* MyUserInfoPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyUserInfoPickerView.m; sourceTree = "<group>"; };
+		9A476EF525B81C06004C9B3F /* UserInfoEditPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoEditPopView.h; sourceTree = "<group>"; };
+		9A476EF625B81C06004C9B3F /* UserInfoEditPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoEditPopView.m; sourceTree = "<group>"; };
 		9A476F0325B8204F004C9B3F /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
 		9A476F0425B8204F004C9B3F /* professions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = professions.json; sourceTree = "<group>"; };
 		9A476F0525B82050004C9B3F /* universities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = universities.json; sourceTree = "<group>"; };
@@ -145,6 +145,36 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9A2E0B9325B8541C0043C942 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				9A476F1C25B829F3004C9B3F /* UIScreen+EasyMethods.h */,
+				9A476F1D25B829F3004C9B3F /* UIScreen+EasyMethods.m */,
+				9A476F2225B82A3D004C9B3F /* UIColor+EasyMethods.h */,
+				9A476F2325B82A3D004C9B3F /* UIColor+EasyMethods.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		9A2E0B9D25B854490043C942 /* LocalJSONDatas */ = {
+			isa = PBXGroup;
+			children = (
+				9A476F0325B8204F004C9B3F /* cities.json */,
+				9A476F0425B8204F004C9B3F /* professions.json */,
+				9A476F0525B82050004C9B3F /* universities.json */,
+			);
+			path = LocalJSONDatas;
+			sourceTree = "<group>";
+		};
+		9A2E0B9E25B8547A0043C942 /* UserInfoPopView */ = {
+			isa = PBXGroup;
+			children = (
+				9A476EF525B81C06004C9B3F /* UserInfoEditPopView.h */,
+				9A476EF625B81C06004C9B3F /* UserInfoEditPopView.m */,
+			);
+			path = UserInfoPopView;
+			sourceTree = "<group>";
+		};
 		9A476EB125B81A40004C9B3F = {
 			isa = PBXGroup;
 			children = (
@@ -170,7 +200,9 @@
 		9A476EBC25B81A40004C9B3F /* ViewDemos */ = {
 			isa = PBXGroup;
 			children = (
+				9A2E0B9325B8541C0043C942 /* Categories */,
 				9A476F1825B829CD004C9B3F /* Datas */,
+				9A2E0B9E25B8547A0043C942 /* UserInfoPopView */,
 				9A476EBD25B81A40004C9B3F /* AppDelegate.h */,
 				9A476EBE25B81A40004C9B3F /* AppDelegate.m */,
 				9A476EC025B81A40004C9B3F /* SceneDelegate.h */,
@@ -182,12 +214,6 @@
 				9A476ECB25B81A56004C9B3F /* LaunchScreen.storyboard */,
 				9A476ECE25B81A56004C9B3F /* Info.plist */,
 				9A476ECF25B81A56004C9B3F /* main.m */,
-				9A476EF525B81C06004C9B3F /* MyUserInfoPickerView.h */,
-				9A476EF625B81C06004C9B3F /* MyUserInfoPickerView.m */,
-				9A476F1C25B829F3004C9B3F /* UIScreen+EasyMethods.h */,
-				9A476F1D25B829F3004C9B3F /* UIScreen+EasyMethods.m */,
-				9A476F2225B82A3D004C9B3F /* UIColor+EasyMethods.h */,
-				9A476F2325B82A3D004C9B3F /* UIColor+EasyMethods.m */,
 			);
 			path = ViewDemos;
 			sourceTree = "<group>";
@@ -216,9 +242,7 @@
 				9A476F4425B82CFB004C9B3F /* DFUniverModels */,
 				9A476F3625B82C5D004C9B3F /* DFProfModels */,
 				9A476F2825B82BD8004C9B3F /* DFCityModel */,
-				9A476F0325B8204F004C9B3F /* cities.json */,
-				9A476F0425B8204F004C9B3F /* professions.json */,
-				9A476F0525B82050004C9B3F /* universities.json */,
+				9A2E0B9D25B854490043C942 /* LocalJSONDatas */,
 				9A476F1225B829C3004C9B3F /* LocalJSONManager.h */,
 				9A476F1325B829C3004C9B3F /* LocalJSONManager.m */,
 			);
@@ -514,7 +538,7 @@
 				9A476EC525B81A40004C9B3F /* ViewController.m in Sources */,
 				9A476EBF25B81A40004C9B3F /* AppDelegate.m in Sources */,
 				9A476ED025B81A56004C9B3F /* main.m in Sources */,
-				9A476EF725B81C06004C9B3F /* MyUserInfoPickerView.m in Sources */,
+				9A476EF725B81C06004C9B3F /* UserInfoEditPopView.m in Sources */,
 				9A476F4825B82CFB004C9B3F /* DFUniversityBaseModel.m in Sources */,
 				9A476F3D25B82C5D004C9B3F /* DFProfModel.m in Sources */,
 				9A476F2E25B82BD8004C9B3F /* DFCityBaseModel.m in Sources */,

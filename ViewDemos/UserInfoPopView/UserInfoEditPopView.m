@@ -1,11 +1,11 @@
 //
-//  MyUserInfoPickerView.m
+//  UserInfoEditPopView.m
 //  ViewDemos
 //
 //  Created by 尚雷勋 on 2021/1/20.
 //
 
-#import "MyUserInfoPickerView.h"
+#import "UserInfoEditPopView.h"
 #import <Masonry/Masonry.h>
 
 #import "UIScreen+EasyMethods.h"
@@ -16,7 +16,8 @@
 #define kUIPadding (16.0)
 #define kUIPaddingHalf (8.0)
 
-@implementation MyUserInfoPickerModel
+@implementation UserInfoEditPopModel
+
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -37,18 +38,17 @@
 
 @end
 
-@interface MyUserInfoBirthdayView : UIView
+@interface UserInfoBirthdayView : UIView
 
 @end
 
-@implementation MyUserInfoBirthdayView
+@implementation UserInfoBirthdayView
 
 
 
 @end
 
-
-@interface MyUserInfoPickerView ()<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate> {
+@interface UserInfoEditPopView ()<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate> {
     NSUInteger _firstRowIdx;
     NSUInteger _secondRowIdx;
     NSUInteger _thirdRowIdx;
@@ -69,17 +69,19 @@
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, strong) UISearchBar *searchBar;
-@property (nonatomic, strong) MyUserInfoBirthdayView *birthdayView;
+@property (nonatomic, strong) UserInfoBirthdayView *birthdayView;
 
 @property (nonatomic, strong) __kindof UIView *contentView;
 @property (nonatomic, strong) __kindof UIView *contentBeginView;
 
-@property (nonatomic, strong) MyUserInfoPickerModel *lastModel;
+@property (nonatomic, strong) UserInfoEditPopModel *lastModel;
 @property (nonatomic, strong) NSArray *pickerData;
 
 @end
 
-@implementation MyUserInfoPickerView
+@implementation UserInfoEditPopView
+
+// MARK: - 公开方法
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -89,7 +91,7 @@
     return self;
 }
 
-- (void)showOnView:(__kindof UIView *)view withData:(MyUserInfoPickerModel *)data {
+- (void)showOnView:(__kindof UIView *)view withData:(UserInfoEditPopModel *)data {
     
     if (!data) {
         return;
@@ -113,6 +115,73 @@
 - (void)dismiss {
     [self removeFromSuperview];
 }
+
+// MARK: - 按钮点击事件
+
+- (void)cancelButtonAction:(UIButton *)sender {
+ 
+    [self dismiss];
+}
+
+- (void)doneButtonAction:(UIButton *)sender {
+    
+}
+
+// MARK: - 添加移除功能视图
+
+- (void)_addTitleViews {
+    
+    _titleText = [UILabel new];
+    _titleText.font = [UIFont systemFontOfSize:22.0 weight:UIFontWeightMedium];
+    _titleText.textColor = [UIColor doubleFishThemeColor];
+    
+    _subtitleText = [UILabel new];
+    _subtitleText.font = [UIFont systemFontOfSize:14.0 weight:UIFontWeightMedium];
+    // rgba(99, 85, 136, 1)
+    _subtitleText.textColor = [UIColor colorWith255R:99 g:85 b:136];
+    
+    [_contentView_c addSubview:_titleText];
+    [_contentView_c addSubview:_subtitleText];
+    
+    [_titleText mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(30.0));
+        make.top.equalTo(_viewTitleText.mas_bottom).offset(30.0);
+        make.left.equalTo(_contentView_c.mas_left).offset(kUIPadding);
+        make.right.equalTo(_contentView_c.mas_right).offset(-kUIPadding);
+    }];
+    
+    [_subtitleText mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(20.0));
+        make.top.equalTo(_titleText.mas_bottom).offset(2.0);
+        make.left.equalTo(_contentView_c.mas_left).offset(kUIPadding);
+        make.right.equalTo(_contentView_c.mas_right).offset(-kUIPadding);
+    }];
+}
+
+- (void)_removeTitleViews {
+    [_titleText removeFromSuperview];
+    [_subtitleText removeFromSuperview];
+}
+
+- (void)_addBirthdayAddView {
+    
+    _birthdayView = [UserInfoBirthdayView new];
+    [_contentView_c addSubview:_birthdayView];
+    
+    CGSize bsize = CGSizeMake(0, 51.5);
+    [_birthdayView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(bsize.height));
+        make.top.equalTo(_contentBeginView.mas_bottom).offset(8.0);
+        make.left.equalTo(_contentView_c.mas_left).offset(kUIPadding);
+        make.right.equalTo(_contentView_c.mas_right).offset(-kUIPadding);
+    }];
+}
+
+- (void)_removeBirthdayAddView {
+    [_birthdayView removeFromSuperview];
+}
+
+// MARK: - 配置视图
 
 - (void)_configBasicSubviews {
     
@@ -176,67 +245,6 @@
         make.right.equalTo(_contentView_c.mas_right).offset(-kUIPadding);
     }];
     
-}
-
-- (void)cancelButtonAction:(UIButton *)sender {
- 
-    [self dismiss];
-}
-
-- (void)doneButtonAction:(UIButton *)sender {
-    
-}
-
-- (void)_addTitleViews {
-    
-    _titleText = [UILabel new];
-    _titleText.font = [UIFont systemFontOfSize:22.0 weight:UIFontWeightMedium];
-    _titleText.textColor = [UIColor doubleFishThemeColor];
-    
-    _subtitleText = [UILabel new];
-    _subtitleText.font = [UIFont systemFontOfSize:14.0 weight:UIFontWeightMedium];
-    // rgba(99, 85, 136, 1)
-    _subtitleText.textColor = [UIColor colorWith255R:99 g:85 b:136];
-    
-    [_contentView_c addSubview:_titleText];
-    [_contentView_c addSubview:_subtitleText];
-    
-    [_titleText mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(30.0));
-        make.top.equalTo(_viewTitleText.mas_bottom).offset(30.0);
-        make.left.equalTo(_contentView_c.mas_left).offset(kUIPadding);
-        make.right.equalTo(_contentView_c.mas_right).offset(-kUIPadding);
-    }];
-    
-    [_subtitleText mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(20.0));
-        make.top.equalTo(_titleText.mas_bottom).offset(2.0);
-        make.left.equalTo(_contentView_c.mas_left).offset(kUIPadding);
-        make.right.equalTo(_contentView_c.mas_right).offset(-kUIPadding);
-    }];
-}
-
-- (void)_removeTitleViews {
-    [_titleText removeFromSuperview];
-    [_subtitleText removeFromSuperview];
-}
-
-- (void)_addBirthdayAddView {
-    
-    _birthdayView = [MyUserInfoBirthdayView new];
-    [_contentView_c addSubview:_birthdayView];
-    
-    CGSize bsize = CGSizeMake(0, 51.5);
-    [_birthdayView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(bsize.height));
-        make.top.equalTo(_contentBeginView.mas_bottom).offset(8.0);
-        make.left.equalTo(_contentView_c.mas_left).offset(kUIPadding);
-        make.right.equalTo(_contentView_c.mas_right).offset(-kUIPadding);
-    }];
-}
-
-- (void)_removeBirthdayAddView {
-    [_birthdayView removeFromSuperview];
 }
 
 - (void)_configTitleView {
@@ -351,6 +359,8 @@
     }];
 }
 
+// MARK: - 配置和更新数据
+
 - (void)_configPickerData {
     switch (_model.viewName) {
         case PopViewNameAddress:
@@ -377,10 +387,12 @@
     _thirdRowIdx = 0;
 }
 
-- (void)_updateModel:(MyUserInfoPickerModel *)model {
+- (void)_updateModel:(UserInfoEditPopModel *)model {
     _lastModel = _model;
     _model = model;
 }
+
+// MARK: - 更新界面
 
 - (void)_updateTitleText {
     _viewTitleText.text = _model.viewTitle;
@@ -390,6 +402,8 @@
     [_cancelButton setTitle:_model.cancelTitle forState:UIControlStateNormal];
     [_doneButton setTitle:_model.doneTitle forState:UIControlStateNormal];
 }
+
+// MARK: - 判断是否视图不需要替换
 
 - (BOOL)isTitleViewStay {
     if (!_lastModel) {
@@ -410,6 +424,8 @@
     }
     return NO;
 }
+
+// MARK: - 给我内容视图
 
 - (__kindof UIView *)gimmeContentView {
     
@@ -497,7 +513,7 @@
     return view;
 }
 
-// MARK: - 选择器代理
+// MARK: - 选择器数据源和代理
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     NSInteger count = 0;

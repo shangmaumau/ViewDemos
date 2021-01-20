@@ -6,11 +6,11 @@
 //
 
 #import "ViewController.h"
-#import "MyUserInfoPickerView.h"
+#import "UserInfoEditPopView.h"
 
 @interface ViewController ()
 
-@property (nonatomic, strong) MyUserInfoPickerView *uiPickerView;
+@property (nonatomic, strong) UserInfoEditPopView *uiPickerView;
 
 @end
 
@@ -25,12 +25,10 @@
 }
 
 - (void)configViews {
-    _uiPickerView = [[MyUserInfoPickerView alloc] initWithFrame:self.view.bounds];
+    _uiPickerView = [[UserInfoEditPopView alloc] initWithFrame:self.view.bounds];
 }
 
 - (IBAction)showView:(UIButton *)sender {
-
-    NSLog(@"hello");
     [self __showPickerView];
 }
 
@@ -41,9 +39,11 @@
 
 - (void)__showPickerView {
     
-    MyUserInfoPickerModel *model = [MyUserInfoPickerModel new];
-    model.viewName = PopViewNameBirthday;
-    model.contentType = PopContentTypeDatePicker;
+    UserInfoEditPopModel *model = [UserInfoEditPopModel new];
+    model.contentType = PopContentTypeTextField;
+    
+//    model.contentType = PopContentTypeTextField;
+//    model.contentType = PopContentTypeTextField;
     
     [_uiPickerView showOnView:self.view withData:model];
 }

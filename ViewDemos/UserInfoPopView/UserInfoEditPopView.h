@@ -1,5 +1,5 @@
 //
-//  MyUserInfoPickerView.h
+//  UserInfoEditPopView.h
 //  ViewDemos
 //
 //  Created by 尚雷勋 on 2021/1/20.
@@ -17,6 +17,12 @@ typedef NS_ENUM(NSUInteger, PopContentType) {
     PopContentTypeSearchBar
 };
 
+typedef NS_ENUM(NSUInteger, PopTitleMode) {
+    PopTitleModeNull,
+    PopTitleModeNormal,
+    PopTitleModeOnlyTitle
+};
+
 typedef NS_ENUM(NSUInteger, PopViewName) {
     PopViewNameNull,        // 默认
     PopViewNameBirthday,    // 要添加额外的视图
@@ -25,14 +31,7 @@ typedef NS_ENUM(NSUInteger, PopViewName) {
     PopViewNameUniversity   // 大学，搜索需要定位数据源
 };
 
-typedef NS_ENUM(NSUInteger, PopTitleMode) {
-    PopTitleModeNull,
-    PopTitleModeNormal,
-    PopTitleModeOnlyTitle
-};
-
-
-@interface MyUserInfoPickerModel : NSObject
+@interface UserInfoEditPopModel : NSObject
 
 @property (nonatomic, copy) NSString *viewTitle;
 @property (nonatomic, copy) NSString *title;
@@ -48,11 +47,11 @@ typedef NS_ENUM(NSUInteger, PopTitleMode) {
 
 @end
 
-@interface MyUserInfoPickerView : UIView
+@interface UserInfoEditPopView : UIView
 
-@property (nonatomic, strong) MyUserInfoPickerModel *model;
+@property (nonatomic, strong) UserInfoEditPopModel *model;
 
-- (void)showOnView:(__kindof UIView *)view withData:(MyUserInfoPickerModel *)data;
+- (void)showOnView:(__kindof UIView *)view withData:(UserInfoEditPopModel *)data;
 - (void)dismiss;
 
 

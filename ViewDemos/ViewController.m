@@ -40,13 +40,14 @@
 - (void)__showPickerView {
     
     UserInfoEditPopModel *model = [UserInfoEditPopModel new];
-    model.viewName = PopViewNameBirthday;
-    model.contentType = PopContentTypeDatePicker;
     
-   //  model.contentType = PopContentTypeTextField;
+    // pickerView 和 datePicker 的高度，需要做适配，不能挨着底部
     
-//    model.contentType = PopContentTypeTextField;
-//    model.contentType = PopContentTypeTextField;
+//    model.viewName = PopViewNameBirthday;
+//    model.contentType = PopContentTypeDatePicker;
+    
+     model.viewName = PopViewNameAddress;
+     // model.titleMode = PopTitleModeNull;
     
     [_uiPickerView showOnView:self.view withData:model];
 }

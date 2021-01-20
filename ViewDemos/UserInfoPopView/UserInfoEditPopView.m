@@ -381,7 +381,7 @@
     _contentTopMargin = topMargin;
     
     [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(csize.height));
+        make.bottom.equalTo(_contentView_c.mas_bottom);
         make.top.equalTo(_contentBeginView.mas_bottom).offset(topMargin);
         make.left.equalTo(_contentView_c.mas_left).offset(leftPad);
         make.right.equalTo(_contentView_c.mas_right).offset(-rightPad);

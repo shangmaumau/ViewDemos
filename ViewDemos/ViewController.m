@@ -6,8 +6,11 @@
 //
 
 #import "ViewController.h"
+#import "MyUserInfoPickerView.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) MyUserInfoPickerView *uiPickerView;
 
 @end
 
@@ -16,7 +19,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // self.view.backgroundColor = [UIColor systemTealColor];
+    [self configViews];
 }
 
+- (void)configViews {
+    _uiPickerView = [[MyUserInfoPickerView alloc] initWithFrame:self.view.bounds];
+}
+
+- (IBAction)showView:(UIButton *)sender {
+
+    NSLog(@"hello");
+    [self __showPickerView];
+}
+
+- (IBAction)dimissView:(UIButton *)sender {
+    
+    
+}
+
+- (void)__showPickerView {
+    
+    MyUserInfoPickerModel *model = [MyUserInfoPickerModel new];
+    model.viewName = PopViewNameBirthday;
+    model.contentType = PopContentTypeDatePicker;
+    
+    [_uiPickerView showOnView:self.view withData:model];
+}
 
 @end

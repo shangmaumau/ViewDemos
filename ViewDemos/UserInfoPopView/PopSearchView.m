@@ -135,6 +135,8 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
     _tableView.delegate = self;
     [_tableView registerClass:[PopSearchCell class] forCellReuseIdentifier:searchResultCellIdentifier];
     
+    _tableView.layer.cornerRadius = 8.0;
+    
     [self addSubview:_searchField];
     [self addSubview:_tableView];
 
@@ -146,7 +148,7 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
     }];
     
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_searchField.mas_bottom).offset(kUIPaddingHalf/2.0);
+        make.top.equalTo(_searchField.mas_bottom).offset(kUIPaddingHalf);
         make.left.equalTo(self.mas_left);
         make.right.equalTo(self.mas_right);
         make.bottom.equalTo(self.mas_bottom);

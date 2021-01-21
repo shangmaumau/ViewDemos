@@ -515,6 +515,10 @@
         case PopContentTypeSearchView:
         {
             _searchView = _contentView;
+            if (_model.dataSource.count > 0) {
+                [_searchView configDataSource:_model.dataSource];
+            }
+            
             csize.height = 261.5*kWidthScale;
         }
             break;

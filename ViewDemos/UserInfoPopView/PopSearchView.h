@@ -23,6 +23,7 @@ typedef NS_ENUM(NSUInteger, PopSearchFilterMode) {
 /// @Note 注意这里的 dataSource 中的元素，要么直接是字符串，要么是可以通过 `title` `name` 键
 /// 获取到值的模型。
 - (instancetype)initWithFrame:(CGRect)frame mode:(PopSearchFilterMode)mode andDataSource:(NSArray *)dataSource;
+- (void)configDataSource:(NSArray *)dataSource;
 - (void)configSearchPlaceholderText:(NSString *)placeholder;
 
 @end

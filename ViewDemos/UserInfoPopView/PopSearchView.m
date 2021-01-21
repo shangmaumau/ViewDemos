@@ -72,6 +72,25 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
     return [super resignFirstResponder];
 }
 
+- (void)configDataSource:(NSArray *)dataSource {
+    
+    NSMutableArray<NSString *> *datas = [NSMutableArray array];
+    for (NSUInteger i = 0; i < dataSource.count; i++) {
+        NSString *title = (NSString *)(dataSource[i]);
+        if (![title isKindOfClass:[NSString class]]) {
+            title = [[dataSource[i] valueForKey:@"title"] stringValue];
+        }
+        if (![title isKindOfClass:[NSString class]]) {
+            title = [[dataSource[i] valueForKey:@"name"] stringValue];
+        }
+        if ([title isKindOfClass:[NSString class]]) {
+            [datas addObject:title];
+        }
+    }
+    
+    _dataSource = [datas copy];
+}
+
 - (void)configSearchPlaceholderText:(NSString *)placeholder {
     _searchField.placeholder = placeholder;
 }
@@ -81,21 +100,7 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
     if (self = [super initWithFrame:frame]) {
         
         _mode = mode;
-        
-        NSMutableArray<NSString *> *datas = [NSMutableArray array];
-        for (NSUInteger i = 0; i < dataSource.count; i++) {
-            NSString *title = (NSString *)(dataSource[i]);
-            if (![title isKindOfClass:[NSString class]]) {
-                title = [[dataSource[i] valueForKey:@"title"] stringValue];
-            }
-            if (![title isKindOfClass:[NSString class]]) {
-                title = [[dataSource[i] valueForKey:@"name"] stringValue];
-            }
-            if ([title isKindOfClass:[NSString class]]) {
-                [datas addObject:title];
-            }
-        }
-        _dataSource = [datas copy];
+        [self configDataSource:dataSource];
         
     }
     return self;

@@ -59,7 +59,7 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
 @property (nonatomic, assign) PopSearchFilterMode mode;
 
 @property (nonatomic, strong) UITextField *searchField;
-@property (nonatomic, strong) UITableView *dataTable;
+@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray<NSString *> *dataSource;
 @property (nonatomic, strong) NSArray<NSString *> *showList;
 
@@ -67,6 +67,10 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
 
 @implementation PopSearchView
 
+- (BOOL)resignFirstResponder {
+    [_searchField resignFirstResponder];
+    return [super resignFirstResponder];
+}
 
 - (instancetype)initWithFrame:(CGRect)frame mode:(PopSearchFilterMode)mode andDataSource:(NSArray *)dataSource {
     
@@ -121,16 +125,18 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
     view.leftView = leftView;
     
     _searchField = view;
+    _searchField.placeholder = NSLocalizedString(@"请输入以检索", @"");
+    
     [_searchField addTarget:self action:@selector(textFieldTextDidChange:) forControlEvents:UIControlEventEditingChanged];
     
-    _dataTable = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    _dataTable.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _dataTable.dataSource = self;
-    _dataTable.delegate = self;
-    [_dataTable registerClass:[PopSearchCell class] forCellReuseIdentifier:searchResultCellIdentifier];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    [_tableView registerClass:[PopSearchCell class] forCellReuseIdentifier:searchResultCellIdentifier];
     
     [self addSubview:_searchField];
-    [self addSubview:_dataTable];
+    [self addSubview:_tableView];
 
     [_searchField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top);
@@ -139,7 +145,7 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
         make.height.equalTo(@(51.5*kWidthScale));
     }];
     
-    [_dataTable mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_searchField.mas_bottom).offset(kUIPaddingHalf/2.0);
         make.left.equalTo(self.mas_left);
         make.right.equalTo(self.mas_right);
@@ -155,7 +161,7 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
     if ([searchText length] == 0) {
         
         _showList = @[];
-        [_dataTable reloadData];
+        [_tableView reloadData];
         
     } else {
         UITextRange *selectedRange = [tf markedTextRange];
@@ -165,7 +171,7 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
         if (!position) {
             _searchText = searchText;
             
-            NSPredicate *predicate;
+            NSPredicate *predicate = nil;
             switch (_mode) {
                 case PopSearchFilterModeBeginsWith:
                     predicate = [NSPredicate predicateWithFormat:@"SELF beginsWith[cd] %@", searchText];
@@ -174,16 +180,18 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
                 case PopSearchFilterModeContains:
                     predicate = [NSPredicate predicateWithFormat:@"SELF contains[cd] %@", searchText];
                     
-                default:
+                default: // 默认匹配开头
                     predicate = [NSPredicate predicateWithFormat:@"SELF beginsWith[cd] %@", searchText];
                     break;
             }
             
             _showList = [_dataSource filteredArrayUsingPredicate:predicate];
-            [_dataTable reloadData];
+            [_tableView reloadData];
         }
     }
 }
+
+// MARK: - 列表视图数据源
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _showList.count;

@@ -8,9 +8,10 @@ target 'ViewDemos' do
 
   # Pods for ViewDemos
 
-pod 'Masonry'
-pod 'SDWebImage'
-
+  pod 'Masonry'
+  pod 'SDWebImage'
+  # pod 'IQKeyboardManager'
+  
   target 'ViewDemosTests' do
     inherit! :search_paths
     # Pods for testing

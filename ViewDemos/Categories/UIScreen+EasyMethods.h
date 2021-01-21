@@ -9,6 +9,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+
 @interface UIScreen (EasyMethods)
 
 + (CGFloat)width_c;
@@ -16,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (CGFloat)widthScale;
 + (CGFloat)heigthScale;
+
+
+
 
 @end
 

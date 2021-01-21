@@ -46,8 +46,14 @@
 //    model.viewName = PopViewNameBirthday;
 //    model.contentType = PopContentTypeDatePicker;
     
-     model.viewName = PopViewNameAddress;
+     // model.viewName = PopViewNameAddress;
      // model.titleMode = PopTitleModeNull;
+    
+//    model.titleMode = PopTitleModeNull;
+//    model.dataSource = @[ NSLocalizedString(@"男", @""), NSLocalizedString(@"女", @"") ];
+    
+    model.contentType = PopContentTypeTextView;
+    model.recoveryData = @"我是内容";
     
     [_uiPickerView showOnView:self.view withData:model];
 }

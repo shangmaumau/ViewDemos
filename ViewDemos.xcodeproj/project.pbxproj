@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5BC6BCF63213B42A7AAD749C /* Pods_ViewDemos_ViewDemosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FAA7BE19321A0F9C114891 /* Pods_ViewDemos_ViewDemosUITests.framework */; };
+		9A1F7F1125B9668C0038146E /* CGExtensions.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F7F1025B9668C0038146E /* CGExtensions.h */; };
+		9A1F7F1625B966C70038146E /* SMMCategories.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F7F1525B966C70038146E /* SMMCategories.h */; };
 		9A476EBF25B81A40004C9B3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EBE25B81A40004C9B3F /* AppDelegate.m */; };
 		9A476EC225B81A40004C9B3F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EC125B81A40004C9B3F /* SceneDelegate.m */; };
 		9A476EC525B81A40004C9B3F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EC425B81A40004C9B3F /* ViewController.m */; };
@@ -58,6 +60,8 @@
 		8E83C6A687CAE9DB7BDBD204 /* Pods-ViewDemos-ViewDemosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewDemos-ViewDemosUITests.release.xcconfig"; path = "Target Support Files/Pods-ViewDemos-ViewDemosUITests/Pods-ViewDemos-ViewDemosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9685AD8916F7D416B6D784A2 /* Pods-ViewDemos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewDemos.release.xcconfig"; path = "Target Support Files/Pods-ViewDemos/Pods-ViewDemos.release.xcconfig"; sourceTree = "<group>"; };
 		99931EF36E785AC8AA89ABA8 /* Pods_ViewDemos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ViewDemos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A1F7F1025B9668C0038146E /* CGExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGExtensions.h; sourceTree = "<group>"; };
+		9A1F7F1525B966C70038146E /* SMMCategories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMMCategories.h; sourceTree = "<group>"; };
 		9A476EBA25B81A40004C9B3F /* ViewDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A476EBD25B81A40004C9B3F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9A476EBE25B81A40004C9B3F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 		9A2E0B9325B8541C0043C942 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				9A1F7F1525B966C70038146E /* SMMCategories.h */,
+				9A1F7F1025B9668C0038146E /* CGExtensions.h */,
 				9A476F1C25B829F3004C9B3F /* UIScreen+EasyMethods.h */,
 				9A476F1D25B829F3004C9B3F /* UIScreen+EasyMethods.m */,
 				9A476F2225B82A3D004C9B3F /* UIColor+EasyMethods.h */,
@@ -536,12 +542,14 @@
 				9A476F3C25B82C5D004C9B3F /* DFProfBaseModel.m in Sources */,
 				9A476F1E25B829F3004C9B3F /* UIScreen+EasyMethods.m in Sources */,
 				9A476EC525B81A40004C9B3F /* ViewController.m in Sources */,
+				9A1F7F1125B9668C0038146E /* CGExtensions.h in Sources */,
 				9A476EBF25B81A40004C9B3F /* AppDelegate.m in Sources */,
 				9A476ED025B81A56004C9B3F /* main.m in Sources */,
 				9A476EF725B81C06004C9B3F /* UserInfoEditPopView.m in Sources */,
 				9A476F4825B82CFB004C9B3F /* DFUniversityBaseModel.m in Sources */,
 				9A476F3D25B82C5D004C9B3F /* DFProfModel.m in Sources */,
 				9A476F2E25B82BD8004C9B3F /* DFCityBaseModel.m in Sources */,
+				9A1F7F1625B966C70038146E /* SMMCategories.h in Sources */,
 				9A476F2F25B82BD8004C9B3F /* DFCityCityModel.m in Sources */,
 				9A476EC225B81A40004C9B3F /* SceneDelegate.m in Sources */,
 				9A476F2425B82A3D004C9B3F /* UIColor+EasyMethods.m in Sources */,

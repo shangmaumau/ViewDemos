@@ -43,9 +43,13 @@ typedef NS_ENUM(NSUInteger, PopViewName) {
 @property (nonatomic, assign) PopTitleMode titleMode;
 @property (nonatomic, assign) PopViewName viewName;
 
-@property (nonatomic, copy) NSArray *dataSource;
-// 原始数据
-@property (nonatomic, strong) id rawData;
+/// 选择器需要配置，其他类型不用配置。选择器类，如果不是特殊的（特殊的内部已经做了处理），
+/// 需要是字符串数组或可以通过 `name`、`title` 键获取值的模型。
+/// @Note 注意：外部生成的选择器，只支持单列。
+@property (nonatomic, copy, nullable) NSArray *dataSource;
+/// 需要在内容视图上恢复的数据。 输入器类，传字符串。 日期需要以字符串形式 `yyyy-MM-dd` 给。
+/// 其他选择器类的，使用默认滚动位置，不恢复。
+@property (nonatomic, strong, nullable) id recoveryData;
 
 @end
 

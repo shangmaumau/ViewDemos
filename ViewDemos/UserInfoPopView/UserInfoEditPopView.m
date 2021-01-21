@@ -7,9 +7,7 @@
 
 #import "UserInfoEditPopView.h"
 #import <Masonry/Masonry.h>
-
-#import "UIScreen+EasyMethods.h"
-#import "UIColor+EasyMethods.h"
+#import "SMMCategories.h"
 
 #import "LocalJSONManager.h"
 
@@ -34,6 +32,8 @@
         _viewName = PopViewNameNull;
         _titleMode = PopTitleModeNormal;
         
+        _recoveryData = @"";
+        
     }
     return self;
 }
@@ -56,6 +56,9 @@
     NSUInteger _thirdRowIdx;
     
     CGFloat _contentTopMargin;
+    
+    CGFloat _keyboardOffset;
+    BOOL _keyboardIsShowing;
 }
 
 @property (nonatomic, strong) UIView *backgroundView_c;
@@ -94,6 +97,9 @@
     if (self = [super initWithFrame:frame]) {
         [self _resetPickerIndices];
         [self _configBasicSubviews];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(__keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(__keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     }
     return self;
 }
@@ -117,18 +123,23 @@
     
     [self _updateTitleText];
     
+    // [_contentView becomeFirstResponder];
     
-    [UIView animateWithDuration:0.35 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.animateView.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
     } completion:^(BOOL finished) {
         
     }];
-    
 }
 
 - (void)dismiss {
-
-    [UIView animateWithDuration:0.35 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    
+    if (_keyboardIsShowing) {
+        [_contentView resignFirstResponder];
+        _keyboardIsShowing = NO;
+    }
+    
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.animateView.frame = CGRectMake(0, [UIScreen height_c], self.bounds.size.width, self.bounds.size.height);
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
@@ -148,6 +159,36 @@
     
 }
 
+- (void)__keyboardWillShow:(NSNotification *)notif {
+    
+    CGRect krect = [notif.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    krect = [self convertRect:krect fromView:self.window];
+    
+    CGRect crect = [self convertRect:_contentView.frame fromView:_contentView_c];
+    
+    // 键盘在内容之上
+    if (CGRectGetMinY(krect) < CGRectGetMaxY(crect)) {
+        CGFloat gap = CGRectGetMinY(krect) - CGRectGetMaxY(crect) - 16.0;
+        CGRect newFrame = CGRectAddY(gap, _animateView.frame);
+        [UIView animateWithDuration:0.25 animations:^{
+            self.animateView.frame = newFrame;
+        } completion:^(BOOL finished) {
+            self->_keyboardIsShowing = YES;
+            [self.contentView_c updateConstraintsIfNeeded];
+        }];
+    }
+}
+
+- (void)__keyboardWillHide:(NSNotification *)notif {
+    CGRect newFrame = CGRectNewY(0, _animateView.frame);
+    [UIView animateWithDuration:0.25 animations:^{
+        self.animateView.frame = newFrame;
+    } completion:^(BOOL finished) {
+        self->_keyboardIsShowing = NO;
+        [self.contentView_c updateConstraintsIfNeeded];
+    }];
+}
+
 // MARK: - 添加移除功能视图
 
 - (void)_addTitleViews {
@@ -159,7 +200,7 @@
     _subtitleText = [UILabel new];
     _subtitleText.font = [UIFont systemFontOfSize:14.0 weight:UIFontWeightMedium];
     // rgba(99, 85, 136, 1)
-    _subtitleText.textColor = [UIColor colorWith255R:99 g:85 b:136];
+    _subtitleText.textColor = [UIColor colorWith255R:99.0 g:85.0 b:136.0];
     
     [_contentView_c addSubview:_titleText];
     [_contentView_c addSubview:_subtitleText];
@@ -358,6 +399,8 @@
         case PopContentTypeTextField:
         {
             _textField = _contentView;
+            _textField.text = (NSString *)(_model.recoveryData);
+            
             csize.height = 51.5*kWidthScale;
         }
             break;
@@ -365,6 +408,8 @@
         case PopContentTypeTextView:
         {
             _textView = _contentView;
+            _textView.text = (NSString *)(_model.recoveryData);
+            
             csize.height = 96.5*kWidthScale;
         }
             break;
@@ -383,7 +428,7 @@
     _contentTopMargin = topMargin;
     
     [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(_contentView_c.mas_bottom);
+        make.height.equalTo(@(csize.height));
         make.top.equalTo(_contentBeginView.mas_bottom).offset(topMargin);
         make.left.equalTo(_contentView_c.mas_left).offset(leftPad);
         make.right.equalTo(_contentView_c.mas_right).offset(-rightPad);
@@ -518,6 +563,9 @@
 - (UITextField *)gimmeTextField {
     
     UITextField *view = [UITextField new];
+    view.textColor = [UIColor doubleFishThemeColor];
+    view.font = [UIFont systemFontOfSize:18.0];
+    
     view.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     view.backgroundColor = [[UIColor doubleFishThemeColor] colorWithAlphaComponent:0.04];
@@ -535,6 +583,9 @@
 - (UITextView *)gimmeTextView {
     
     UITextView *view = [UITextView new];
+    view.textColor = [UIColor doubleFishThemeColor];
+    view.font = [UIFont systemFontOfSize:18.0];
+    
     view.backgroundColor = [[UIColor doubleFishThemeColor] colorWithAlphaComponent:0.04];
     view.tintColor = [UIColor colorWith255R:255 g:120 b:253];
     view.layer.cornerRadius = 8.0;
@@ -601,7 +652,6 @@
                     break;
             }
             
-            
         }
             break;
             
@@ -627,7 +677,7 @@
             break;
             
         default:
-            count = 1;
+            count = _pickerData.count;
             break;
     }
     
@@ -697,6 +747,13 @@
             break;
             
         default:
+            title = (NSString *)(_pickerData[row]);
+            if (![title isKindOfClass:[NSString class]]) {
+                title = [[_pickerData[row] valueForKey:@"name"] stringValue];
+            }
+            if (![title isKindOfClass:[NSString class]]) {
+                title = [[_pickerData[row] valueForKey:@"title"] stringValue];
+            }
             break;
     }
     

@@ -14,7 +14,7 @@
 }
 
 + (UIColor *)doubleFishThemeColor {
-    return [self colorWith255R:32 g:13 b:86];
+    return [self colorWith255R:32.0 g:13.0 b:86.0];
 }
 
 + (UIColor *)doubleFishTintColor {

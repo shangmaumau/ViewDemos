@@ -9,6 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// 内容类型。
 typedef NS_ENUM(NSUInteger, PopContentType) {
     PopContentTypePickerView,
     PopContentTypeDatePicker,
@@ -17,12 +18,14 @@ typedef NS_ENUM(NSUInteger, PopContentType) {
     PopContentTypeSearchView
 };
 
+/// 标题类型。
 typedef NS_ENUM(NSUInteger, PopTitleMode) {
     PopTitleModeNull,
     PopTitleModeNormal,
     PopTitleModeOnlyTitle
 };
 
+/// 标题名称，需要根据一些名称做特殊处理。
 typedef NS_ENUM(NSUInteger, PopViewName) {
     PopViewNameNull,        // 默认
     PopViewNameBirthday,    // 要添加额外的视图

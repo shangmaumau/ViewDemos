@@ -38,7 +38,7 @@
 @property (nonatomic, strong) UIButton *ageButton;
 @property (nonatomic, strong) UIButton *cslaButton;
 
-- (void)updateWithDate:(NSDate *)newDate;
+- (void)updateContentWithDate:(NSDate *)newDate;
 
 @end
 
@@ -87,7 +87,7 @@
     }];
 }
 
-- (void)updateWithDate:(NSDate *)newDate {
+- (void)updateContentWithDate:(NSDate *)newDate {
     
     NSString *cslaString = [UserInfoBirthdayView constellationStringFromDate:newDate];
     NSInteger age = [UserInfoBirthdayView ageFromBirthday:newDate];
@@ -252,7 +252,7 @@
 }
 
 - (void)datePickerValueDidChange:(UIDatePicker *)picker {
-    [_birthdayView updateWithDate:picker.date];
+    [_birthdayView updateContentWithDate:picker.date];
 }
 
 - (void)__keyboardWillShow:(NSNotification *)notif {
@@ -695,6 +695,8 @@
 
 - (PopSearchView *)gimmeSearchView {
     PopSearchView *view = [PopSearchView new];
+    [view configSearchPlaceholderText:@"请输入学校名称"];
+    
     return view;
 }
 

@@ -72,6 +72,10 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
     return [super resignFirstResponder];
 }
 
+- (void)configSearchPlaceholderText:(NSString *)placeholder {
+    _searchField.placeholder = placeholder;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame mode:(PopSearchFilterMode)mode andDataSource:(NSArray *)dataSource {
     
     if (self = [super initWithFrame:frame]) {

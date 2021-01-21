@@ -14,7 +14,7 @@ typedef NS_ENUM(NSUInteger, PopContentType) {
     PopContentTypeDatePicker,
     PopContentTypeTextField,
     PopContentTypeTextView,
-    PopContentTypeSearchBar
+    PopContentTypeSearchView
 };
 
 typedef NS_ENUM(NSUInteger, PopTitleMode) {

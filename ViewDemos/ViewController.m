@@ -34,7 +34,7 @@
     
 //    _searchView = [PopSearchView new];
 //    [self.view addSubview:_searchView];
-//    
+//
 //    [_searchView mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.left.equalTo(self.view.mas_left);
 //        make.right.equalTo(self.view.mas_right);
@@ -58,10 +58,12 @@
     
     UserInfoEditPopModel *model = [UserInfoEditPopModel new];
     
+    model.contentType = PopContentTypeSearchView;
+    
     // pickerView 和 datePicker 的高度，需要做适配，不能挨着底部
     
-    model.viewName = PopViewNameBirthday;
-    model.contentType = PopContentTypeDatePicker;
+//    model.viewName = PopViewNameBirthday;
+//    model.contentType = PopContentTypeDatePicker;
     
      // model.viewName = PopViewNameAddress;
      // model.titleMode = PopTitleModeNull;

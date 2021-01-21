@@ -58,7 +58,7 @@
     _ageButton.titleLabel.font = [UIFont systemFontOfSize:18.0 weight:UIFontWeightMedium];
     _ageButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     [_ageButton setTitleColor:[UIColor colorWith255R:99 g:85 b:136] forState:UIControlStateNormal];
-    _ageButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 4.0);
+    _ageButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 8.0);
     [_ageButton setImage:[UIImage imageNamed:@"df_userinfo_birthday_icon"] forState:UIControlStateNormal];
     
     _cslaButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -512,10 +512,10 @@
         }
             break;
             
-        case PopContentTypeSearchBar:
+        case PopContentTypeSearchView:
         {
-            // _searchView = _contentView;
-            csize.height = 51.5*kWidthScale;
+            _searchView = _contentView;
+            csize.height = 261.5*kWidthScale;
         }
             break;
             
@@ -622,8 +622,8 @@
             cv = [self gimmeTextView];
             break;
             
-        case PopContentTypeSearchBar:
-            cv = [self gimmeTextField];
+        case PopContentTypeSearchView:
+            cv = [self gimmeSearchView];
             break;
             
         default:
@@ -690,6 +690,11 @@
     
     view.textContainerInset = UIEdgeInsetsMake(11.5, 11.5, 11.5, 11.5);
     
+    return view;
+}
+
+- (PopSearchView *)gimmeSearchView {
+    PopSearchView *view = [PopSearchView new];
     return view;
 }
 

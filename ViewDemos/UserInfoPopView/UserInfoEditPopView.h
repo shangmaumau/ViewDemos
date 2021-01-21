@@ -44,6 +44,8 @@ typedef NS_ENUM(NSUInteger, PopViewName) {
 @property (nonatomic, assign) PopViewName viewName;
 
 @property (nonatomic, copy) NSArray *dataSource;
+// 原始数据
+@property (nonatomic, strong) id rawData;
 
 @end
 

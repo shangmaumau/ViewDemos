@@ -82,6 +82,8 @@
 @property (nonatomic, strong) UserInfoEditPopModel *lastModel;
 @property (nonatomic, strong) NSArray *pickerData;
 
+@property (nonatomic, strong) id inputData;
+
 @end
 
 @implementation UserInfoEditPopView

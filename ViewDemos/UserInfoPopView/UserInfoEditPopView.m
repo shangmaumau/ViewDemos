@@ -6,18 +6,11 @@
 //
 
 #import "UserInfoEditPopView.h"
-#import <Masonry/Masonry.h>
+#import "PopSearchView.h"
 #import "SMMCategories.h"
-
 #import "LocalJSONManager.h"
 
-#define kUIPadding      (16.0)
-#define kUIPaddingHalf  (8.0)
-
-#define kWidthScale     ([UIScreen widthScale])
-
 @implementation UserInfoEditPopModel
-
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -42,10 +35,109 @@
 
 @interface UserInfoBirthdayView : UIView
 
+@property (nonatomic, strong) UIButton *ageButton;
+@property (nonatomic, strong) UIButton *cslaButton;
+
+- (void)updateWithDate:(NSDate *)newDate;
+
 @end
 
 @implementation UserInfoBirthdayView
 
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self _configBasicSubviews];
+    }
+    return self;
+}
+
+- (void)_configBasicSubviews {
+    
+    _ageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _ageButton.userInteractionEnabled = NO;
+    _ageButton.titleLabel.font = [UIFont systemFontOfSize:18.0 weight:UIFontWeightMedium];
+    _ageButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+    [_ageButton setTitleColor:[UIColor colorWith255R:99 g:85 b:136] forState:UIControlStateNormal];
+    _ageButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 4.0);
+    [_ageButton setImage:[UIImage imageNamed:@"df_userinfo_birthday_icon"] forState:UIControlStateNormal];
+    
+    _cslaButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _cslaButton.userInteractionEnabled = NO;
+    _cslaButton.titleLabel.font = [UIFont systemFontOfSize:18.0 weight:UIFontWeightMedium];
+    _cslaButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+    [_cslaButton setTitleColor:[UIColor colorWith255R:99 g:85 b:136] forState:UIControlStateNormal];
+    _cslaButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 8.0);
+    [_cslaButton setImage:[UIImage imageNamed:@"df_userinfo_cons_icon"] forState:UIControlStateNormal];
+    
+    [self addSubview:_ageButton];
+    [self addSubview:_cslaButton];
+    
+    [_ageButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.mas_width).multipliedBy(0.5);
+        make.height.equalTo(self.mas_height);
+        make.centerY.equalTo(self.mas_centerY);
+        make.left.equalTo(self.mas_left);
+    }];
+    
+    [_cslaButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.mas_width).multipliedBy(0.5);
+        make.height.equalTo(self.mas_height);
+        make.centerY.equalTo(self.mas_centerY);
+        make.right.equalTo(self.mas_right);
+    }];
+}
+
+- (void)updateWithDate:(NSDate *)newDate {
+    
+    NSString *cslaString = [UserInfoBirthdayView constellationStringFromDate:newDate];
+    NSInteger age = [UserInfoBirthdayView ageFromBirthday:newDate];
+    
+    if (cslaString != nil) {
+        [_cslaButton setTitle:cslaString forState:UIControlStateNormal];
+    }
+    
+    if (age > 0) {
+        [_ageButton setTitle:[NSString stringWithFormat:@"%d岁", (int)age] forState:UIControlStateNormal];
+    }
+}
+
++ (NSInteger)ageFromBirthday:(NSDate *)birthday {
+    
+    NSDate *nowDate = [NSDate date];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    NSCalendarUnit unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+    NSDateComponents *deltaDate = [calendar components:unitFlags fromDate:birthday toDate:nowDate options:0];
+    
+    return [deltaDate year];
+}
+
++ (NSString * _Nullable)constellationStringFromDate:(NSDate *)date {
+    
+    NSUInteger month = 0;
+    NSUInteger day = 0;
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSCalendarUnit unitFlags = NSCalendarUnitMonth | NSCalendarUnitDay;
+    NSDateComponents *dateComp = [calendar components:unitFlags fromDate:date];
+    
+    month = [dateComp month];
+    day = [dateComp day];
+    
+    if (month < 1 || month > 12 || day < 1 || day > 31) {
+        return nil;
+    }
+    if (month == 2 && day > 29) {
+        return nil;
+    } else if (month == 4 || month == 6 || month == 9 || month == 11) {
+        if (day > 30) {
+            return nil;
+        }
+    }
+    NSString *astroString = @"魔羯水瓶双鱼白羊金牛双子巨蟹狮子处女天秤天蝎射手魔羯";
+    NSString *astroFormat = @"102223444433";
+    return [NSString stringWithFormat:@"%@座", [astroString substringWithRange:NSMakeRange(month * 2 - (day < [[astroFormat substringWithRange:NSMakeRange((month - 1), 1)] intValue] - (-19)) * 2, 2)]];
+}
 
 
 @end
@@ -76,7 +168,7 @@
 @property (nonatomic, strong) UIDatePicker *datePicker;
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) UITextView *textView;
-@property (nonatomic, strong) UISearchBar *searchBar;
+@property (nonatomic, strong) PopSearchView *searchView;
 @property (nonatomic, strong) UserInfoBirthdayView *birthdayView;
 
 @property (nonatomic, strong) __kindof UIView *contentView;
@@ -157,6 +249,10 @@
 
 - (void)doneButtonAction:(UIButton *)sender {
     
+}
+
+- (void)datePickerValueDidChange:(UIDatePicker *)picker {
+    [_birthdayView updateWithDate:picker.date];
 }
 
 - (void)__keyboardWillShow:(NSNotification *)notif {
@@ -271,7 +367,7 @@
     _doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
     // rgba(255, 120, 253, 1)
     _doneButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
-    [_doneButton setTitleColor:[UIColor colorWith255R:255 g:120 b:253] forState:UIControlStateNormal];
+    [_doneButton setTitleColor:[UIColor doubleFishTintColor] forState:UIControlStateNormal];
     [_doneButton addTarget:self action:@selector(doneButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
     [self addSubview:_backgroundView_c];
@@ -385,6 +481,8 @@
         case PopContentTypeDatePicker:
         {
             _datePicker = _contentView;
+            [_datePicker addTarget:self action:@selector(datePickerValueDidChange:) forControlEvents:UIControlEventValueChanged];
+            
             if (_model.viewName == PopViewNameBirthday) {
                 [self _addBirthdayAddView];
                 _contentBeginView = _birthdayView;
@@ -416,7 +514,7 @@
             
         case PopContentTypeSearchBar:
         {
-            // _searchBar = _contentView;
+            // _searchView = _contentView;
             csize.height = 51.5*kWidthScale;
         }
             break;
@@ -570,7 +668,7 @@
     
     view.backgroundColor = [[UIColor doubleFishThemeColor] colorWithAlphaComponent:0.04];
     // rgba(255, 120, 253, 1)
-    view.tintColor = [UIColor colorWith255R:255 g:120 b:253];
+    view.tintColor = [UIColor doubleFishTintColor];
     view.layer.cornerRadius = 8.0;
     
     UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kUIPadding, kUIPadding)];
@@ -587,7 +685,7 @@
     view.font = [UIFont systemFontOfSize:18.0];
     
     view.backgroundColor = [[UIColor doubleFishThemeColor] colorWithAlphaComponent:0.04];
-    view.tintColor = [UIColor colorWith255R:255 g:120 b:253];
+    view.tintColor = [UIColor doubleFishTintColor];
     view.layer.cornerRadius = 8.0;
     
     view.textContainerInset = UIEdgeInsetsMake(11.5, 11.5, 11.5, 11.5);

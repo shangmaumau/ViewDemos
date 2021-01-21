@@ -10,10 +10,15 @@
 @implementation UIColor (EasyMethods)
 
 + (UIColor *)colorWith255R:(CGFloat)r g:(CGFloat)g b:(CGFloat)b {
-    return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0];
+    return [self colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0];
 }
 
 + (UIColor *)doubleFishThemeColor {
     return [self colorWith255R:32 g:13 b:86];
 }
+
++ (UIColor *)doubleFishTintColor {
+    return [self colorWith255R:255.0 g:120.0 b:253.0];
+}
+
 @end

@@ -7,9 +7,11 @@
 
 #import <UIKit/UIKit.h>
 
+#define kUIPadding      (16.0)
+#define kUIPaddingHalf  (8.0)
+#define kWidthScale     ([UIScreen widthScale])
+
 NS_ASSUME_NONNULL_BEGIN
-
-
 
 @interface UIScreen (EasyMethods)
 
@@ -18,9 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (CGFloat)widthScale;
 + (CGFloat)heigthScale;
-
-
-
 
 @end
 

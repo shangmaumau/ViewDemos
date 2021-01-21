@@ -10,6 +10,7 @@
 		5BC6BCF63213B42A7AAD749C /* Pods_ViewDemos_ViewDemosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FAA7BE19321A0F9C114891 /* Pods_ViewDemos_ViewDemosUITests.framework */; };
 		9A1F7F1125B9668C0038146E /* CGExtensions.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F7F1025B9668C0038146E /* CGExtensions.h */; };
 		9A1F7F1625B966C70038146E /* SMMCategories.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F7F1525B966C70038146E /* SMMCategories.h */; };
+		9A1F7F2C25B96BE00038146E /* PopSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F7F2B25B96BE00038146E /* PopSearchView.m */; };
 		9A476EBF25B81A40004C9B3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EBE25B81A40004C9B3F /* AppDelegate.m */; };
 		9A476EC225B81A40004C9B3F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EC125B81A40004C9B3F /* SceneDelegate.m */; };
 		9A476EC525B81A40004C9B3F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EC425B81A40004C9B3F /* ViewController.m */; };
@@ -62,6 +63,8 @@
 		99931EF36E785AC8AA89ABA8 /* Pods_ViewDemos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ViewDemos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1F7F1025B9668C0038146E /* CGExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGExtensions.h; sourceTree = "<group>"; };
 		9A1F7F1525B966C70038146E /* SMMCategories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMMCategories.h; sourceTree = "<group>"; };
+		9A1F7F2A25B96BE00038146E /* PopSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopSearchView.h; sourceTree = "<group>"; };
+		9A1F7F2B25B96BE00038146E /* PopSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopSearchView.m; sourceTree = "<group>"; };
 		9A476EBA25B81A40004C9B3F /* ViewDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A476EBD25B81A40004C9B3F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9A476EBE25B81A40004C9B3F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -175,6 +178,8 @@
 		9A2E0B9E25B8547A0043C942 /* UserInfoPopView */ = {
 			isa = PBXGroup;
 			children = (
+				9A1F7F2A25B96BE00038146E /* PopSearchView.h */,
+				9A1F7F2B25B96BE00038146E /* PopSearchView.m */,
 				9A476EF525B81C06004C9B3F /* UserInfoEditPopView.h */,
 				9A476EF625B81C06004C9B3F /* UserInfoEditPopView.m */,
 			);
@@ -549,6 +554,7 @@
 				9A476F4825B82CFB004C9B3F /* DFUniversityBaseModel.m in Sources */,
 				9A476F3D25B82C5D004C9B3F /* DFProfModel.m in Sources */,
 				9A476F2E25B82BD8004C9B3F /* DFCityBaseModel.m in Sources */,
+				9A1F7F2C25B96BE00038146E /* PopSearchView.m in Sources */,
 				9A1F7F1625B966C70038146E /* SMMCategories.h in Sources */,
 				9A476F2F25B82BD8004C9B3F /* DFCityCityModel.m in Sources */,
 				9A476EC225B81A40004C9B3F /* SceneDelegate.m in Sources */,

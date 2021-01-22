@@ -154,14 +154,6 @@
     BOOL _keyboardIsShowing;
 }
 
-@property (nonatomic, strong) UIView *backgroundView_c;
-@property (nonatomic, strong) UIView *animateView;
-@property (nonatomic, strong) UIView *contentView_c;
-
-@property (nonatomic, strong) UIButton *cancelButton;
-@property (nonatomic, strong) UIButton *doneButton;
-
-@property (nonatomic, strong) UILabel *viewTitleText;
 @property (nonatomic, strong) UILabel *titleText;
 @property (nonatomic, strong) UILabel *subtitleText;
 
@@ -203,7 +195,7 @@
         return;
     }
     
-    [view addSubview:self];
+    [super showOnView:view];
     
     [self _resetPickerIndices];
     [self _updateModel:data];
@@ -215,13 +207,6 @@
     [self updateConstraintsIfNeeded];
     
     [self _updateTitleText];
-    
-    [UIView animateWithDuration:0.25 delay:0 options:(7 << 16) animations:^{
-        self.animateView.frame = CGRectNewY(0, self.animateView.frame);
-        
-    } completion:^(BOOL finished) {
-        
-    }];
 }
 
 - (void)dismiss {
@@ -231,17 +216,7 @@
         _keyboardIsShowing = NO;
     }
     
-    [UIView animateWithDuration:0.25 delay:0 options:(7 << 16) animations:^{
-        self.animateView.frame = CGRectNewY([UIScreen height_c], self.animateView.frame);
-    } completion:^(BOOL finished) {
-        [self removeFromSuperview];
-    }];
-}
-
-// MARK: - 覆写方法
-
-- (void)layoutSubviews {
-    [_contentView_c layerCornerRadiusWithRadius:16.0 corner:(UIRectCornerTopLeft | UIRectCornerTopRight)];
+    [super dismiss];
 }
 
 // MARK: - 视图交互事件
@@ -264,12 +239,12 @@
     CGRect krect = [notif.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     krect = [self convertRect:krect fromView:self.window];
     
-    CGRect crect = [self convertRect:_contentView.frame fromView:_contentView_c];
+    CGRect crect = [self convertRect:_contentView.frame fromView:self.contentView_c];
     
     // 键盘在内容之上
     if (CGRectGetMinY(krect) < CGRectGetMaxY(crect)) {
         CGFloat gap = CGRectGetMinY(krect) - CGRectGetMaxY(crect) - 16.0;
-        CGRect newFrame = CGRectAddY(gap, _animateView.frame);
+        CGRect newFrame = CGRectAddY(gap, self.animateView.frame);
         
         [UIView animateWithDuration:0.25 delay:0 options:(7 << 16) animations:^{
             self.animateView.frame = newFrame;
@@ -281,7 +256,7 @@
 }
 
 - (void)__keyboardWillHide:(NSNotification *)notif {
-    CGRect newFrame = CGRectNewY(0, _animateView.frame);
+    CGRect newFrame = CGRectNewY(0, self.animateView.frame);
     
     [UIView animateWithDuration:0.25 delay:0 options:(7 << 16) animations:^{
         self.animateView.frame = newFrame;
@@ -304,21 +279,21 @@
     // rgba(99, 85, 136, 1)
     _subtitleText.textColor = [UIColor colorWith255R:99.0 g:85.0 b:136.0];
     
-    [_contentView_c addSubview:_titleText];
-    [_contentView_c addSubview:_subtitleText];
+    [self.contentView_c addSubview:_titleText];
+    [self.contentView_c addSubview:_subtitleText];
     
     [_titleText mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(30.0*kWidthScale));
-        make.top.equalTo(_viewTitleText.mas_bottom).offset(30.0);
-        make.left.equalTo(_contentView_c.mas_left).offset(kUIPadding);
-        make.right.equalTo(_contentView_c.mas_right).offset(-kUIPadding);
+        make.top.equalTo(self.viewTitleText.mas_bottom).offset(30.0);
+        make.left.equalTo(self.contentView_c.mas_left).offset(kUIPadding);
+        make.right.equalTo(self.contentView_c.mas_right).offset(-kUIPadding);
     }];
     
     [_subtitleText mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(20.0*kWidthScale));
         make.top.equalTo(_titleText.mas_bottom).offset(2.0);
-        make.left.equalTo(_contentView_c.mas_left).offset(kUIPadding);
-        make.right.equalTo(_contentView_c.mas_right).offset(-kUIPadding);
+        make.left.equalTo(self.contentView_c.mas_left).offset(kUIPadding);
+        make.right.equalTo(self.contentView_c.mas_right).offset(-kUIPadding);
     }];
 }
 
@@ -332,14 +307,14 @@
     _birthdayView = [UserInfoBirthdayView new];
     _birthdayView.backgroundColor = [[UIColor doubleFishThemeColor] colorWithAlphaComponent:0.04];
     _birthdayView.layer.cornerRadius = 8.0;
-    [_contentView_c addSubview:_birthdayView];
+    [self.contentView_c addSubview:_birthdayView];
     
     CGSize bsize = CGSizeMake(0, 51.5*kWidthScale);
     [_birthdayView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(bsize.height));
         make.top.equalTo(_contentBeginView.mas_bottom).offset(24.0);
-        make.left.equalTo(_contentView_c.mas_left).offset(kUIPadding);
-        make.right.equalTo(_contentView_c.mas_right).offset(-kUIPadding);
+        make.left.equalTo(self.contentView_c.mas_left).offset(kUIPadding);
+        make.right.equalTo(self.contentView_c.mas_right).offset(-kUIPadding);
     }];
 }
 
@@ -351,70 +326,10 @@
 
 - (void)_configBasicSubviews {
     
-    _backgroundView_c = [UIView new];
-    _backgroundView_c.backgroundColor = [[UIColor doubleFishThemeColor] colorWithAlphaComponent:0.3];
-    
-    _animateView = [[UIView alloc] initWithFrame:CGRectMake(0, [UIScreen height_c], self.bounds.size.width, self.bounds.size.height)];
-    
-    _contentView_c = [UIView new];
-    _contentView_c.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.88];
-    
-    _viewTitleText = [UILabel new];
-    _viewTitleText.textAlignment = NSTextAlignmentCenter;
-    _viewTitleText.font = [UIFont systemFontOfSize:18.0 weight:UIFontWeightMedium];
-    _viewTitleText.textColor = [UIColor doubleFishThemeColor];
-    
-    _cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    // rgba(176, 169, 194, 1)
-    _cancelButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
-    [_cancelButton setTitleColor:[UIColor colorWith255R:176 g:169 b:194] forState:UIControlStateNormal];
-    [_cancelButton addTarget:self action:@selector(cancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    
-    _doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    // rgba(255, 120, 253, 1)
-    _doneButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
-    [_doneButton setTitleColor:[UIColor doubleFishTintColor] forState:UIControlStateNormal];
-    [_doneButton addTarget:self action:@selector(doneButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self addSubview:_backgroundView_c];
-    [self addSubview:_animateView];
-    [_animateView addSubview:_contentView_c];
-    [_contentView_c addSubview:_viewTitleText];
-    [_contentView_c addSubview:_cancelButton];
-    [_contentView_c addSubview:_doneButton];
-    
-    [_backgroundView_c mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self);
-    }];
-    
     CGSize csize = CGSizeMake(0, 445.0*kWidthScale);
-    [_contentView_c mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(_animateView.mas_width);
+    [self.contentView_c mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(csize.height));
-        make.centerX.equalTo(_animateView.mas_centerX);
-        make.bottom.equalTo(_animateView.mas_bottom);
     }];
-    
-    [_viewTitleText mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(_contentView_c.mas_width).multipliedBy(0.6);
-        make.height.equalTo(@(30.0*kWidthScale));
-        make.centerX.equalTo(_contentView_c.mas_centerX);
-        make.top.equalTo(_contentView_c.mas_top).offset(kUIPadding);
-    }];
-    
-    CGSize btnsize = CGSizeMake(30.0*kWidthScale, 20.0*kWidthScale);
-    [_cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.equalTo(@(btnsize));
-        make.centerY.equalTo(_viewTitleText.mas_centerY);
-        make.left.equalTo(_contentView_c.mas_left).offset(kUIPadding);
-    }];
-    
-    [_doneButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.equalTo(@(btnsize));
-        make.centerY.equalTo(_viewTitleText.mas_centerY);
-        make.right.equalTo(_contentView_c.mas_right).offset(-kUIPadding);
-    }];
-    
 }
 
 - (void)_configTitleView {
@@ -428,18 +343,18 @@
         case PopTitleModeNull: {
             [self _removeTitleViews];
             CGSize csize = CGSizeMake(0, 261.0*kWidthScale);
-            [_contentView_c mas_updateConstraints:^(MASConstraintMaker *make) {
+            [self.contentView_c mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.height.equalTo(@(csize.height));
             }];
             
-            _contentBeginView = _viewTitleText;
+            _contentBeginView = self.viewTitleText;
         }
             break;
             
         case PopTitleModeNormal: {
             [self _addTitleViews];
             CGSize csize = CGSizeMake(0, 445.0*kWidthScale);
-            [_contentView_c mas_updateConstraints:^(MASConstraintMaker *make) {
+            [self.contentView_c mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.height.equalTo(@(csize.height));
             }];
             
@@ -465,7 +380,7 @@
     
     [_contentView removeFromSuperview];
     _contentView = [self gimmeContentView];
-    [_contentView_c addSubview:_contentView];
+    [self.contentView_c addSubview:_contentView];
     
     CGSize csize = CGSizeMake(0, 225.0*kWidthScale);
     CGFloat leftPad = kUIPadding;
@@ -540,8 +455,8 @@
     [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(csize.height));
         make.top.equalTo(_contentBeginView.mas_bottom).offset(topMargin);
-        make.left.equalTo(_contentView_c.mas_left).offset(leftPad);
-        make.right.equalTo(_contentView_c.mas_right).offset(-rightPad);
+        make.left.equalTo(self.contentView_c.mas_left).offset(leftPad);
+        make.right.equalTo(self.contentView_c.mas_right).offset(-rightPad);
     }];
 }
 
@@ -581,12 +496,12 @@
 // MARK: - 更新界面
 
 - (void)_updateTitleText {
-    _viewTitleText.text = _model.viewTitle;
+    self.viewTitleText.text = _model.viewTitle;
     _titleText.text = _model.title;
     _subtitleText.text = _model.subtitle;
     
-    [_cancelButton setTitle:_model.cancelTitle forState:UIControlStateNormal];
-    [_doneButton setTitle:_model.doneTitle forState:UIControlStateNormal];
+    [self.cancelButton setTitle:_model.cancelTitle forState:UIControlStateNormal];
+    [self.doneButton setTitle:_model.doneTitle forState:UIControlStateNormal];
 }
 
 // MARK: - 判断是否视图不需要替换

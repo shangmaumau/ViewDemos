@@ -160,6 +160,7 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
     [super showOnView:view];
     
     [self updateWithModels:list];
+    [self updateBottomButtonTitle:NSLocalizedString(@"下一步", @"")];
 }
 
 - (void)updateWithModels:(NSArray<UserInfoTofuModel *> *)list {
@@ -187,6 +188,8 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
     
     _nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [_nextButton setBackgroundImage:[UIImage imageNamed:@"df_userinfo_next_btn"] forState:UIControlStateNormal];
+    _nextButton.titleLabel.font = [UIFont systemFontOfSize:16.0 weight:UIFontWeightMedium];
+    [_nextButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
     [self _configCollectionView];
     
@@ -337,5 +340,8 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
     [hud hideAnimated:YES afterDelay:1.0];
 }
 
+- (void)updateBottomButtonTitle:(NSString *)newTitle {
+    [_nextButton setTitle:newTitle forState:UIControlStateNormal];
+}
 
 @end

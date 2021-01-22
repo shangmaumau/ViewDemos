@@ -36,12 +36,10 @@
 
 - (IBAction)showView:(UIButton *)sender {
     // [self __showEditPopView];
-    
     [self __showSelectPopView];
 }
 
 - (IBAction)dimissView:(UIButton *)sender {
-    
     
 }
 
@@ -49,15 +47,15 @@
     
     UserInfoEditPopModel *model = [UserInfoEditPopModel new];
     
-    model.contentType = PopContentTypeSearchView;
+//    model.contentType = PopContentTypeSearchView;
     
     // pickerView 和 datePicker 的高度，需要做适配，不能挨着底部
+
+    model.viewName = PopViewNameBirthday;
+    model.contentType = PopContentTypeDatePicker;
     
-//    model.viewName = PopViewNameBirthday;
-//    model.contentType = PopContentTypeDatePicker;
-    
-     // model.viewName = PopViewNameAddress;
-     // model.titleMode = PopTitleModeNull;
+//    model.viewName = PopViewNameAddress;
+//    model.titleMode = PopTitleModeNull;
     
 //    model.titleMode = PopTitleModeNull;
 //    model.dataSource = @[ NSLocalizedString(@"男", @""), NSLocalizedString(@"女", @"") ];

@@ -257,10 +257,9 @@
 				9A476EC125B81A40004C9B3F /* SceneDelegate.m */,
 				9A476EC325B81A40004C9B3F /* ViewController.h */,
 				9A476EC425B81A40004C9B3F /* ViewController.m */,
-				9A5A440D25BAA884002FCC08 /* GameSettleView */,
-				9A5A442225BAAB1C002FCC08 /* RecommendedUsers */,
 				9A476EC625B81A40004C9B3F /* Main.storyboard */,
 				9A476EC925B81A56004C9B3F /* Assets.xcassets */,
+				9A9C7D9725BAFEF0004780F7 /* Archived */,
 				9A476ECB25B81A56004C9B3F /* LaunchScreen.storyboard */,
 				9A476ECE25B81A56004C9B3F /* Info.plist */,
 				9A476ECF25B81A56004C9B3F /* main.m */,
@@ -353,6 +352,15 @@
 				9A5A442425BAAB1C002FCC08 /* KXHomeRecommendedView.m */,
 			);
 			path = RecommendedUsers;
+			sourceTree = "<group>";
+		};
+		9A9C7D9725BAFEF0004780F7 /* Archived */ = {
+			isa = PBXGroup;
+			children = (
+				9A5A440D25BAA884002FCC08 /* GameSettleView */,
+				9A5A442225BAAB1C002FCC08 /* RecommendedUsers */,
+			);
+			path = Archived;
 			sourceTree = "<group>";
 		};
 		E91DD60CFDDC02B69DD1DEC9 /* Frameworks */ = {

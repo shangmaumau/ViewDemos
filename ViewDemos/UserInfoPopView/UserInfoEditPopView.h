@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserInfoBasePopView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -56,7 +57,7 @@ typedef NS_ENUM(NSUInteger, PopViewName) {
 
 @end
 
-@interface UserInfoEditPopView : UIView
+@interface UserInfoEditPopView : UserInfoBasePopView
 
 @property (nonatomic, strong) UserInfoEditPopModel *model;
 

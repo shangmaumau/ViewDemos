@@ -141,7 +141,6 @@
     return [NSString stringWithFormat:@"%@座", [astroString substringWithRange:NSMakeRange(month * 2 - (day < [[astroFormat substringWithRange:NSMakeRange((month - 1), 1)] intValue] - (-19)) * 2, 2)]];
 }
 
-
 @end
 
 @interface UserInfoEditPopView ()<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate, PopSearchViewDelegate> {
@@ -217,10 +216,9 @@
     
     [self _updateTitleText];
     
-    [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+    [UIView animateWithDuration:0.25 animations:^{
+        [UIView setAnimationCurve:7];
         self.animateView.frame = CGRectNewY(0, self.animateView.frame);
-    } completion:^(BOOL finished) {
-
     }];
 }
 
@@ -231,10 +229,12 @@
         _keyboardIsShowing = NO;
     }
     
-    [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+    [UIView animateWithDuration:0.25 animations:^{
+        [UIView setAnimationCurve:7];
         self.animateView.frame = CGRectNewY([UIScreen height_c], self.animateView.frame);
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
+
     }];
     
 }
@@ -273,6 +273,7 @@
         CGFloat gap = CGRectGetMinY(krect) - CGRectGetMaxY(crect) - 16.0;
         CGRect newFrame = CGRectAddY(gap, _animateView.frame);
         [UIView animateWithDuration:0.25 animations:^{
+            [UIView setAnimationCurve:7];
             self.animateView.frame = newFrame;
         } completion:^(BOOL finished) {
             self->_keyboardIsShowing = YES;
@@ -284,6 +285,7 @@
 - (void)__keyboardWillHide:(NSNotification *)notif {
     CGRect newFrame = CGRectNewY(0, _animateView.frame);
     [UIView animateWithDuration:0.25 animations:^{
+        [UIView setAnimationCurve:7];
         self.animateView.frame = newFrame;
     } completion:^(BOOL finished) {
         self->_keyboardIsShowing = NO;

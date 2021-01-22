@@ -7,6 +7,7 @@
 
 #import "UserInfoSelectPopView.h"
 #import "SMMCategories.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
 
@@ -148,6 +149,8 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        
+        self.doneButton.hidden = YES;
         [self _configBasicSubviews];
     }
     return self;
@@ -161,12 +164,10 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
 
 - (void)updateWithModels:(NSArray<UserInfoTofuModel *> *)list {
     _dataSource = list;
-    
+    [self.collectionView reloadData];
+
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [self.collectionView reloadData];
     });
-    
 }
 
 // MARK: - 配置子视图
@@ -293,6 +294,9 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
     UserInfoTofuCell *cell = (UserInfoTofuCell *)[_collectionView cellForItemAtIndexPath:indexPath];
     
     if (isSelected && [self _selectedItemIds].count == 5) {
+        
+        [self showHUDWithTitle:NSLocalizedString(@"最多选择5个", @"")];
+        
         if (cell) {
             // 恢复到原状态
             [cell changeSelectedButtonState:NO];
@@ -320,7 +324,18 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
     return [ids copy];
 }
 
-
+- (void)showHUDWithTitle:(NSString *)title {
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.contentView_c animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.label.text = title;
+    hud.label.textColor = [UIColor whiteColor];
+    
+    hud.bezelView.blurEffectStyle = UIBlurEffectStyleDark;
+    hud.bezelView.layer.cornerRadius = kUIPadding;
+    
+    [hud hideAnimated:YES afterDelay:1.0];
+}
 
 
 @end

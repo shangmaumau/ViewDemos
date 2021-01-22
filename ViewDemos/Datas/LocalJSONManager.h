@@ -6,9 +6,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DFCityDataModels.h"
-#import "DFProfDataModels.h"
-#import "DFUniversityDataModels.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

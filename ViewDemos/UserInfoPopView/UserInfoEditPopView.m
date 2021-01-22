@@ -9,6 +9,8 @@
 #import "PopSearchView.h"
 #import "SMMCategories.h"
 #import "LocalJSONManager.h"
+#import "DFCityDataModels.h"
+#import "DFProfDataModels.h"
 
 @implementation UserInfoEditPopModel
 
@@ -142,7 +144,7 @@
 
 @end
 
-@interface UserInfoEditPopView ()<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate> {
+@interface UserInfoEditPopView ()<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate, PopSearchViewDelegate> {
     NSUInteger _firstRowIdx;
     NSUInteger _secondRowIdx;
     NSUInteger _thirdRowIdx;
@@ -215,12 +217,10 @@
     
     [self _updateTitleText];
     
-    // [_contentView becomeFirstResponder];
-    
-    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.animateView.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
+    [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        self.animateView.frame = CGRectNewY(0, self.animateView.frame);
     } completion:^(BOOL finished) {
-        
+
     }];
 }
 
@@ -231,13 +231,19 @@
         _keyboardIsShowing = NO;
     }
     
-    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.animateView.frame = CGRectMake(0, [UIScreen height_c], self.bounds.size.width, self.bounds.size.height);
+    [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        self.animateView.frame = CGRectNewY([UIScreen height_c], self.animateView.frame);
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
-
     }];
     
+}
+
+// MARK: - 覆写方法
+
+- (void)layoutSubviews {
+    
+    [_contentView_c layerCornerRadiusWithRadius:16.0 corner:(UIRectCornerTopLeft | UIRectCornerTopRight)];
 }
 
 // MARK: - 按钮点击事件
@@ -381,9 +387,10 @@
         make.edges.equalTo(self);
     }];
     
-    CGSize csize = CGSizeMake(375.0*kWidthScale, 445.0*kWidthScale);
+    CGSize csize = CGSizeMake(0, 445.0*kWidthScale);
     [_contentView_c mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.equalTo(@(csize));
+        make.width.equalTo(_animateView.mas_width);
+        make.height.equalTo(@(csize.height));
         make.centerX.equalTo(_animateView.mas_centerX);
         make.bottom.equalTo(_animateView.mas_bottom);
     }];
@@ -420,9 +427,9 @@
             
         case PopTitleModeNull: {
             [self _removeTitleViews];
-            CGSize csize = CGSizeMake(375.0*kWidthScale, 261.0*kWidthScale);
+            CGSize csize = CGSizeMake(0, 261.0*kWidthScale);
             [_contentView_c mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.size.equalTo(@(csize));
+                make.height.equalTo(@(csize.height));
             }];
             
             _contentBeginView = _viewTitleText;
@@ -431,9 +438,9 @@
             
         case PopTitleModeNormal: {
             [self _addTitleViews];
-            CGSize csize = CGSizeMake(375.0*kWidthScale, 445.0*kWidthScale);
+            CGSize csize = CGSizeMake(0, 445.0*kWidthScale);
             [_contentView_c mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.size.equalTo(@(csize));
+                make.height.equalTo(@(csize.height));
             }];
             
             _contentBeginView = _subtitleText;
@@ -515,6 +522,7 @@
         case PopContentTypeSearchView:
         {
             _searchView = _contentView;
+            _searchView.delegate = self;
             if (_model.dataSource.count > 0) {
                 [_searchView configDataSource:_model.dataSource];
             }
@@ -702,6 +710,16 @@
     [view configSearchPlaceholderText:@"请输入学校名称"];
     
     return view;
+}
+
+// MARK: - 搜索视图代理
+
+- (void)searchView:(PopSearchView *)searchView willSelectRow:(NSInteger)row {
+    
+}
+
+- (void)searchView:(PopSearchView *)searchView didSelectRow:(NSInteger)row {
+    
 }
 
 // MARK: - 选择器数据源和代理

@@ -17,8 +17,22 @@ typedef NS_ENUM(NSUInteger, PopSearchFilterMode) {
     PopSearchFilterModeContains
 };
 
+
+@class PopSearchView;
+
+@protocol PopSearchViewDelegate <NSObject>
+
+@optional
+
+- (void)searchView:(PopSearchView *)searchView didSelectRow:(NSInteger)row;
+- (void)searchView:(PopSearchView *)searchView willSelectRow:(NSInteger)row;
+
+@end
+
 /// 默认的搜索是大学，默认的模式是匹配开头。如需自定义，请使用下面的初始化方法。
 @interface PopSearchView : UIView
+
+@property (nonatomic, nullable, weak) id<PopSearchViewDelegate> delegate;
 
 /// @Note 注意这里的 dataSource 中的元素，要么直接是字符串，要么是可以通过 `title` `name` 键
 /// 获取到值的模型。

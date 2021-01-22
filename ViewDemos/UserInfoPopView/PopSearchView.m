@@ -52,7 +52,7 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
 
 @end
 
-@interface PopSearchView ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate> {
+@interface PopSearchView ()<UITableViewDataSource, UITableViewDelegate> {
     
     NSString *_searchText;
 }
@@ -217,5 +217,33 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
     return cell;
 }
 
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(searchView:willSelectRow:)]) {
+        NSInteger idx = [self indexOfData:_showList[indexPath.row]];
+        if (idx != NSNotFound) {
+            [self.delegate searchView:self willSelectRow:idx];
+        }
+    }
+    
+    return indexPath;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(searchView:didSelectRow:)]) {
+        NSInteger idx = [self indexOfData:_showList[indexPath.row]];
+        if (idx != NSNotFound) {
+            [self.delegate searchView:self didSelectRow:idx];
+        }
+    }
+}
+
+- (NSInteger)indexOfData:(NSString *)title {
+    if (![title isKindOfClass:[NSString class]] || title.length < 1) {
+        return NSNotFound;
+    }
+    return [_dataSource indexOfObject:title];
+}
 
 @end

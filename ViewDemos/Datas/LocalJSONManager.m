@@ -6,8 +6,9 @@
 //
 
 #import "LocalJSONManager.h"
-
-
+#import "DFCityDataModels.h"
+#import "DFProfDataModels.h"
+#import "DFUniversityDataModels.h"
 
 @implementation LocalJSONManager
 

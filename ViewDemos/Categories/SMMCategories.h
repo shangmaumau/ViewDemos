@@ -9,4 +9,5 @@
 #import <Masonry/Masonry.h>
 #import "UIScreen+EasyMethods.h"
 #import "UIColor+EasyMethods.h"
+#import "UIView+EasyMethods.h"
 

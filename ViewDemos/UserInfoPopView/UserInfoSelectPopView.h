@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UserInfoTofuModel : NSObject
 
-@property (nonatomic, assign) NSUInteger identifier;
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic, assign) NSUInteger identifier;
 @property (nonatomic, assign) BOOL isSelected;
 
 @end
@@ -32,10 +32,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+
+@interface UserInfoTofuTagModel : NSObject
+
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, assign) NSUInteger identifier;
+@property (nonatomic, copy) NSArray<UserInfoTofuModel *> *tofus;
+
+@end
+
 @interface UserInfoSelectPopView : UserInfoBasePopView
 
-- (void)showOnView:(__kindof UIView *)view withModels:(NSArray<UserInfoTofuModel *> *)list;
-- (void)updateWithModels:(NSArray<UserInfoTofuModel *> *)list;
+- (void)showOnView:(__kindof UIView *)view withModels:(NSArray<UserInfoTofuTagModel *> *)list;
+
 
 @end
 

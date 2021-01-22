@@ -132,14 +132,18 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
 
 @end
 
-@interface UserInfoSelectPopView ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface UserInfoSelectPopView ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout> {
+    
+    NSUInteger _tagIndex;
+}
 
 @property (nonatomic, strong) UILabel *titleText;
 @property (nonatomic, strong) UILabel *subtitleText;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UIButton *nextButton;
 
-@property (nonatomic, strong) NSArray<UserInfoTofuModel *> *dataSource;
+@property (nonatomic, strong) NSArray<UserInfoTofuTagModel *> *tofuTagModels;
+@property (nonatomic, strong) NSArray<UserInfoTofuModel *> *tofuModels;
 
 @end
 
@@ -151,6 +155,8 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
     if (self = [super initWithFrame:frame]) {
         
         self.doneButton.hidden = YES;
+        _tagIndex = 0;
+        
         [self _configBasicSubviews];
     }
     return self;
@@ -164,12 +170,11 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
 }
 
 - (void)updateWithModels:(NSArray<UserInfoTofuModel *> *)list {
-    _dataSource = list;
-    [self.collectionView reloadData];
-
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    });
+    _tofuModels = list;
+    [_collectionView reloadData];
 }
+
+// MARK: - 
 
 // MARK: - 配置子视图
 
@@ -251,13 +256,13 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
 // MARK: - 集合视图数据源、代理、布局
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _dataSource?_dataSource.count:0;
+    return _tofuModels ? _tofuModels.count : 0;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     UserInfoTofuCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:tofuCellIdentifier forIndexPath:indexPath];
-    UserInfoTofuModel *model = _dataSource[indexPath.row];
+    UserInfoTofuModel *model = _tofuModels[indexPath.row];
     [cell updateContentWithModel:model];
     
     __weak typeof(self) weakSelf = self;
@@ -290,7 +295,7 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
 // MARK: - 其他方法
 
 - (void)_changeSelectedState:(BOOL)isSelected ofIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row > _dataSource.count-1) {
+    if (indexPath.row > _tofuModels.count-1) {
         return;
     }
     
@@ -307,7 +312,7 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
         return;
     }
     
-    UserInfoTofuModel *obj = _dataSource[indexPath.row];
+    UserInfoTofuModel *obj = _tofuModels[indexPath.row];
     if (isSelected != obj.isSelected) {
         obj.isSelected = isSelected;
         if (cell) {
@@ -319,7 +324,7 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
 - (NSArray<NSNumber *> *)_selectedItemIds {
     NSMutableArray<NSNumber *> *ids = [NSMutableArray array];
     
-    for (UserInfoTofuModel *_model in _dataSource) {
+    for (UserInfoTofuModel *_model in _tofuModels) {
         if (_model.isSelected) {
             [ids addObject:[NSNumber numberWithUnsignedInteger:_model.identifier]];
         }

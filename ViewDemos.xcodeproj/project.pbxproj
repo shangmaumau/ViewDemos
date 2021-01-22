@@ -41,6 +41,7 @@
 		9A5A442525BAAB1C002FCC08 /* KXHomeRecommendedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A442425BAAB1C002FCC08 /* KXHomeRecommendedView.m */; };
 		9A5A442B25BAAB3D002FCC08 /* KXHomeNewComerGiftsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A442925BAAB3C002FCC08 /* KXHomeNewComerGiftsView.m */; };
 		9A9C7D7E25BAC344004780F7 /* UserInfoBasePopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C7D7D25BAC344004780F7 /* UserInfoBasePopView.m */; };
+		9A9C7DA025BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C7D9F25BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.m */; };
 		EBA479D32589C0A308207FBA /* Pods_ViewDemosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632D2DE19D4C92306C1CFFDC /* Pods_ViewDemosTests.framework */; };
 		F55E6C845D8A368BED12682D /* Pods_ViewDemos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99931EF36E785AC8AA89ABA8 /* Pods_ViewDemos.framework */; };
 /* End PBXBuildFile section */
@@ -134,6 +135,8 @@
 		9A5A442A25BAAB3D002FCC08 /* KXHomeNewComerGiftsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXHomeNewComerGiftsView.h; sourceTree = "<group>"; };
 		9A9C7D7C25BAC344004780F7 /* UserInfoBasePopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoBasePopView.h; sourceTree = "<group>"; };
 		9A9C7D7D25BAC344004780F7 /* UserInfoBasePopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoBasePopView.m; sourceTree = "<group>"; };
+		9A9C7D9E25BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoPersonalTagsViewCtrl.h; sourceTree = "<group>"; };
+		9A9C7D9F25BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoPersonalTagsViewCtrl.m; sourceTree = "<group>"; };
 		A93DE68ED4848BEEA6927952 /* Pods-ViewDemos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewDemos.debug.xcconfig"; path = "Target Support Files/Pods-ViewDemos/Pods-ViewDemos.debug.xcconfig"; sourceTree = "<group>"; };
 		D2C87AA8A387A3FD315A91A2 /* Pods-ViewDemosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewDemosTests.release.xcconfig"; path = "Target Support Files/Pods-ViewDemosTests/Pods-ViewDemosTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,6 +222,8 @@
 				9A476EF625B81C06004C9B3F /* UserInfoEditPopView.m */,
 				9A5A43FE25BAA6E1002FCC08 /* UserInfoSelectPopView.h */,
 				9A5A43FF25BAA6E1002FCC08 /* UserInfoSelectPopView.m */,
+				9A9C7D9E25BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.h */,
+				9A9C7D9F25BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.m */,
 			);
 			path = UserInfoPopView;
 			sourceTree = "<group>";
@@ -628,6 +633,7 @@
 				9A476F4825B82CFB004C9B3F /* DFUniversityBaseModel.m in Sources */,
 				9A476F3D25B82C5D004C9B3F /* DFProfModel.m in Sources */,
 				9A476F2E25B82BD8004C9B3F /* DFCityBaseModel.m in Sources */,
+				9A9C7DA025BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.m in Sources */,
 				9A5A43FA25BA7FBF002FCC08 /* UIView+EasyMethods.m in Sources */,
 				9A5A440025BAA6E1002FCC08 /* UserInfoSelectPopView.m in Sources */,
 				9A1F7F2C25B96BE00038146E /* PopSearchView.m in Sources */,

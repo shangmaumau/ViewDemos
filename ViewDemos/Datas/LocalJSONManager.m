@@ -11,7 +11,7 @@
 
 @implementation LocalJSONManager
 
-+ (id)dateFromLocalJSONWithName:(NSString *)filename {
++ (id)dataFromLocalJSONWithName:(NSString *)filename {
     // 获取文件路径
     NSString *path = [[NSBundle mainBundle] pathForResource:filename ofType:@"json"];
     // 将文件数据化
@@ -20,7 +20,7 @@
 }
 
 + (NSArray<DFCityBaseModel *> *)cities {
-    NSArray *citiesRawData = [self dateFromLocalJSONWithName:@"cities"];
+    NSArray *citiesRawData = [self dataFromLocalJSONWithName:@"cities"];
     NSMutableArray<DFCityBaseModel *> *models = [NSMutableArray array];
     for (NSUInteger idx = 0; idx < citiesRawData.count; idx++) {
         DFCityBaseModel *model = [DFCityBaseModel modelObjectWithDictionary:citiesRawData[idx]];
@@ -32,7 +32,7 @@
 }
 
 + (NSArray<DFProfBaseModel *> *)profs {
-    NSArray *profRawData = [self dateFromLocalJSONWithName:@"professions"];
+    NSArray *profRawData = [self dataFromLocalJSONWithName:@"professions"];
     NSMutableArray<DFCityBaseModel *> *models = [NSMutableArray array];
     for (NSUInteger idx = 0; idx < profRawData.count; idx++) {
         DFCityBaseModel *model = [DFCityBaseModel modelObjectWithDictionary:profRawData[idx]];
@@ -44,7 +44,7 @@
 }
 
 + (NSArray<DFUniversityBaseModel *> *)universities {
-    NSArray *univerRawData = [self dateFromLocalJSONWithName:@"universities"];
+    NSArray *univerRawData = [self dataFromLocalJSONWithName:@"universities"];
     NSMutableArray<DFUniversityBaseModel *> *models = [NSMutableArray array];
     for (NSUInteger idx = 0; idx < univerRawData.count; idx++) {
         DFUniversityBaseModel *model = [DFUniversityBaseModel modelObjectWithDictionary:univerRawData[idx]];
@@ -56,7 +56,7 @@
 }
 
 + (NSArray<NSString *> *)universities_name {
-    NSArray *univerRawData = [self dateFromLocalJSONWithName:@"universities"];
+    NSArray *univerRawData = [self dataFromLocalJSONWithName:@"universities"];
     NSMutableArray<NSString *> *models = [NSMutableArray array];
     for (NSUInteger idx = 0; idx < univerRawData.count; idx++) {
         DFUniversityBaseModel *model = [DFUniversityBaseModel modelObjectWithDictionary:univerRawData[idx]];

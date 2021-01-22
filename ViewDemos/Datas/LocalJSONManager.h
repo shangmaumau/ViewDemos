@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LocalJSONManager : NSObject
 
 
-+ (id)dateFromLocalJSONWithName:(NSString *)filename;
++ (id)dataFromLocalJSONWithName:(NSString *)filename;
 
 + (NSArray<DFCityBaseModel *> *)cities;
 + (NSArray<DFProfBaseModel *> *)profs;

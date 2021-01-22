@@ -14,6 +14,8 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
 
 @interface PopSearchCell : UITableViewCell
 
+- (void)updateTitle:(NSString *)title highlightedText:(NSString *)hilight;
+
 @end
 
 @implementation PopSearchCell
@@ -29,9 +31,8 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
     return self;
 }
 
-- (void)updateHighlightedText:(NSString *)hilight {
+- (void)updateTitle:(NSString *)title highlightedText:(NSString *)hilight {
     
-    NSString *title = self.textLabel.text;
     if (title.length < 1 || hilight.length < 1) {
         return;
     }
@@ -211,8 +212,7 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     PopSearchCell *cell = [tableView dequeueReusableCellWithIdentifier:searchResultCellIdentifier forIndexPath:indexPath];
-    cell.textLabel.text = _showList[indexPath.row];
-    [cell updateHighlightedText:_searchText];
+    [cell updateTitle:_showList[indexPath.row] highlightedText:_searchText];
     
     return cell;
 }

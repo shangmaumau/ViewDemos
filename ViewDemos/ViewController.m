@@ -7,15 +7,15 @@
 
 #import "ViewController.h"
 #import "UserInfoEditPopView.h"
+#import "UserInfoSelectPopView.h"
 
-#import "PopSearchView.h"
 #import <Masonry/Masonry.h>
 
 @interface ViewController ()
 
-@property (nonatomic, strong) UserInfoEditPopView *uiPickerView;
+@property (nonatomic, strong) UserInfoEditPopView *editPopView;
 
-@property (nonatomic, strong) PopSearchView *searchView;
+@property (nonatomic, strong) UserInfoSelectPopView *selectPopView;
 
 @end
 
@@ -30,23 +30,14 @@
 }
 
 - (void)configViews {
-    _uiPickerView = [[UserInfoEditPopView alloc] initWithFrame:self.view.bounds];
-    
-//    _searchView = [PopSearchView new];
-//    [self.view addSubview:_searchView];
-//
-//    [_searchView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.view.mas_left);
-//        make.right.equalTo(self.view.mas_right);
-//        make.top.equalTo(self.view.mas_top).offset(50.0);
-//        make.centerX.equalTo(self.view.mas_centerX);
-//        make.height.equalTo(@(225.0));
-//    }];
-//    
+    _editPopView = [[UserInfoEditPopView alloc] initWithFrame:self.view.bounds];
+    _selectPopView = [[UserInfoSelectPopView alloc] initWithFrame:self.view.bounds];
 }
 
 - (IBAction)showView:(UIButton *)sender {
-    [self __showPickerView];
+    // [self __showEditPopView];
+    
+    [self __showSelectPopView];
 }
 
 - (IBAction)dimissView:(UIButton *)sender {
@@ -54,7 +45,7 @@
     
 }
 
-- (void)__showPickerView {
+- (void)__showEditPopView {
     
     UserInfoEditPopModel *model = [UserInfoEditPopModel new];
     
@@ -74,7 +65,35 @@
 //    model.contentType = PopContentTypeTextView;
 //    model.recoveryData = @"我是内容";
     
-    [_uiPickerView showOnView:self.view withData:model];
+    [_editPopView showOnView:self.view withData:model];
+}
+
+- (void)__showSelectPopView {
+    
+    UserInfoTofuModel *tf1 = [UserInfoTofuModel new];
+    tf1.isSelected = YES;
+    UserInfoTofuModel *tf2 = [UserInfoTofuModel new];
+    tf2.isSelected = YES;
+    UserInfoTofuModel *tf3 = [UserInfoTofuModel new];
+    tf3.isSelected = YES;
+    UserInfoTofuModel *tf4 = [UserInfoTofuModel new];
+    tf4.isSelected = YES;
+    UserInfoTofuModel *tf5 = [UserInfoTofuModel new];
+    UserInfoTofuModel *tf6 = [UserInfoTofuModel new];
+    UserInfoTofuModel *tf7 = [UserInfoTofuModel new];
+    UserInfoTofuModel *tf8 = [UserInfoTofuModel new];
+    UserInfoTofuModel *tf9 = [UserInfoTofuModel new];
+    UserInfoTofuModel *tf10 = [UserInfoTofuModel new];
+    UserInfoTofuModel *tf11 = [UserInfoTofuModel new];
+    UserInfoTofuModel *tf12 = [UserInfoTofuModel new];
+    
+    UserInfoTofuModel *tf13 = [UserInfoTofuModel new];
+    UserInfoTofuModel *tf14 = [UserInfoTofuModel new];
+    
+    [_selectPopView showOnView:self.view withModels:@[ tf1, tf2, tf3, tf4, tf5, tf6, tf7, tf8, tf9, tf10, tf11, tf12, tf13, tf14 ]];
+    
+    
+    
 }
 
 @end

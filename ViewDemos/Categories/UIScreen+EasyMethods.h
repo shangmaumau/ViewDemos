@@ -7,9 +7,10 @@
 
 #import <UIKit/UIKit.h>
 
-#define kUIPadding      (16.0)
-#define kUIPaddingHalf  (8.0)
-#define kWidthScale     ([UIScreen widthScale])
+#define kUIPadding       (16.0)
+#define kUIPaddingHalf   (8.0)
+#define kUIPaddingDouble (32.0)
+#define kWidthScale      ([UIScreen widthScale])
 
 NS_ASSUME_NONNULL_BEGIN
 

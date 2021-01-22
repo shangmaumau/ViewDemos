@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIColor (EasyMethods)
 
++ (UIColor *)colorWithGray:(CGFloat)gray;
+
 + (UIColor *)colorWith255R:(CGFloat)r g:(CGFloat)g b:(CGFloat)b;
 
 + (UIColor *)doubleFishThemeColor;

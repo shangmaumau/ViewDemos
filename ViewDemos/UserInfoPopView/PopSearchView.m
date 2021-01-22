@@ -68,9 +68,14 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
 
 @implementation PopSearchView
 
-- (BOOL)resignFirstResponder {
-    [_searchField resignFirstResponder];
-    return [super resignFirstResponder];
+// MARK: - 公开方法
+
+- (instancetype)initWithFrame:(CGRect)frame mode:(PopSearchFilterMode)mode andDataSource:(NSArray *)dataSource {
+    if (self = [super initWithFrame:frame]) {
+        _mode = mode;
+        [self configDataSource:dataSource];
+    }
+    return self;
 }
 
 - (void)configDataSource:(NSArray *)dataSource {
@@ -96,16 +101,7 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
     _searchField.placeholder = placeholder;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame mode:(PopSearchFilterMode)mode andDataSource:(NSArray *)dataSource {
-    
-    if (self = [super initWithFrame:frame]) {
-        
-        _mode = mode;
-        [self configDataSource:dataSource];
-        
-    }
-    return self;
-}
+// MARK: - 覆写父类方法
 
 - (instancetype)initWithFrame:(CGRect)frame {
     
@@ -116,6 +112,13 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
     }
     return self;
 }
+
+- (BOOL)resignFirstResponder {
+    [_searchField resignFirstResponder];
+    return [super resignFirstResponder];
+}
+
+// MARK: - 配置子视图
 
 - (void)_configBasicSubviews {
     
@@ -136,8 +139,7 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
     
     _searchField = view;
     _searchField.placeholder = NSLocalizedString(@"请输入以检索", @"");
-    
-    [_searchField addTarget:self action:@selector(textFieldTextDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [_searchField addTarget:self action:@selector(__textFieldTextDidChange:) forControlEvents:UIControlEventEditingChanged];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -166,7 +168,9 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
     
 }
 
-- (void)textFieldTextDidChange:(UITextField *)tf {
+// MARK: - 视图交互事件
+
+- (void)__textFieldTextDidChange:(UITextField *)tf {
     
     NSString *searchText = tf.text;
     
@@ -203,7 +207,7 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
     }
 }
 
-// MARK: - 列表视图数据源
+// MARK: - 列表视图数据源、代理
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _showList.count;
@@ -236,7 +240,7 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
         NSString *selectTitle = _showList[indexPath.row];
         
         _searchField.text = selectTitle;
-        [self textFieldTextDidChange:_searchField];
+        [self __textFieldTextDidChange:_searchField];
         
         NSInteger idx = [self indexOfData:selectTitle];
         if (idx != NSNotFound) {
@@ -244,6 +248,8 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
         }
     }
 }
+
+// MARK: - 其他方法
 
 - (NSInteger)indexOfData:(NSString *)title {
     if (![title isKindOfClass:[NSString class]] || title.length < 1) {

@@ -7,7 +7,7 @@
 
 #import "CGExtensions.h"
 #import <Masonry/Masonry.h>
+#import "NSArray+EasyMethods.h"
 #import "UIScreen+EasyMethods.h"
 #import "UIColor+EasyMethods.h"
 #import "UIView+EasyMethods.h"
-

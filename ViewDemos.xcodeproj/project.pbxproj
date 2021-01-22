@@ -33,6 +33,14 @@
 		9A476F3D25B82C5D004C9B3F /* DFProfModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F3B25B82C5D004C9B3F /* DFProfModel.m */; };
 		9A476F4825B82CFB004C9B3F /* DFUniversityBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F4625B82CFB004C9B3F /* DFUniversityBaseModel.m */; };
 		9A5A43FA25BA7FBF002FCC08 /* UIView+EasyMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A43F925BA7FBF002FCC08 /* UIView+EasyMethods.m */; };
+		9A5A440025BAA6E1002FCC08 /* UserInfoSelectPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A43FF25BAA6E1002FCC08 /* UserInfoSelectPopView.m */; };
+		9A5A440825BAA867002FCC08 /* KXWgGameResultShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A440525BAA867002FCC08 /* KXWgGameResultShareView.m */; };
+		9A5A440925BAA867002FCC08 /* KXWgGameResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A440725BAA867002FCC08 /* KXWgGameResultView.m */; };
+		9A5A441525BAA8F8002FCC08 /* NSArray+EasyMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A441125BAA8F8002FCC08 /* NSArray+EasyMethods.m */; };
+		9A5A441625BAA8F8002FCC08 /* UIView+ViewSnap.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A441425BAA8F8002FCC08 /* UIView+ViewSnap.m */; };
+		9A5A442525BAAB1C002FCC08 /* KXHomeRecommendedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A442425BAAB1C002FCC08 /* KXHomeRecommendedView.m */; };
+		9A5A442B25BAAB3D002FCC08 /* KXHomeNewComerGiftsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A442925BAAB3C002FCC08 /* KXHomeNewComerGiftsView.m */; };
+		9A9C7D7E25BAC344004780F7 /* UserInfoBasePopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C7D7D25BAC344004780F7 /* UserInfoBasePopView.m */; };
 		EBA479D32589C0A308207FBA /* Pods_ViewDemosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632D2DE19D4C92306C1CFFDC /* Pods_ViewDemosTests.framework */; };
 		F55E6C845D8A368BED12682D /* Pods_ViewDemos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99931EF36E785AC8AA89ABA8 /* Pods_ViewDemos.framework */; };
 /* End PBXBuildFile section */
@@ -110,6 +118,22 @@
 		9A476F4725B82CFB004C9B3F /* DFUniversityBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFUniversityBaseModel.h; sourceTree = "<group>"; };
 		9A5A43F825BA7FBF002FCC08 /* UIView+EasyMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+EasyMethods.h"; sourceTree = "<group>"; };
 		9A5A43F925BA7FBF002FCC08 /* UIView+EasyMethods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+EasyMethods.m"; sourceTree = "<group>"; };
+		9A5A43FE25BAA6E1002FCC08 /* UserInfoSelectPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoSelectPopView.h; sourceTree = "<group>"; };
+		9A5A43FF25BAA6E1002FCC08 /* UserInfoSelectPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoSelectPopView.m; sourceTree = "<group>"; };
+		9A5A440425BAA867002FCC08 /* KXWgGameResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXWgGameResultView.h; sourceTree = "<group>"; };
+		9A5A440525BAA867002FCC08 /* KXWgGameResultShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXWgGameResultShareView.m; sourceTree = "<group>"; };
+		9A5A440625BAA867002FCC08 /* KXWgGameResultShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXWgGameResultShareView.h; sourceTree = "<group>"; };
+		9A5A440725BAA867002FCC08 /* KXWgGameResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXWgGameResultView.m; sourceTree = "<group>"; };
+		9A5A441125BAA8F8002FCC08 /* NSArray+EasyMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+EasyMethods.m"; sourceTree = "<group>"; };
+		9A5A441225BAA8F8002FCC08 /* UIView+ViewSnap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewSnap.h"; sourceTree = "<group>"; };
+		9A5A441325BAA8F8002FCC08 /* NSArray+EasyMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+EasyMethods.h"; sourceTree = "<group>"; };
+		9A5A441425BAA8F8002FCC08 /* UIView+ViewSnap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewSnap.m"; sourceTree = "<group>"; };
+		9A5A442325BAAB1C002FCC08 /* KXHomeRecommendedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXHomeRecommendedView.h; sourceTree = "<group>"; };
+		9A5A442425BAAB1C002FCC08 /* KXHomeRecommendedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXHomeRecommendedView.m; sourceTree = "<group>"; };
+		9A5A442925BAAB3C002FCC08 /* KXHomeNewComerGiftsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXHomeNewComerGiftsView.m; sourceTree = "<group>"; };
+		9A5A442A25BAAB3D002FCC08 /* KXHomeNewComerGiftsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXHomeNewComerGiftsView.h; sourceTree = "<group>"; };
+		9A9C7D7C25BAC344004780F7 /* UserInfoBasePopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoBasePopView.h; sourceTree = "<group>"; };
+		9A9C7D7D25BAC344004780F7 /* UserInfoBasePopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoBasePopView.m; sourceTree = "<group>"; };
 		A93DE68ED4848BEEA6927952 /* Pods-ViewDemos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewDemos.debug.xcconfig"; path = "Target Support Files/Pods-ViewDemos/Pods-ViewDemos.debug.xcconfig"; sourceTree = "<group>"; };
 		D2C87AA8A387A3FD315A91A2 /* Pods-ViewDemosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewDemosTests.release.xcconfig"; path = "Target Support Files/Pods-ViewDemosTests/Pods-ViewDemosTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +184,10 @@
 			children = (
 				9A1F7F1525B966C70038146E /* SMMCategories.h */,
 				9A1F7F1025B9668C0038146E /* CGExtensions.h */,
+				9A5A441325BAA8F8002FCC08 /* NSArray+EasyMethods.h */,
+				9A5A441125BAA8F8002FCC08 /* NSArray+EasyMethods.m */,
+				9A5A441225BAA8F8002FCC08 /* UIView+ViewSnap.h */,
+				9A5A441425BAA8F8002FCC08 /* UIView+ViewSnap.m */,
 				9A476F1C25B829F3004C9B3F /* UIScreen+EasyMethods.h */,
 				9A476F1D25B829F3004C9B3F /* UIScreen+EasyMethods.m */,
 				9A476F2225B82A3D004C9B3F /* UIColor+EasyMethods.h */,
@@ -183,10 +211,14 @@
 		9A2E0B9E25B8547A0043C942 /* UserInfoPopView */ = {
 			isa = PBXGroup;
 			children = (
+				9A9C7D7C25BAC344004780F7 /* UserInfoBasePopView.h */,
+				9A9C7D7D25BAC344004780F7 /* UserInfoBasePopView.m */,
 				9A1F7F2A25B96BE00038146E /* PopSearchView.h */,
 				9A1F7F2B25B96BE00038146E /* PopSearchView.m */,
 				9A476EF525B81C06004C9B3F /* UserInfoEditPopView.h */,
 				9A476EF625B81C06004C9B3F /* UserInfoEditPopView.m */,
+				9A5A43FE25BAA6E1002FCC08 /* UserInfoSelectPopView.h */,
+				9A5A43FF25BAA6E1002FCC08 /* UserInfoSelectPopView.m */,
 			);
 			path = UserInfoPopView;
 			sourceTree = "<group>";
@@ -225,6 +257,8 @@
 				9A476EC125B81A40004C9B3F /* SceneDelegate.m */,
 				9A476EC325B81A40004C9B3F /* ViewController.h */,
 				9A476EC425B81A40004C9B3F /* ViewController.m */,
+				9A5A440D25BAA884002FCC08 /* GameSettleView */,
+				9A5A442225BAAB1C002FCC08 /* RecommendedUsers */,
 				9A476EC625B81A40004C9B3F /* Main.storyboard */,
 				9A476EC925B81A56004C9B3F /* Assets.xcassets */,
 				9A476ECB25B81A56004C9B3F /* LaunchScreen.storyboard */,
@@ -297,6 +331,28 @@
 				9A476F4625B82CFB004C9B3F /* DFUniversityBaseModel.m */,
 			);
 			path = DFUniverModels;
+			sourceTree = "<group>";
+		};
+		9A5A440D25BAA884002FCC08 /* GameSettleView */ = {
+			isa = PBXGroup;
+			children = (
+				9A5A440425BAA867002FCC08 /* KXWgGameResultView.h */,
+				9A5A440725BAA867002FCC08 /* KXWgGameResultView.m */,
+				9A5A440625BAA867002FCC08 /* KXWgGameResultShareView.h */,
+				9A5A440525BAA867002FCC08 /* KXWgGameResultShareView.m */,
+			);
+			path = GameSettleView;
+			sourceTree = "<group>";
+		};
+		9A5A442225BAAB1C002FCC08 /* RecommendedUsers */ = {
+			isa = PBXGroup;
+			children = (
+				9A5A442A25BAAB3D002FCC08 /* KXHomeNewComerGiftsView.h */,
+				9A5A442925BAAB3C002FCC08 /* KXHomeNewComerGiftsView.m */,
+				9A5A442325BAAB1C002FCC08 /* KXHomeRecommendedView.h */,
+				9A5A442425BAAB1C002FCC08 /* KXHomeRecommendedView.m */,
+			);
+			path = RecommendedUsers;
 			sourceTree = "<group>";
 		};
 		E91DD60CFDDC02B69DD1DEC9 /* Frameworks */ = {
@@ -549,21 +605,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A5A442B25BAAB3D002FCC08 /* KXHomeNewComerGiftsView.m in Sources */,
 				9A476F3C25B82C5D004C9B3F /* DFProfBaseModel.m in Sources */,
 				9A476F1E25B829F3004C9B3F /* UIScreen+EasyMethods.m in Sources */,
+				9A5A441525BAA8F8002FCC08 /* NSArray+EasyMethods.m in Sources */,
 				9A476EC525B81A40004C9B3F /* ViewController.m in Sources */,
 				9A1F7F1125B9668C0038146E /* CGExtensions.h in Sources */,
+				9A5A441625BAA8F8002FCC08 /* UIView+ViewSnap.m in Sources */,
+				9A5A440925BAA867002FCC08 /* KXWgGameResultView.m in Sources */,
 				9A476EBF25B81A40004C9B3F /* AppDelegate.m in Sources */,
 				9A476ED025B81A56004C9B3F /* main.m in Sources */,
 				9A476EF725B81C06004C9B3F /* UserInfoEditPopView.m in Sources */,
+				9A5A440825BAA867002FCC08 /* KXWgGameResultShareView.m in Sources */,
 				9A476F4825B82CFB004C9B3F /* DFUniversityBaseModel.m in Sources */,
 				9A476F3D25B82C5D004C9B3F /* DFProfModel.m in Sources */,
 				9A476F2E25B82BD8004C9B3F /* DFCityBaseModel.m in Sources */,
 				9A5A43FA25BA7FBF002FCC08 /* UIView+EasyMethods.m in Sources */,
+				9A5A440025BAA6E1002FCC08 /* UserInfoSelectPopView.m in Sources */,
 				9A1F7F2C25B96BE00038146E /* PopSearchView.m in Sources */,
+				9A9C7D7E25BAC344004780F7 /* UserInfoBasePopView.m in Sources */,
 				9A1F7F1625B966C70038146E /* SMMCategories.h in Sources */,
 				9A476F2F25B82BD8004C9B3F /* DFCityCityModel.m in Sources */,
 				9A476EC225B81A40004C9B3F /* SceneDelegate.m in Sources */,
+				9A5A442525BAAB1C002FCC08 /* KXHomeRecommendedView.m in Sources */,
 				9A476F2425B82A3D004C9B3F /* UIColor+EasyMethods.m in Sources */,
 				9A476F1425B829C3004C9B3F /* LocalJSONManager.m in Sources */,
 			);

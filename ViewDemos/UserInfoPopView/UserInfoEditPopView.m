@@ -241,11 +241,10 @@
 // MARK: - 覆写方法
 
 - (void)layoutSubviews {
-    
     [_contentView_c layerCornerRadiusWithRadius:16.0 corner:(UIRectCornerTopLeft | UIRectCornerTopRight)];
 }
 
-// MARK: - 按钮点击事件
+// MARK: - 视图交互事件
 
 - (void)cancelButtonAction:(UIButton *)sender {
  
@@ -723,7 +722,7 @@
     
 }
 
-// MARK: - 选择器数据源和代理
+// MARK: - 选择器数据源、代理
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     NSInteger count = 0;

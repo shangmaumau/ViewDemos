@@ -216,9 +216,11 @@
     
     [self _updateTitleText];
     
-    [UIView animateWithDuration:0.25 animations:^{
-        [UIView setAnimationCurve:7];
+    [UIView animateWithDuration:0.25 delay:0 options:(7 << 16) animations:^{
         self.animateView.frame = CGRectNewY(0, self.animateView.frame);
+        
+    } completion:^(BOOL finished) {
+        
     }];
 }
 
@@ -229,14 +231,11 @@
         _keyboardIsShowing = NO;
     }
     
-    [UIView animateWithDuration:0.25 animations:^{
-        [UIView setAnimationCurve:7];
+    [UIView animateWithDuration:0.25 delay:0 options:(7 << 16) animations:^{
         self.animateView.frame = CGRectNewY([UIScreen height_c], self.animateView.frame);
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
-
     }];
-    
 }
 
 // MARK: - 覆写方法
@@ -272,8 +271,8 @@
     if (CGRectGetMinY(krect) < CGRectGetMaxY(crect)) {
         CGFloat gap = CGRectGetMinY(krect) - CGRectGetMaxY(crect) - 16.0;
         CGRect newFrame = CGRectAddY(gap, _animateView.frame);
-        [UIView animateWithDuration:0.25 animations:^{
-            [UIView setAnimationCurve:7];
+        
+        [UIView animateWithDuration:0.25 delay:0 options:(7 << 16) animations:^{
             self.animateView.frame = newFrame;
         } completion:^(BOOL finished) {
             self->_keyboardIsShowing = YES;
@@ -284,8 +283,8 @@
 
 - (void)__keyboardWillHide:(NSNotification *)notif {
     CGRect newFrame = CGRectNewY(0, _animateView.frame);
-    [UIView animateWithDuration:0.25 animations:^{
-        [UIView setAnimationCurve:7];
+    
+    [UIView animateWithDuration:0.25 delay:0 options:(7 << 16) animations:^{
         self.animateView.frame = newFrame;
     } completion:^(BOOL finished) {
         self->_keyboardIsShowing = NO;

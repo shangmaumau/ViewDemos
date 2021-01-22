@@ -233,10 +233,12 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(searchView:didSelectRow:)]) {
         
-        _searchField.text = _showList[indexPath.row];
+        NSString *selectTitle = _showList[indexPath.row];
+        
+        _searchField.text = selectTitle;
         [self textFieldTextDidChange:_searchField];
         
-        NSInteger idx = [self indexOfData:_showList[indexPath.row]];
+        NSInteger idx = [self indexOfData:selectTitle];
         if (idx != NSNotFound) {
             [self.delegate searchView:self didSelectRow:idx];
         }

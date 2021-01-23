@@ -37,8 +37,8 @@
 }
 
 - (IBAction)showView:(UIButton *)sender {
-    [self __showEditPopView];
-    // [self __showSelectPopView];
+    // [self __showEditPopView];
+    [self __showSelectPopView];
 }
 
 - (IBAction)dimissView:(UIButton *)sender {
@@ -86,11 +86,16 @@
     SYUserInfoTofuModel *tf10 = [SYUserInfoTofuModel new];
     SYUserInfoTofuModel *tf11 = [SYUserInfoTofuModel new];
     SYUserInfoTofuModel *tf12 = [SYUserInfoTofuModel new];
-    
     SYUserInfoTofuModel *tf13 = [SYUserInfoTofuModel new];
     SYUserInfoTofuModel *tf14 = [SYUserInfoTofuModel new];
     
-    [_selectPopView showOnView:self.view withModels:@[ tf1, tf2, tf3, tf4, tf5, tf6, tf7, tf8, tf9, tf10, tf11, tf12, tf13, tf14 ]];
+    
+    NSArray<SYUserInfoTofuModel *> *tofuTag1 = @[ tf1, tf2, tf3, tf4, tf5, tf6, tf7, tf8, tf9, tf10, tf11, tf12, tf13, tf14 ];
+    
+    SYUserInfoTofuTagModel *tofutag = [SYUserInfoTofuTagModel new];
+    tofutag.tofus = tofuTag1;
+    
+    [_selectPopView showOnView:self.view withModels:@[ tofutag ]];
     
     
     

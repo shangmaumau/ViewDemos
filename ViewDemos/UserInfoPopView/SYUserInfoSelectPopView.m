@@ -25,6 +25,10 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
 
 @end
 
+@implementation SYUserInfoTofuTagModel
+
+@end
+
 @implementation SYUserInfoTofuCell
 
 // MARK: - 公开方法
@@ -162,10 +166,11 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
     return self;
 }
 
-- (void)showOnView:(__kindof UIView *)view withModels:(NSArray<SYUserInfoTofuModel *> *)list {
-    [super showOnView:view];
+- (void)showOnView:(__kindof UIView *)view withModels:(NSArray<SYUserInfoTofuTagModel *> *)list {
+    _tofuTagModels = list;
+    _tagIndex = 0;
     
-    [self updateWithModels:list];
+    [self updateWithModels:_tofuTagModels[_tagIndex].tofus];
     [self updateBottomButtonTitle:NSLocalizedString(@"下一步", @"")];
 }
 

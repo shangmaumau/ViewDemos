@@ -45,7 +45,7 @@
 - (void)configData {
     
     NSArray<NSString *> *titles = @[ @"头像", @"昵称", @"性别", @"生日", @"所在地", @"个性签名"];
-    NSArray<NSString *> *subtitles = @[ @"", @"(只准改一次，请谨慎修改)", @"", @"", @"", @""];
+    NSArray<NSString *> *subtitles = @[ @"", @"", @"(只准改一次，请谨慎修改)", @"", @"", @""];
     NSArray<NSString *> *values = @[ @"", @"mj小米地", @"男", @"2000-10-10", @"", @"", @""];
     NSArray<NSNumber *> *popctypes = @[@(0), @(PopContentTypeTextField), @(PopContentTypePickerView), @(PopContentTypeDatePicker), @(PopContentTypePickerView), @(PopContentTypeTextView)];
     NSArray<NSNumber *> *poptitlems = @[@(0), @(PopTitleModeNormal), @(PopTitleModeNull), @(PopTitleModeNormal), @(PopTitleModeNormal), @(PopTitleModeNormal)];

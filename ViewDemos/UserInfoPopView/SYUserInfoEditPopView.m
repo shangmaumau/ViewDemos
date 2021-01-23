@@ -91,16 +91,22 @@
 
 - (void)updateContentWithDate:(NSDate *)newDate {
     
-    NSString *cslaString = [UserInfoBirthdayView constellationStringFromDate:newDate];
-    NSInteger age = [UserInfoBirthdayView ageFromBirthday:newDate];
+    dispatch_queue_t cur = dispatch_queue_create("com.doubleFishes.handleDate", DISPATCH_QUEUE_CONCURRENT);
     
-    if (cslaString != nil) {
-        [_cslaButton setTitle:cslaString forState:UIControlStateNormal];
-    }
-    
-    if (age > 0) {
-        [_ageButton setTitle:[NSString stringWithFormat:@"%d岁", (int)age] forState:UIControlStateNormal];
-    }
+    dispatch_async(cur, ^{
+        // 下面两个方法需要一定时间，如不异步处理，会有卡顿
+        NSString *cslaString = [UserInfoBirthdayView constellationStringFromDate:newDate];
+        NSInteger age = [UserInfoBirthdayView ageFromBirthday:newDate];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (cslaString != nil) {
+                [self->_cslaButton setTitle:cslaString forState:UIControlStateNormal];
+            }
+            if (age > 0) {
+                [self->_ageButton setTitle:[NSString stringWithFormat:@"%d岁", (int)age] forState:UIControlStateNormal];
+            }
+        });
+    });
 }
 
 + (NSInteger)ageFromBirthday:(NSDate *)birthday {
@@ -207,7 +213,7 @@
     [self _configContentBeginView];
     [self _configContentView];
     [self _recoveryContentData];
-    
+
     [self updateConstraintsIfNeeded];
     
     [self _updateTitleText];
@@ -621,6 +627,11 @@
                 NSDate *date = [df dateFromString:(NSString *)(_model.recoveryData)];
                 if (date) {
                     _datePicker.date = date;
+                    
+                    if (_model.viewName == PopViewNameBirthday) {
+                        [_birthdayView updateContentWithDate:date];
+                    }
+                    
                 }
             }
         }
@@ -1008,6 +1019,5 @@
             break;
     }
 }
-
 
 @end

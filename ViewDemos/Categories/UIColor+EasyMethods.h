@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIColor *)doubleFishTintColor;
 
++ (UIColor *)colorWithHexString:(NSString *)hexString;
+
 @end
 
 NS_ASSUME_NONNULL_END

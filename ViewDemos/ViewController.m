@@ -6,8 +6,10 @@
 //
 
 #import "ViewController.h"
+
 #import "SYUserInfoEditPopView.h"
 #import "SYUserInfoSelectPopView.h"
+#import "MeInfoEditController.h"
 
 #import <Masonry/Masonry.h>
 
@@ -42,6 +44,17 @@
 - (IBAction)dimissView:(UIButton *)sender {
     
 }
+
+- (IBAction)infoEdit:(id)sender {
+    
+    
+    [self presentViewController:[MeInfoEditController new] animated:YES completion:^{
+            
+    }];
+
+    
+}
+
 
 - (void)__showEditPopView {
     

@@ -35,6 +35,14 @@
                                     <action selector="dimissView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FMD-r8-zBP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gu-2l-UpB">
+                                <rect key="frame" x="28" y="212" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="资料编辑"/>
+                                <connections>
+                                    <action selector="infoEdit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XGU-E8-b9z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

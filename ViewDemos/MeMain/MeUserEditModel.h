@@ -23,8 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) PopViewName popname;
 @property (nonatomic, assign) PopContentType popctype;
 @property (nonatomic, assign) PopTitleMode poptitlem;
-@property (nonatomic, strong) id poprecdata;
-
 
 @end
 

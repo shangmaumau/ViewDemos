@@ -118,7 +118,6 @@
             
             MeInfoEditCell *cell = [weakSelf.tableView cellForRowAtIndexPath:indexPath];
             if (cell) {
-                
                 NSString *value = (NSString *)data;
                 if ([data isKindOfClass:[NSDate class]]) {
                     NSDateFormatter *df = [NSDateFormatter new];

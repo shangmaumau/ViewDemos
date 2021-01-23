@@ -204,7 +204,9 @@
     [self _configPickerData];
     
     [self _configTitleView];
+    [self _configContentBeginView];
     [self _configContentView];
+    [self _recoveryContentData];
     
     [self updateConstraintsIfNeeded];
     
@@ -233,16 +235,31 @@
 }
 
 - (void)doneButtonAction:(UIButton *)sender {
+    
+    [self _configDoneData];
+    
     if (_doneCallback) {
         _doneCallback(_inputData);
     }
     [self dismiss];
 }
 
-- (void)datePickerValueDidChange:(UIDatePicker *)picker {
+- (void)__datePickerValueDidChange:(UIDatePicker *)picker {
     _inputData = picker.date;
     [_birthdayView updateContentWithDate:picker.date];
 }
+
+- (void)__textFieldTextDidChange:(UITextField *)tf {
+    
+    UITextRange *selectedRange = [tf markedTextRange];
+    // 获取高亮部分
+    UITextPosition *position = [tf positionFromPosition:selectedRange.start offset:0];
+    
+    if (!position) {
+        _inputData = tf.text;
+    }
+}
+
 
 - (void)__keyboardWillShow:(NSNotification *)notif {
     
@@ -310,6 +327,8 @@
 - (void)_removeTitleViews {
     [_titleText removeFromSuperview];
     [_subtitleText removeFromSuperview];
+    _titleText = nil;
+    _subtitleText = nil;
 }
 
 - (void)_addBirthdayAddView {
@@ -330,6 +349,7 @@
 
 - (void)_removeBirthdayAddView {
     [_birthdayView removeFromSuperview];
+    _birthdayView = nil;
 }
 
 // MARK: - 配置视图
@@ -356,8 +376,6 @@
             [self.contentView_c mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.height.equalTo(@(csize.height));
             }];
-            
-            _contentBeginView = self.viewTitleText;
         }
             break;
             
@@ -367,9 +385,23 @@
             [self.contentView_c mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.height.equalTo(@(csize.height));
             }];
-            
-            _contentBeginView = _subtitleText;
         }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)_configContentBeginView {
+    
+    switch (_model.titleMode) {
+        case PopTitleModeNull:
+            _contentBeginView = self.viewTitleText;
+            break;
+            
+        case PopTitleModeNormal:
+            _contentBeginView = _subtitleText;
             break;
             
         default:
@@ -380,22 +412,22 @@
 - (void)_configContentView {
     
     if ([self isContentViewStay]) {
-        [_contentView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_contentBeginView.mas_bottom).offset(_contentTopMargin);
-        }];
         return;
     }
     
-    [_birthdayView removeFromSuperview];
+    [self _removeBirthdayAddView];
     
     [_contentView removeFromSuperview];
     _contentView = [self gimmeContentView];
+    // 测试查看 位置
+    // _contentView.backgroundColor = [UIColor systemGrayColor];
     [self.contentView_c addSubview:_contentView];
     
     CGSize csize = CGSizeMake(0, 210.0*kWidthScale);
     CGFloat leftPad = kUIPadding;
     CGFloat rightPad = kUIPadding;
     CGFloat topMargin = 24.0;
+    BOOL isPickerType = YES;
     
     switch (_model.contentType) {
         case PopContentTypePickerView:
@@ -413,17 +445,7 @@
         case PopContentTypeDatePicker:
         {
             _datePicker = _contentView;
-            if ([_model.recoveryData isKindOfClass:[NSString class]]) {
-                NSDateFormatter *df = [NSDateFormatter new];
-                df.dateFormat = @"yyyy-MM-dd";
-                
-                NSDate *date = [df dateFromString:(NSString *)(_model.recoveryData)];
-                if (date) {
-                    _datePicker.date = date;
-                }
-            }
-            
-            [_datePicker addTarget:self action:@selector(datePickerValueDidChange:) forControlEvents:UIControlEventValueChanged];
+            [_datePicker addTarget:self action:@selector(__datePickerValueDidChange:) forControlEvents:UIControlEventValueChanged];
             
             if (_model.viewName == PopViewNameBirthday) {
                 [self _addBirthdayAddView];
@@ -439,18 +461,20 @@
         case PopContentTypeTextField:
         {
             _textField = _contentView;
-            _textField.text = (NSString *)(_model.recoveryData);
+            [_textField addTarget:self action:@selector(__textFieldTextDidChange:) forControlEvents:UIControlEventEditingChanged];
             
             csize.height = 51.5*kWidthScale;
+            isPickerType = NO;
         }
             break;
             
         case PopContentTypeTextView:
         {
             _textView = _contentView;
-            _textView.text = (NSString *)(_model.recoveryData);
+            _textView.delegate = self;
             
             csize.height = 96.5*kWidthScale;
+            isPickerType = NO;
         }
             break;
             
@@ -463,6 +487,7 @@
             }
             
             csize.height = 261.5*kWidthScale;
+            isPickerType = NO;
         }
             break;
             
@@ -472,12 +497,23 @@
     
     _contentTopMargin = topMargin;
     
-    [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(csize.height));
-        make.top.equalTo(_contentBeginView.mas_bottom).offset(topMargin);
-        make.left.equalTo(self.contentView_c.mas_left).offset(leftPad);
-        make.right.equalTo(self.contentView_c.mas_right).offset(-rightPad);
-    }];
+    if (isPickerType) {
+        
+        [_contentView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.contentView_c.mas_safeAreaLayoutGuideBottom).offset(0);
+            make.top.equalTo(_contentBeginView.mas_bottom).offset(topMargin);
+            make.left.equalTo(self.contentView_c.mas_left).offset(leftPad);
+            make.right.equalTo(self.contentView_c.mas_right).offset(-rightPad);
+        }];
+        
+    } else {
+        [_contentView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(csize.height));
+            make.top.equalTo(_contentBeginView.mas_bottom).offset(topMargin);
+            make.left.equalTo(self.contentView_c.mas_left).offset(leftPad);
+            make.right.equalTo(self.contentView_c.mas_right).offset(-rightPad);
+        }];
+    }
 }
 
 // MARK: - 配置和更新数据
@@ -503,12 +539,105 @@
             _pickerData = [SYLocalJSONManager profs];
             break;
             
+        case PopViewNameGender:
+            _pickerData = @[ NSLocalizedString(@"男", @""), NSLocalizedString(@"女", @"") ];
+            break;
+            
         case PopViewNameUniversity:
-            _pickerData = [SYLocalJSONManager universities_name];
+            /// 稍后会在配置内容视图的时候，从中获取
+            _model.dataSource = [SYLocalJSONManager universities_name];
             break;
             
         default:
             _pickerData = _model.dataSource;
+            break;
+    }
+}
+
+- (void)_configDoneData {
+    
+    switch (_model.contentType) {
+        case PopContentTypePickerView: {
+            // 根据不同情况来处理
+            
+            switch (_model.viewName) {
+                case PopViewNameAddress:
+                {
+                    DFCityBaseModel *baseModel = _pickerData[_firstRowIdx];
+                    DFCityCityModel *cityModel = baseModel.sub[_secondRowIdx];
+                    NSString *districtName = (NSString *)[cityModel.sub[_thirdRowIdx] valueForKey:@"name"];
+                    
+                    _inputData = [NSString stringWithFormat:@"%@ %@ %@", baseModel.name, cityModel.name, districtName];
+                }
+                    break;
+                
+                case PopViewNameProfession:
+                {
+                    DFProfBaseModel *baseModel = _pickerData[_firstRowIdx];
+                    DFProfModel *profModel = baseModel.sub[_secondRowIdx];
+                    _inputData = [NSString stringWithFormat:@"%@ %@", baseModel.name, profModel.name];
+                }
+                    
+                default:
+                    
+                    _inputData = _pickerData[_firstRowIdx];
+                    
+                    break;
+            }
+            
+        } break;
+            
+            // 下面四个已经处理
+        case PopContentTypeDatePicker:
+            break;
+            
+        case PopContentTypeTextField:
+            break;
+            
+        case PopContentTypeTextView:
+            break;
+            
+        case PopContentTypeSearchView:
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)_recoveryContentData {
+    
+    switch (_model.contentType) {
+        case PopContentTypePickerView:
+            
+            break;
+            
+            // 下面三个已经处理
+        case PopContentTypeDatePicker: {
+            if ([_model.recoveryData isKindOfClass:[NSString class]]) {
+                NSDateFormatter *df = [NSDateFormatter new];
+                df.dateFormat = @"yyyy-MM-dd";
+                
+                NSDate *date = [df dateFromString:(NSString *)(_model.recoveryData)];
+                if (date) {
+                    _datePicker.date = date;
+                }
+            }
+        }
+            break;
+            
+        case PopContentTypeTextField:
+            _textField.text = (NSString *)(_model.recoveryData);
+            break;
+            
+        case PopContentTypeTextView:
+            _textView.text = (NSString *)(_model.recoveryData);
+            break;
+            
+        case PopContentTypeSearchView:
+            break;
+            
+        default:
             break;
     }
 }
@@ -655,6 +784,11 @@
 
 - (void)searchView:(SYPopSearchView *)searchView didSelectRow:(NSInteger)row {
     
+    _inputData = _model.dataSource[row];
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    _inputData = textView.text;
 }
 
 // MARK: - 选择器数据源、代理

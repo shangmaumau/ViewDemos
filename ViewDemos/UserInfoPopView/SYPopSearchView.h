@@ -29,7 +29,7 @@ typedef NS_ENUM(NSUInteger, PopSearchFilterMode) {
 
 @end
 
-/// 默认的搜索是大学，默认的模式是匹配开头。如需自定义，请使用下面的初始化方法。
+
 @interface SYPopSearchView : UIView
 
 @property (nonatomic, nullable, weak) id<PopSearchViewDelegate> delegate;

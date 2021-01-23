@@ -11,6 +11,7 @@ target 'ViewDemos' do
   pod 'Masonry'
   pod 'SDWebImage'
   pod 'MBProgressHUD'
+  pod 'MJExtension'
   # pod 'IQKeyboardManager'
   
   target 'ViewDemosTests' do

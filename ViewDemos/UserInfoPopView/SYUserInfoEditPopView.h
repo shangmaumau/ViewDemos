@@ -29,6 +29,7 @@ typedef NS_ENUM(NSUInteger, PopTitleMode) {
 /// 标题名称，需要根据一些名称做特殊处理。
 typedef NS_ENUM(NSUInteger, PopViewName) {
     PopViewNameNull,        // 默认
+    PopViewNameGender,      // 性别
     PopViewNameBirthday,    // 要添加额外的视图
     PopViewNameAddress,     // 三级联动
     PopViewNameProfession,  // 二级联动

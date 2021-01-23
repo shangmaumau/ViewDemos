@@ -8,8 +8,6 @@
 #import "SYPopSearchView.h"
 #import "SMMCategories.h"
 
-#import "SYLocalJSONManager.h"
-
 static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
 
 @interface PopSearchCell : UITableViewCell
@@ -108,7 +106,6 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
     if (self = [super initWithFrame:frame]) {
         [self _configBasicSubviews];
         _mode = PopSearchFilterModeBeginsWith;
-        _dataSource = [SYLocalJSONManager universities_name];
     }
     return self;
 }

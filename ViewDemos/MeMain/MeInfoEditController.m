@@ -10,13 +10,14 @@
 #import "MeUserEditModel.h"
 
 #import <Masonry/Masonry.h>
-#import "MJExtension.h"
+#import <MJExtension/MJExtension.h>
 
 @interface MeInfoEditController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray<MeUserEditModel *> *dataArr;
 
-@property (nonatomic, strong) NSMutableArray *dataArr;
+@property (nonatomic, strong) SYUserInfoEditPopView *popEditView;
 
 @end
 
@@ -31,38 +32,39 @@
 
 - (void)configUI {
     
-    UIImageView *bgImageV = [UIImageView new];
-    bgImageV.image = [UIImage imageNamed:@"sy_userinfo_bg_img"];
-    [self.view addSubview:bgImageV];
-    [bgImageV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
-    
-//    // 毛玻璃
-//    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
-//    UIVisualEffectView * visualView = [[UIVisualEffectView alloc] initWithEffect:blur];
-//    [self.view addSubview:visualView];
-//    [visualView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(self.view);
-//    }];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    
+    _popEditView = [[SYUserInfoEditPopView alloc] initWithFrame:self.view.bounds];
 }
 
 - (void)configData {
     
-    NSDictionary *dic0 = @{@"title":@"头像",@"subTitle":@"",@"value":@""};
-    NSDictionary *dic1 = @{@"title":@"昵称",@"subTitle":@"(只准改一次，请谨慎修改)",@"value":@"mj小米地"};
-    NSDictionary *dic2 = @{@"title":@"性别",@"subTitle":@"",@"value":@"男"};
-    NSDictionary *dic3 = @{@"title":@"生日",@"subTitle":@"",@"value":@"2000-10-10"};
-    NSDictionary *dic4 = @{@"title":@"所在地",@"subTitle":@"",@"value":@""};
-    NSDictionary *dic5 = @{@"title":@"123",@"subTitle":@"",@"value":@""};
-    NSDictionary *dic6 = @{@"title":@"456",@"subTitle":@"",@"value":@""};
-    NSArray *arr = @[dic0,dic1,dic2,dic3,dic4,dic5,dic6];
-    self.dataArr = [MeUserEditModel mj_objectArrayWithKeyValuesArray:arr];
+    NSArray<NSString *> *titles = @[ @"头像", @"昵称", @"性别", @"生日", @"所在地", @"个性签名"];
+    NSArray<NSString *> *subtitles = @[ @"", @"(只准改一次，请谨慎修改)", @"", @"", @"", @""];
+    NSArray<NSString *> *values = @[ @"", @"mj小米地", @"男", @"2000-10-10", @"", @"", @""];
+    NSArray<NSNumber *> *popctypes = @[@(0), @(PopContentTypeTextField), @(PopContentTypePickerView), @(PopContentTypeDatePicker), @(PopContentTypePickerView), @(PopContentTypeTextView)];
+    NSArray<NSNumber *> *poptitlems = @[@(0), @(PopTitleModeNormal), @(PopTitleModeNull), @(PopTitleModeNormal), @(PopTitleModeNormal), @(PopTitleModeNormal)];
+    NSArray<NSNumber *> *popnames = @[@(0), @(PopViewNameNull), @(PopViewNameGender), @(PopViewNameBirthday), @(PopViewNameAddress), @(PopViewNameNull)];
+    
+    NSMutableArray<MeUserEditModel *> *mmodels = [NSMutableArray array];
+    for (NSUInteger i = 0; i < titles.count; i++) {
+        MeUserEditModel *model = [MeUserEditModel new];
+        model.title = titles[i];
+        model.subTitle = subtitles[i];
+        model.value = values[i];
+        model.popctype = [popctypes[i] unsignedIntegerValue];
+        model.poptitlem = [poptitlems[i] unsignedIntegerValue];
+        model.popname = [popnames[i] unsignedIntegerValue];
+        
+        [mmodels addObject:model];
+    }
+    
+    self.dataArr = [mmodels copy];
     [self.tableView reloadData];
 }
 
@@ -85,9 +87,53 @@
     MeUserEditModel *model = self.dataArr[indexPath.row];
     cell.titleLabel.text = model.title;
     cell.subTitleLabel.text = model.subTitle;
-    cell.valueLabel.text = model.value.length >0 ? model.value:@"未设置";
+    cell.valueLabel.text = model.value.length > 0 ? model.value : @"未设置";
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    MeUserEditModel *meModel = self.dataArr[indexPath.row];
+    
+    SYUserInfoEditPopModel *popmodel = [SYUserInfoEditPopModel new];
+    
+    popmodel.contentType = meModel.popctype;
+    popmodel.titleMode = meModel.poptitlem;
+    popmodel.viewName = meModel.popname;
+    popmodel.recoveryData = meModel.value;
+    
+    [self showPopEditViewWithData:popmodel index:indexPath];
+}
+
+- (void)showPopEditViewWithData:(SYUserInfoEditPopModel *)model index:(NSIndexPath *)indexPath {
+    
+    __weak typeof(self) weakSelf = self;
+    [_popEditView showOnView:self.view withData:model];
+    [_popEditView configDoneCallback:^(id  _Nullable data) {
+       
+        if (data) {
+            
+            weakSelf.dataArr[indexPath.row].value = data;
+            
+            MeInfoEditCell *cell = [weakSelf.tableView cellForRowAtIndexPath:indexPath];
+            if (cell) {
+                
+                NSString *value = (NSString *)data;
+                if ([data isKindOfClass:[NSDate class]]) {
+                    NSDateFormatter *df = [NSDateFormatter new];
+                    df.dateFormat = @"yyyy-MM-dd";
+                    value = [df stringFromDate:(NSDate *)data];
+                }
+                
+                if ([value isKindOfClass:[NSString class]]) {
+                    cell.valueLabel.text = value;
+                }
+            }
+        }
+    }];
+    
+    
 }
 
 
@@ -104,8 +150,5 @@
     }
     return _tableView;
 }
-
-
-
 
 @end

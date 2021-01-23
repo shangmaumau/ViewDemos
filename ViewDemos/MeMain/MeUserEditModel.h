@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "SYUserInfoEditPopView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,6 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *value;
 
 @property (nonatomic, strong) NSString *headImage;
+
+@property (nonatomic, assign) PopViewName popname;
+@property (nonatomic, assign) PopContentType popctype;
+@property (nonatomic, assign) PopTitleMode poptitlem;
+@property (nonatomic, strong) id poprecdata;
 
 
 @end

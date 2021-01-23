@@ -34,36 +34,36 @@
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@16);
-        make.centerY.equalTo(self.mas_centerY);
+        make.centerY.equalTo(self.contentView.mas_centerY);
     }];
     
     [self.subTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.titleLabel.mas_right).offset(8);
-        make.centerY.equalTo(self.mas_centerY);
+        make.centerY.equalTo(self.contentView.mas_centerY);
     }];
     
     [self.arrowImageV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(@-15);
-        make.centerY.equalTo(self.mas_centerY);
+        make.centerY.equalTo(self.contentView.mas_centerY);
         make.width.equalTo(@5);
         make.height.equalTo(@10);
     }];
     
     [self.valueLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.arrowImageV.mas_left).offset(-13);
-        make.centerY.equalTo(self.mas_centerY);
+        make.centerY.equalTo(self.contentView.mas_centerY);
     }];
  
     [self.separator mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@16);
         make.right.equalTo(@-14);
         make.height.equalTo(@0.5);
-        make.bottom.equalTo(self.mas_bottom);
+        make.bottom.equalTo(self.contentView.mas_bottom);
     }];
     
     [self.headImageV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.arrowImageV.mas_left).offset(-13);
-        make.centerY.equalTo(self.mas_centerY);
+        make.centerY.equalTo(self.contentView.mas_centerY);
         make.width.height.equalTo(@65);
     }];
     

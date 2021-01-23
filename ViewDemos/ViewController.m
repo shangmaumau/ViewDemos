@@ -47,14 +47,11 @@
 
 - (IBAction)infoEdit:(id)sender {
     
-    
-    [self presentViewController:[MeInfoEditController new] animated:YES completion:^{
-            
-    }];
-
+    MeInfoEditController *meedit = [MeInfoEditController new];
+    meedit.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:meedit animated:YES completion:nil];
     
 }
-
 
 - (void)__showEditPopView {
     

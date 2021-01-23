@@ -1,14 +1,14 @@
 //
-//  UserInfoBasePopView.m
+//  SYUserInfoBasePopView.m
 //  ViewDemos
 //
 //  Created by 尚雷勋 on 2021/1/22.
 //
 
-#import "UserInfoBasePopView.h"
+#import "SYUserInfoBasePopView.h"
 #import "SMMCategories.h"
 
-@implementation UserInfoBasePopView
+@implementation SYUserInfoBasePopView
 
 // MARK: - 公开方法
 

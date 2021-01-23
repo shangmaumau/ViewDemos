@@ -1,18 +1,18 @@
 //
-//  UserInfoEditPopView.m
+//  SYUserInfoEditPopView.m
 //  ViewDemos
 //
 //  Created by 尚雷勋 on 2021/1/20.
 //
 
-#import "UserInfoEditPopView.h"
-#import "PopSearchView.h"
+#import "SYUserInfoEditPopView.h"
+#import "SYPopSearchView.h"
 #import "SMMCategories.h"
-#import "LocalJSONManager.h"
+#import "SYLocalJSONManager.h"
 #import "DFCityDataModels.h"
 #import "DFProfDataModels.h"
 
-@implementation UserInfoEditPopModel
+@implementation SYUserInfoEditPopModel
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -143,7 +143,7 @@
 
 @end
 
-@interface UserInfoEditPopView ()<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate, PopSearchViewDelegate> {
+@interface SYUserInfoEditPopView ()<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate, PopSearchViewDelegate> {
     NSUInteger _firstRowIdx;
     NSUInteger _secondRowIdx;
     NSUInteger _thirdRowIdx;
@@ -161,20 +161,22 @@
 @property (nonatomic, strong) UIDatePicker *datePicker;
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) UITextView *textView;
-@property (nonatomic, strong) PopSearchView *searchView;
+@property (nonatomic, strong) SYPopSearchView *searchView;
 @property (nonatomic, strong) UserInfoBirthdayView *birthdayView;
 
 @property (nonatomic, strong) __kindof UIView *contentView;
 @property (nonatomic, strong) __kindof UIView *contentBeginView;
 
-@property (nonatomic, strong) UserInfoEditPopModel *lastModel;
+@property (nonatomic, strong) SYUserInfoEditPopModel *lastModel;
 @property (nonatomic, strong) NSArray *pickerData;
 
 @property (nonatomic, strong) id inputData;
 
+@property (nonatomic, copy) void (^doneCallback)(id data);
+
 @end
 
-@implementation UserInfoEditPopView
+@implementation SYUserInfoEditPopView
 
 // MARK: - 公开方法
 
@@ -189,7 +191,7 @@
     return self;
 }
 
-- (void)showOnView:(__kindof UIView *)view withData:(UserInfoEditPopModel *)data {
+- (void)showOnView:(__kindof UIView *)view withData:(SYUserInfoEditPopModel *)data {
     
     if (!data) {
         return;
@@ -219,6 +221,10 @@
     [super dismiss];
 }
 
+- (void)configDoneCallback:(void (^)(id _Nullable))callback {
+    _doneCallback = callback;
+}
+
 // MARK: - 视图交互事件
 
 - (void)cancelButtonAction:(UIButton *)sender {
@@ -227,10 +233,14 @@
 }
 
 - (void)doneButtonAction:(UIButton *)sender {
-    
+    if (_doneCallback) {
+        _doneCallback(_inputData);
+    }
+    [self dismiss];
 }
 
 - (void)datePickerValueDidChange:(UIDatePicker *)picker {
+    _inputData = picker.date;
     [_birthdayView updateContentWithDate:picker.date];
 }
 
@@ -382,7 +392,7 @@
     _contentView = [self gimmeContentView];
     [self.contentView_c addSubview:_contentView];
     
-    CGSize csize = CGSizeMake(0, 225.0*kWidthScale);
+    CGSize csize = CGSizeMake(0, 210.0*kWidthScale);
     CGFloat leftPad = kUIPadding;
     CGFloat rightPad = kUIPadding;
     CGFloat topMargin = 24.0;
@@ -403,6 +413,16 @@
         case PopContentTypeDatePicker:
         {
             _datePicker = _contentView;
+            if ([_model.recoveryData isKindOfClass:[NSString class]]) {
+                NSDateFormatter *df = [NSDateFormatter new];
+                df.dateFormat = @"yyyy-MM-dd";
+                
+                NSDate *date = [df dateFromString:(NSString *)(_model.recoveryData)];
+                if (date) {
+                    _datePicker.date = date;
+                }
+            }
+            
             [_datePicker addTarget:self action:@selector(datePickerValueDidChange:) forControlEvents:UIControlEventValueChanged];
             
             if (_model.viewName == PopViewNameBirthday) {
@@ -468,7 +488,7 @@
     _thirdRowIdx = 0;
 }
 
-- (void)_updateModel:(UserInfoEditPopModel *)model {
+- (void)_updateModel:(SYUserInfoEditPopModel *)model {
     _lastModel = _model;
     _model = model;
 }
@@ -476,15 +496,15 @@
 - (void)_configPickerData {
     switch (_model.viewName) {
         case PopViewNameAddress:
-            _pickerData = [LocalJSONManager cities];
+            _pickerData = [SYLocalJSONManager cities];
             break;
             
         case PopViewNameProfession:
-            _pickerData = [LocalJSONManager profs];
+            _pickerData = [SYLocalJSONManager profs];
             break;
             
         case PopViewNameUniversity:
-            _pickerData = [LocalJSONManager universities_name];
+            _pickerData = [SYLocalJSONManager universities_name];
             break;
             
         default:
@@ -620,8 +640,8 @@
     return view;
 }
 
-- (PopSearchView *)gimmeSearchView {
-    PopSearchView *view = [PopSearchView new];
+- (SYPopSearchView *)gimmeSearchView {
+    SYPopSearchView *view = [SYPopSearchView new];
     [view configSearchPlaceholderText:@"请输入学校名称"];
     
     return view;
@@ -629,11 +649,11 @@
 
 // MARK: - 搜索视图代理
 
-- (void)searchView:(PopSearchView *)searchView willSelectRow:(NSInteger)row {
+- (void)searchView:(SYPopSearchView *)searchView willSelectRow:(NSInteger)row {
     
 }
 
-- (void)searchView:(PopSearchView *)searchView didSelectRow:(NSInteger)row {
+- (void)searchView:(SYPopSearchView *)searchView didSelectRow:(NSInteger)row {
     
 }
 

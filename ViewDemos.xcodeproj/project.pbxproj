@@ -10,7 +10,7 @@
 		5BC6BCF63213B42A7AAD749C /* Pods_ViewDemos_ViewDemosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FAA7BE19321A0F9C114891 /* Pods_ViewDemos_ViewDemosUITests.framework */; };
 		9A1F7F1125B9668C0038146E /* CGExtensions.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F7F1025B9668C0038146E /* CGExtensions.h */; };
 		9A1F7F1625B966C70038146E /* SMMCategories.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F7F1525B966C70038146E /* SMMCategories.h */; };
-		9A1F7F2C25B96BE00038146E /* PopSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F7F2B25B96BE00038146E /* PopSearchView.m */; };
+		9A1F7F2C25B96BE00038146E /* SYPopSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F7F2B25B96BE00038146E /* SYPopSearchView.m */; };
 		9A476EBF25B81A40004C9B3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EBE25B81A40004C9B3F /* AppDelegate.m */; };
 		9A476EC225B81A40004C9B3F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EC125B81A40004C9B3F /* SceneDelegate.m */; };
 		9A476EC525B81A40004C9B3F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EC425B81A40004C9B3F /* ViewController.m */; };
@@ -20,11 +20,11 @@
 		9A476ED025B81A56004C9B3F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476ECF25B81A56004C9B3F /* main.m */; };
 		9A476EDA25B81A57004C9B3F /* ViewDemosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476ED925B81A57004C9B3F /* ViewDemosTests.m */; };
 		9A476EE525B81A57004C9B3F /* ViewDemosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EE425B81A57004C9B3F /* ViewDemosUITests.m */; };
-		9A476EF725B81C06004C9B3F /* UserInfoEditPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EF625B81C06004C9B3F /* UserInfoEditPopView.m */; };
+		9A476EF725B81C06004C9B3F /* SYUserInfoEditPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EF625B81C06004C9B3F /* SYUserInfoEditPopView.m */; };
 		9A476F0625B82050004C9B3F /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A476F0325B8204F004C9B3F /* cities.json */; };
 		9A476F0725B82050004C9B3F /* professions.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A476F0425B8204F004C9B3F /* professions.json */; };
 		9A476F0825B82050004C9B3F /* universities.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A476F0525B82050004C9B3F /* universities.json */; };
-		9A476F1425B829C3004C9B3F /* LocalJSONManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F1325B829C3004C9B3F /* LocalJSONManager.m */; };
+		9A476F1425B829C3004C9B3F /* SYLocalJSONManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F1325B829C3004C9B3F /* SYLocalJSONManager.m */; };
 		9A476F1E25B829F3004C9B3F /* UIScreen+EasyMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F1D25B829F3004C9B3F /* UIScreen+EasyMethods.m */; };
 		9A476F2425B82A3D004C9B3F /* UIColor+EasyMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F2325B82A3D004C9B3F /* UIColor+EasyMethods.m */; };
 		9A476F2E25B82BD8004C9B3F /* DFCityBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F2C25B82BD8004C9B3F /* DFCityBaseModel.m */; };
@@ -33,14 +33,14 @@
 		9A476F3D25B82C5D004C9B3F /* DFProfModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F3B25B82C5D004C9B3F /* DFProfModel.m */; };
 		9A476F4825B82CFB004C9B3F /* DFUniversityBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F4625B82CFB004C9B3F /* DFUniversityBaseModel.m */; };
 		9A5A43FA25BA7FBF002FCC08 /* UIView+EasyMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A43F925BA7FBF002FCC08 /* UIView+EasyMethods.m */; };
-		9A5A440025BAA6E1002FCC08 /* UserInfoSelectPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A43FF25BAA6E1002FCC08 /* UserInfoSelectPopView.m */; };
+		9A5A440025BAA6E1002FCC08 /* SYUserInfoSelectPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A43FF25BAA6E1002FCC08 /* SYUserInfoSelectPopView.m */; };
 		9A5A440825BAA867002FCC08 /* KXWgGameResultShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A440525BAA867002FCC08 /* KXWgGameResultShareView.m */; };
 		9A5A440925BAA867002FCC08 /* KXWgGameResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A440725BAA867002FCC08 /* KXWgGameResultView.m */; };
 		9A5A441525BAA8F8002FCC08 /* NSArray+EasyMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A441125BAA8F8002FCC08 /* NSArray+EasyMethods.m */; };
 		9A5A441625BAA8F8002FCC08 /* UIView+ViewSnap.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A441425BAA8F8002FCC08 /* UIView+ViewSnap.m */; };
 		9A5A442525BAAB1C002FCC08 /* KXHomeRecommendedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A442425BAAB1C002FCC08 /* KXHomeRecommendedView.m */; };
 		9A5A442B25BAAB3D002FCC08 /* KXHomeNewComerGiftsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A442925BAAB3C002FCC08 /* KXHomeNewComerGiftsView.m */; };
-		9A9C7D7E25BAC344004780F7 /* UserInfoBasePopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C7D7D25BAC344004780F7 /* UserInfoBasePopView.m */; };
+		9A9C7D7E25BAC344004780F7 /* SYUserInfoBasePopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C7D7D25BAC344004780F7 /* SYUserInfoBasePopView.m */; };
 		9A9C7DA025BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C7D9F25BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.m */; };
 		EBA479D32589C0A308207FBA /* Pods_ViewDemosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632D2DE19D4C92306C1CFFDC /* Pods_ViewDemosTests.framework */; };
 		F55E6C845D8A368BED12682D /* Pods_ViewDemos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99931EF36E785AC8AA89ABA8 /* Pods_ViewDemos.framework */; };
@@ -73,8 +73,8 @@
 		99931EF36E785AC8AA89ABA8 /* Pods_ViewDemos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ViewDemos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1F7F1025B9668C0038146E /* CGExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGExtensions.h; sourceTree = "<group>"; };
 		9A1F7F1525B966C70038146E /* SMMCategories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMMCategories.h; sourceTree = "<group>"; };
-		9A1F7F2A25B96BE00038146E /* PopSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopSearchView.h; sourceTree = "<group>"; };
-		9A1F7F2B25B96BE00038146E /* PopSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopSearchView.m; sourceTree = "<group>"; };
+		9A1F7F2A25B96BE00038146E /* SYPopSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYPopSearchView.h; sourceTree = "<group>"; };
+		9A1F7F2B25B96BE00038146E /* SYPopSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYPopSearchView.m; sourceTree = "<group>"; };
 		9A476EBA25B81A40004C9B3F /* ViewDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A476EBD25B81A40004C9B3F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9A476EBE25B81A40004C9B3F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -93,13 +93,13 @@
 		9A476EE025B81A57004C9B3F /* ViewDemosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViewDemosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A476EE425B81A57004C9B3F /* ViewDemosUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewDemosUITests.m; sourceTree = "<group>"; };
 		9A476EE625B81A57004C9B3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9A476EF525B81C06004C9B3F /* UserInfoEditPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoEditPopView.h; sourceTree = "<group>"; };
-		9A476EF625B81C06004C9B3F /* UserInfoEditPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoEditPopView.m; sourceTree = "<group>"; };
+		9A476EF525B81C06004C9B3F /* SYUserInfoEditPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYUserInfoEditPopView.h; sourceTree = "<group>"; };
+		9A476EF625B81C06004C9B3F /* SYUserInfoEditPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYUserInfoEditPopView.m; sourceTree = "<group>"; };
 		9A476F0325B8204F004C9B3F /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
 		9A476F0425B8204F004C9B3F /* professions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = professions.json; sourceTree = "<group>"; };
 		9A476F0525B82050004C9B3F /* universities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = universities.json; sourceTree = "<group>"; };
-		9A476F1225B829C3004C9B3F /* LocalJSONManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalJSONManager.h; sourceTree = "<group>"; };
-		9A476F1325B829C3004C9B3F /* LocalJSONManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalJSONManager.m; sourceTree = "<group>"; };
+		9A476F1225B829C3004C9B3F /* SYLocalJSONManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYLocalJSONManager.h; sourceTree = "<group>"; };
+		9A476F1325B829C3004C9B3F /* SYLocalJSONManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYLocalJSONManager.m; sourceTree = "<group>"; };
 		9A476F1C25B829F3004C9B3F /* UIScreen+EasyMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScreen+EasyMethods.h"; sourceTree = "<group>"; };
 		9A476F1D25B829F3004C9B3F /* UIScreen+EasyMethods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+EasyMethods.m"; sourceTree = "<group>"; };
 		9A476F2225B82A3D004C9B3F /* UIColor+EasyMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+EasyMethods.h"; sourceTree = "<group>"; };
@@ -119,8 +119,8 @@
 		9A476F4725B82CFB004C9B3F /* DFUniversityBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFUniversityBaseModel.h; sourceTree = "<group>"; };
 		9A5A43F825BA7FBF002FCC08 /* UIView+EasyMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+EasyMethods.h"; sourceTree = "<group>"; };
 		9A5A43F925BA7FBF002FCC08 /* UIView+EasyMethods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+EasyMethods.m"; sourceTree = "<group>"; };
-		9A5A43FE25BAA6E1002FCC08 /* UserInfoSelectPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoSelectPopView.h; sourceTree = "<group>"; };
-		9A5A43FF25BAA6E1002FCC08 /* UserInfoSelectPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoSelectPopView.m; sourceTree = "<group>"; };
+		9A5A43FE25BAA6E1002FCC08 /* SYUserInfoSelectPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYUserInfoSelectPopView.h; sourceTree = "<group>"; };
+		9A5A43FF25BAA6E1002FCC08 /* SYUserInfoSelectPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYUserInfoSelectPopView.m; sourceTree = "<group>"; };
 		9A5A440425BAA867002FCC08 /* KXWgGameResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXWgGameResultView.h; sourceTree = "<group>"; };
 		9A5A440525BAA867002FCC08 /* KXWgGameResultShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXWgGameResultShareView.m; sourceTree = "<group>"; };
 		9A5A440625BAA867002FCC08 /* KXWgGameResultShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXWgGameResultShareView.h; sourceTree = "<group>"; };
@@ -133,8 +133,8 @@
 		9A5A442425BAAB1C002FCC08 /* KXHomeRecommendedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXHomeRecommendedView.m; sourceTree = "<group>"; };
 		9A5A442925BAAB3C002FCC08 /* KXHomeNewComerGiftsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXHomeNewComerGiftsView.m; sourceTree = "<group>"; };
 		9A5A442A25BAAB3D002FCC08 /* KXHomeNewComerGiftsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXHomeNewComerGiftsView.h; sourceTree = "<group>"; };
-		9A9C7D7C25BAC344004780F7 /* UserInfoBasePopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoBasePopView.h; sourceTree = "<group>"; };
-		9A9C7D7D25BAC344004780F7 /* UserInfoBasePopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoBasePopView.m; sourceTree = "<group>"; };
+		9A9C7D7C25BAC344004780F7 /* SYUserInfoBasePopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYUserInfoBasePopView.h; sourceTree = "<group>"; };
+		9A9C7D7D25BAC344004780F7 /* SYUserInfoBasePopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYUserInfoBasePopView.m; sourceTree = "<group>"; };
 		9A9C7D9E25BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoPersonalTagsViewCtrl.h; sourceTree = "<group>"; };
 		9A9C7D9F25BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoPersonalTagsViewCtrl.m; sourceTree = "<group>"; };
 		A93DE68ED4848BEEA6927952 /* Pods-ViewDemos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewDemos.debug.xcconfig"; path = "Target Support Files/Pods-ViewDemos/Pods-ViewDemos.debug.xcconfig"; sourceTree = "<group>"; };
@@ -214,14 +214,14 @@
 		9A2E0B9E25B8547A0043C942 /* UserInfoPopView */ = {
 			isa = PBXGroup;
 			children = (
-				9A9C7D7C25BAC344004780F7 /* UserInfoBasePopView.h */,
-				9A9C7D7D25BAC344004780F7 /* UserInfoBasePopView.m */,
-				9A1F7F2A25B96BE00038146E /* PopSearchView.h */,
-				9A1F7F2B25B96BE00038146E /* PopSearchView.m */,
-				9A476EF525B81C06004C9B3F /* UserInfoEditPopView.h */,
-				9A476EF625B81C06004C9B3F /* UserInfoEditPopView.m */,
-				9A5A43FE25BAA6E1002FCC08 /* UserInfoSelectPopView.h */,
-				9A5A43FF25BAA6E1002FCC08 /* UserInfoSelectPopView.m */,
+				9A9C7D7C25BAC344004780F7 /* SYUserInfoBasePopView.h */,
+				9A9C7D7D25BAC344004780F7 /* SYUserInfoBasePopView.m */,
+				9A1F7F2A25B96BE00038146E /* SYPopSearchView.h */,
+				9A1F7F2B25B96BE00038146E /* SYPopSearchView.m */,
+				9A476EF525B81C06004C9B3F /* SYUserInfoEditPopView.h */,
+				9A476EF625B81C06004C9B3F /* SYUserInfoEditPopView.m */,
+				9A5A43FE25BAA6E1002FCC08 /* SYUserInfoSelectPopView.h */,
+				9A5A43FF25BAA6E1002FCC08 /* SYUserInfoSelectPopView.m */,
 				9A9C7D9E25BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.h */,
 				9A9C7D9F25BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.m */,
 			);
@@ -297,8 +297,8 @@
 				9A476F3625B82C5D004C9B3F /* DFProfModels */,
 				9A476F2825B82BD8004C9B3F /* DFCityModel */,
 				9A2E0B9D25B854490043C942 /* LocalJSONDatas */,
-				9A476F1225B829C3004C9B3F /* LocalJSONManager.h */,
-				9A476F1325B829C3004C9B3F /* LocalJSONManager.m */,
+				9A476F1225B829C3004C9B3F /* SYLocalJSONManager.h */,
+				9A476F1325B829C3004C9B3F /* SYLocalJSONManager.m */,
 			);
 			path = Datas;
 			sourceTree = "<group>";
@@ -628,22 +628,22 @@
 				9A5A440925BAA867002FCC08 /* KXWgGameResultView.m in Sources */,
 				9A476EBF25B81A40004C9B3F /* AppDelegate.m in Sources */,
 				9A476ED025B81A56004C9B3F /* main.m in Sources */,
-				9A476EF725B81C06004C9B3F /* UserInfoEditPopView.m in Sources */,
+				9A476EF725B81C06004C9B3F /* SYUserInfoEditPopView.m in Sources */,
 				9A5A440825BAA867002FCC08 /* KXWgGameResultShareView.m in Sources */,
 				9A476F4825B82CFB004C9B3F /* DFUniversityBaseModel.m in Sources */,
 				9A476F3D25B82C5D004C9B3F /* DFProfModel.m in Sources */,
 				9A476F2E25B82BD8004C9B3F /* DFCityBaseModel.m in Sources */,
 				9A9C7DA025BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.m in Sources */,
 				9A5A43FA25BA7FBF002FCC08 /* UIView+EasyMethods.m in Sources */,
-				9A5A440025BAA6E1002FCC08 /* UserInfoSelectPopView.m in Sources */,
-				9A1F7F2C25B96BE00038146E /* PopSearchView.m in Sources */,
-				9A9C7D7E25BAC344004780F7 /* UserInfoBasePopView.m in Sources */,
+				9A5A440025BAA6E1002FCC08 /* SYUserInfoSelectPopView.m in Sources */,
+				9A1F7F2C25B96BE00038146E /* SYPopSearchView.m in Sources */,
+				9A9C7D7E25BAC344004780F7 /* SYUserInfoBasePopView.m in Sources */,
 				9A1F7F1625B966C70038146E /* SMMCategories.h in Sources */,
 				9A476F2F25B82BD8004C9B3F /* DFCityCityModel.m in Sources */,
 				9A476EC225B81A40004C9B3F /* SceneDelegate.m in Sources */,
 				9A5A442525BAAB1C002FCC08 /* KXHomeRecommendedView.m in Sources */,
 				9A476F2425B82A3D004C9B3F /* UIColor+EasyMethods.m in Sources */,
-				9A476F1425B829C3004C9B3F /* LocalJSONManager.m in Sources */,
+				9A476F1425B829C3004C9B3F /* SYLocalJSONManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

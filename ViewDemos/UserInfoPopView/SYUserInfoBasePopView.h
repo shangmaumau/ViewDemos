@@ -1,5 +1,5 @@
 //
-//  UserInfoBasePopView.h
+//  SYUserInfoBasePopView.h
 //  ViewDemos
 //
 //  Created by 尚雷勋 on 2021/1/22.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UserInfoBasePopView : UIView
+@interface SYUserInfoBasePopView : UIView
 
 @property (nonatomic, strong) UIView *backgroundView_c;
 @property (nonatomic, strong) UIView *animateView;

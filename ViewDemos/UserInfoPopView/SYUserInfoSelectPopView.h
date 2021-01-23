@@ -1,16 +1,16 @@
 //
-//  UserInfoSelectPopView.h
+//  SYUserInfoSelectPopView.h
 //  ViewDemos
 //
 //  Created by 尚雷勋 on 2021/1/22.
 //
 
 #import <UIKit/UIKit.h>
-#import "UserInfoBasePopView.h"
+#import "SYUserInfoBasePopView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UserInfoTofuModel : NSObject
+@interface SYUserInfoTofuModel : NSObject
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) NSUInteger identifier;
@@ -18,32 +18,32 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface UserInfoTofuCell : UICollectionViewCell
+@interface SYUserInfoTofuCell : UICollectionViewCell
 
-@property (nonatomic, strong) UserInfoTofuModel *model;
+@property (nonatomic, strong) SYUserInfoTofuModel *model;
 @property (nonatomic, strong) CAGradientLayer *genderGLLayer;
 @property (nonatomic, strong) UIButton *tofuButton;
 
 @property (nonatomic, copy) void (^selectedCallback)(BOOL isSelected);
 
-- (void)updateContentWithModel:(UserInfoTofuModel *)model;
+- (void)updateContentWithModel:(SYUserInfoTofuModel *)model;
 - (void)configSelectedCallback:(void (^)(BOOL isSelected))callback;
 - (void)changeSelectedButtonState:(BOOL)isSelected;
 
 @end
 
 
-@interface UserInfoTofuTagModel : NSObject
+@interface SYUserInfoTofuTagModel : NSObject
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) NSUInteger identifier;
-@property (nonatomic, copy) NSArray<UserInfoTofuModel *> *tofus;
+@property (nonatomic, copy) NSArray<SYUserInfoTofuModel *> *tofus;
 
 @end
 
-@interface UserInfoSelectPopView : UserInfoBasePopView
+@interface SYUserInfoSelectPopView : SYUserInfoBasePopView
 
-- (void)showOnView:(__kindof UIView *)view withModels:(NSArray<UserInfoTofuTagModel *> *)list;
+- (void)showOnView:(__kindof UIView *)view withModels:(NSArray<SYUserInfoTofuTagModel *> *)list;
 
 
 @end

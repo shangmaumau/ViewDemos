@@ -1,5 +1,5 @@
 //
-//  PopSearchView.h
+//  SYPopSearchView.h
 //  ViewDemos
 //
 //  Created by 尚雷勋 on 2021/1/21.
@@ -18,19 +18,19 @@ typedef NS_ENUM(NSUInteger, PopSearchFilterMode) {
 };
 
 
-@class PopSearchView;
+@class SYPopSearchView;
 
 @protocol PopSearchViewDelegate <NSObject>
 
 @optional
 
-- (void)searchView:(PopSearchView *)searchView didSelectRow:(NSInteger)row;
-- (void)searchView:(PopSearchView *)searchView willSelectRow:(NSInteger)row;
+- (void)searchView:(SYPopSearchView *)searchView didSelectRow:(NSInteger)row;
+- (void)searchView:(SYPopSearchView *)searchView willSelectRow:(NSInteger)row;
 
 @end
 
 /// 默认的搜索是大学，默认的模式是匹配开头。如需自定义，请使用下面的初始化方法。
-@interface PopSearchView : UIView
+@interface SYPopSearchView : UIView
 
 @property (nonatomic, nullable, weak) id<PopSearchViewDelegate> delegate;
 

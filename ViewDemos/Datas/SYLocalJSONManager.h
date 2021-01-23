@@ -1,5 +1,5 @@
 //
-//  LocalJSONManager.h
+//  SYLocalJSONManager.h
 //  ViewDemos
 //
 //  Created by 尚雷勋 on 2021/1/20.
@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class DFUniversityBaseModel, DFProfBaseModel, DFCityBaseModel;
 
-@interface LocalJSONManager : NSObject
+@interface SYLocalJSONManager : NSObject
 
 
 + (id)dataFromLocalJSONWithName:(NSString *)filename;

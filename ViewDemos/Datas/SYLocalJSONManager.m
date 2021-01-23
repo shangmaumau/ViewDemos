@@ -1,16 +1,16 @@
 //
-//  LocalJSONManager.m
+//  SYLocalJSONManager.m
 //  ViewDemos
 //
 //  Created by 尚雷勋 on 2021/1/20.
 //
 
-#import "LocalJSONManager.h"
+#import "SYLocalJSONManager.h"
 #import "DFCityDataModels.h"
 #import "DFProfDataModels.h"
 #import "DFUniversityDataModels.h"
 
-@implementation LocalJSONManager
+@implementation SYLocalJSONManager
 
 + (id)dataFromLocalJSONWithName:(NSString *)filename {
     // 获取文件路径

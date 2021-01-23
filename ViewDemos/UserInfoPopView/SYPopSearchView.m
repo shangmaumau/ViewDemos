@@ -1,14 +1,14 @@
 //
-//  PopSearchView.m
+//  SYPopSearchView.m
 //  ViewDemos
 //
 //  Created by 尚雷勋 on 2021/1/21.
 //
 
-#import "PopSearchView.h"
+#import "SYPopSearchView.h"
 #import "SMMCategories.h"
 
-#import "LocalJSONManager.h"
+#import "SYLocalJSONManager.h"
 
 static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
 
@@ -52,7 +52,7 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
 
 @end
 
-@interface PopSearchView ()<UITableViewDataSource, UITableViewDelegate> {
+@interface SYPopSearchView ()<UITableViewDataSource, UITableViewDelegate> {
     
     NSString *_searchText;
 }
@@ -66,7 +66,7 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
 
 @end
 
-@implementation PopSearchView
+@implementation SYPopSearchView
 
 // MARK: - 公开方法
 
@@ -108,7 +108,7 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
     if (self = [super initWithFrame:frame]) {
         [self _configBasicSubviews];
         _mode = PopSearchFilterModeBeginsWith;
-        _dataSource = [LocalJSONManager universities_name];
+        _dataSource = [SYLocalJSONManager universities_name];
     }
     return self;
 }

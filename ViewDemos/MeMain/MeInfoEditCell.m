@@ -33,7 +33,7 @@
     [self.contentView addSubview:self.separator];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@16);
+        make.left.mas_equalTo(16);
         make.centerY.equalTo(self.contentView.mas_centerY);
     }];
     
@@ -43,29 +43,30 @@
     }];
     
     [self.arrowImageV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(@-15);
+        make.right.mas_equalTo(-15);
         make.centerY.equalTo(self.contentView.mas_centerY);
-        make.width.equalTo(@5);
-        make.height.equalTo(@10);
+        make.width.mas_equalTo(5);
+        make.height.mas_equalTo(10);
     }];
     
     [self.valueLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.subTitleLabel.mas_right);
         make.right.equalTo(self.arrowImageV.mas_left).offset(-13);
+        make.left.equalTo(self.subTitleLabel.mas_right).offset(15);
         make.centerY.equalTo(self.contentView.mas_centerY);
     }];
  
     [self.separator mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@16);
-        make.right.equalTo(@-14);
-        make.height.equalTo(@0.5);
+        make.left.mas_equalTo(16);
+        make.right.mas_equalTo(14);
+        make.height.mas_equalTo(0.5);
         make.bottom.equalTo(self.contentView.mas_bottom);
     }];
     
     [self.headImageV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.arrowImageV.mas_left).offset(-13);
         make.centerY.equalTo(self.contentView.mas_centerY);
-        make.width.height.equalTo(@65);
+        make.width.height.mas_equalTo(65);
     }];
     
 }
@@ -77,6 +78,11 @@
         _titleLabel = [UILabel new];
         _titleLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightMedium];
         _titleLabel.textColor = [UIColor colorWithHexString:@"#200D56"];
+        // 抗拉伸
+        [_titleLabel setContentHuggingPriority:UILayoutPriorityRequired
+                                          forAxis:UILayoutConstraintAxisHorizontal];
+        // 抗压缩
+        [_titleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
     }
     return _titleLabel;
 }
@@ -85,6 +91,7 @@
     
     if (!_subTitleLabel) {
         _subTitleLabel = [UILabel new];
+        _subTitleLabel.textAlignment = NSTextAlignmentLeft;
         _subTitleLabel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
         _subTitleLabel.textColor = [UIColor colorWithHexString:@"#B0A9C2"];
     }
@@ -96,7 +103,8 @@
     if (!_valueLabel) {
         _valueLabel = [UILabel new];
         _valueLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightRegular];
-        _valueLabel.textColor =  [UIColor colorWithHexString:@"#B0A9C2"];;
+        _valueLabel.textColor =  [UIColor colorWithHexString:@"#B0A9C2"];
+        _valueLabel.textAlignment = NSTextAlignmentRight;
     }
     return _valueLabel;
 }

@@ -50,7 +50,6 @@
     }];
     
     [self.valueLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.subTitleLabel.mas_right);
         make.right.equalTo(self.arrowImageV.mas_left).offset(-13);
         make.left.equalTo(self.subTitleLabel.mas_right).offset(15);
         make.centerY.equalTo(self.contentView.mas_centerY);

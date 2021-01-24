@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *)colorWith255R:(CGFloat)r g:(CGFloat)g b:(CGFloat)b;
 
 + (UIColor *)doubleFishThemeColor;
-
 + (UIColor *)doubleFishTintColor;
++ (UIColor *)doubleFishTextGrayColor;
 
 + (UIColor *)colorWithHexString:(NSString *)hexString;
 

@@ -6,7 +6,7 @@
 //
 
 #import "SYUserInfoBasePopView.h"
-#import "SMMCategories.h"
+#import "SMMUILayoutCategories.h"
 
 @implementation SYUserInfoBasePopView
 

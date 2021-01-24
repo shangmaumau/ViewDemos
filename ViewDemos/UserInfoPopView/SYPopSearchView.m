@@ -6,7 +6,7 @@
 //
 
 #import "SYPopSearchView.h"
-#import "SMMCategories.h"
+#import "SMMUILayoutCategories.h"
 
 static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
 
@@ -35,15 +35,38 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
         return;
     }
     
-    NSRange hiRange = [title localizedStandardRangeOfString:hilight];
-    
     NSMutableAttributedString *mAttribute = [[NSMutableAttributedString alloc] initWithString:title];
-    [mAttribute addAttribute:NSForegroundColorAttributeName
-                       value:[UIColor doubleFishTintColor]
-                       range:hiRange];
-    [mAttribute addAttribute:NSForegroundColorAttributeName
-                       value:[UIColor doubleFishThemeColor]
-                       range:NSMakeRange(NSMaxRange(hiRange), title.length - hiRange.length)];
+    
+    NSRange hiRange = [title localizedStandardRangeOfString:hilight];
+    if (NSMaxRange(hiRange) != NSNotFound) {
+        [mAttribute addAttribute:NSForegroundColorAttributeName
+                           value:[UIColor doubleFishTintColor]
+                           range:hiRange];
+    }
+
+//    if (hiRange.location == 0) {
+//
+//        [mAttribute addAttribute:NSForegroundColorAttributeName
+//                           value:[UIColor doubleFishTintColor]
+//                           range:hiRange];
+//        [mAttribute addAttribute:NSForegroundColorAttributeName
+//                           value:[UIColor doubleFishThemeColor]
+//                           range:NSMakeRange(NSMaxRange(hiRange), title.length - hiRange.length)];
+//    } else {
+//
+//        NSRange rangeBefore = NSMakeRange(0, hiRange.location);
+//        NSRange rangeAfter = NSMakeRange(NSMaxRange(hiRange), title.length - NSMaxRange(hiRange));
+//
+//        [mAttribute addAttribute:NSForegroundColorAttributeName
+//                           value:[UIColor doubleFishThemeColor]
+//                           range:rangeBefore];
+//        [mAttribute addAttribute:NSForegroundColorAttributeName
+//                           value:[UIColor doubleFishTintColor]
+//                           range:hiRange];
+//        [mAttribute addAttribute:NSForegroundColorAttributeName
+//                           value:[UIColor doubleFishThemeColor]
+//                           range:rangeAfter];
+//    }
     
     self.textLabel.attributedText = [mAttribute copy];
 }
@@ -54,8 +77,6 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
     
     NSString *_searchText;
 }
-
-@property (nonatomic, assign) PopSearchFilterMode mode;
 
 @property (nonatomic, strong) UITextField *searchField;
 @property (nonatomic, strong) UITableView *tableView;
@@ -192,6 +213,7 @@ static NSString *searchResultCellIdentifier = @"searchResultCellIdentifier";
                 
                 case PopSearchFilterModeContains:
                     predicate = [NSPredicate predicateWithFormat:@"SELF contains[cd] %@", searchText];
+                    break;
                     
                 default: // 默认匹配开头
                     predicate = [NSPredicate predicateWithFormat:@"SELF beginsWith[cd] %@", searchText];

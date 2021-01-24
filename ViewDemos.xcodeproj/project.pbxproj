@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5BC6BCF63213B42A7AAD749C /* Pods_ViewDemos_ViewDemosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FAA7BE19321A0F9C114891 /* Pods_ViewDemos_ViewDemosUITests.framework */; };
-		9A1F7F1125B9668C0038146E /* CGExtensions.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F7F1025B9668C0038146E /* CGExtensions.h */; };
-		9A1F7F1625B966C70038146E /* SMMCategories.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F7F1525B966C70038146E /* SMMCategories.h */; };
 		9A1F7F2C25B96BE00038146E /* SYPopSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1F7F2B25B96BE00038146E /* SYPopSearchView.m */; };
 		9A476EBF25B81A40004C9B3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EBE25B81A40004C9B3F /* AppDelegate.m */; };
 		9A476EC225B81A40004C9B3F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EC125B81A40004C9B3F /* SceneDelegate.m */; };
@@ -33,7 +31,7 @@
 		9A476F3D25B82C5D004C9B3F /* DFProfModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F3B25B82C5D004C9B3F /* DFProfModel.m */; };
 		9A476F4825B82CFB004C9B3F /* DFUniversityBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F4625B82CFB004C9B3F /* DFUniversityBaseModel.m */; };
 		9A5A43FA25BA7FBF002FCC08 /* UIView+EasyMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A43F925BA7FBF002FCC08 /* UIView+EasyMethods.m */; };
-		9A5A440025BAA6E1002FCC08 /* SYUserInfoSelectPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A43FF25BAA6E1002FCC08 /* SYUserInfoSelectPopView.m */; };
+		9A5A440025BAA6E1002FCC08 /* SYMeTagsSelectPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A43FF25BAA6E1002FCC08 /* SYMeTagsSelectPopView.m */; };
 		9A5A440825BAA867002FCC08 /* KXWgGameResultShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A440525BAA867002FCC08 /* KXWgGameResultShareView.m */; };
 		9A5A440925BAA867002FCC08 /* KXWgGameResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A440725BAA867002FCC08 /* KXWgGameResultView.m */; };
 		9A5A441525BAA8F8002FCC08 /* NSArray+EasyMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A441125BAA8F8002FCC08 /* NSArray+EasyMethods.m */; };
@@ -41,10 +39,12 @@
 		9A5A442525BAAB1C002FCC08 /* KXHomeRecommendedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A442425BAAB1C002FCC08 /* KXHomeRecommendedView.m */; };
 		9A5A442B25BAAB3D002FCC08 /* KXHomeNewComerGiftsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A442925BAAB3C002FCC08 /* KXHomeNewComerGiftsView.m */; };
 		9A9C7D7E25BAC344004780F7 /* SYUserInfoBasePopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C7D7D25BAC344004780F7 /* SYUserInfoBasePopView.m */; };
-		9A9C7DA025BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C7D9F25BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.m */; };
+		9A9C7DA025BB0703004780F7 /* SYMeTagsEditViewCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C7D9F25BB0703004780F7 /* SYMeTagsEditViewCtrl.m */; };
 		C037B4E325BBF1CE00419C68 /* MeInfoEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C037B4E225BBF1CE00419C68 /* MeInfoEditCell.m */; };
 		C037B4E925BBF28700419C68 /* MeInfoEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = C037B4E825BBF28700419C68 /* MeInfoEditController.m */; };
 		C037B4EF25BBFC8800419C68 /* MeUserEditModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C037B4EE25BBFC8800419C68 /* MeUserEditModel.m */; };
+		E2318EBE25BD4898004F8F19 /* SYMeTagsEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2318EBD25BD4898004F8F19 /* SYMeTagsEditCell.m */; };
+		E2318EC725BD4ABB004F8F19 /* SYMeTagsEditHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2318EC625BD4ABB004F8F19 /* SYMeTagsEditHeaderView.m */; };
 		EBA479D32589C0A308207FBA /* Pods_ViewDemosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632D2DE19D4C92306C1CFFDC /* Pods_ViewDemosTests.framework */; };
 		F55E6C845D8A368BED12682D /* Pods_ViewDemos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99931EF36E785AC8AA89ABA8 /* Pods_ViewDemos.framework */; };
 /* End PBXBuildFile section */
@@ -74,8 +74,6 @@
 		8E83C6A687CAE9DB7BDBD204 /* Pods-ViewDemos-ViewDemosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewDemos-ViewDemosUITests.release.xcconfig"; path = "Target Support Files/Pods-ViewDemos-ViewDemosUITests/Pods-ViewDemos-ViewDemosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9685AD8916F7D416B6D784A2 /* Pods-ViewDemos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewDemos.release.xcconfig"; path = "Target Support Files/Pods-ViewDemos/Pods-ViewDemos.release.xcconfig"; sourceTree = "<group>"; };
 		99931EF36E785AC8AA89ABA8 /* Pods_ViewDemos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ViewDemos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A1F7F1025B9668C0038146E /* CGExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGExtensions.h; sourceTree = "<group>"; };
-		9A1F7F1525B966C70038146E /* SMMCategories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMMCategories.h; sourceTree = "<group>"; };
 		9A1F7F2A25B96BE00038146E /* SYPopSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYPopSearchView.h; sourceTree = "<group>"; };
 		9A1F7F2B25B96BE00038146E /* SYPopSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYPopSearchView.m; sourceTree = "<group>"; };
 		9A476EBA25B81A40004C9B3F /* ViewDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,8 +120,8 @@
 		9A476F4725B82CFB004C9B3F /* DFUniversityBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFUniversityBaseModel.h; sourceTree = "<group>"; };
 		9A5A43F825BA7FBF002FCC08 /* UIView+EasyMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+EasyMethods.h"; sourceTree = "<group>"; };
 		9A5A43F925BA7FBF002FCC08 /* UIView+EasyMethods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+EasyMethods.m"; sourceTree = "<group>"; };
-		9A5A43FE25BAA6E1002FCC08 /* SYUserInfoSelectPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYUserInfoSelectPopView.h; sourceTree = "<group>"; };
-		9A5A43FF25BAA6E1002FCC08 /* SYUserInfoSelectPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYUserInfoSelectPopView.m; sourceTree = "<group>"; };
+		9A5A43FE25BAA6E1002FCC08 /* SYMeTagsSelectPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYMeTagsSelectPopView.h; sourceTree = "<group>"; };
+		9A5A43FF25BAA6E1002FCC08 /* SYMeTagsSelectPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYMeTagsSelectPopView.m; sourceTree = "<group>"; };
 		9A5A440425BAA867002FCC08 /* KXWgGameResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXWgGameResultView.h; sourceTree = "<group>"; };
 		9A5A440525BAA867002FCC08 /* KXWgGameResultShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXWgGameResultShareView.m; sourceTree = "<group>"; };
 		9A5A440625BAA867002FCC08 /* KXWgGameResultShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXWgGameResultShareView.h; sourceTree = "<group>"; };
@@ -138,8 +136,8 @@
 		9A5A442A25BAAB3D002FCC08 /* KXHomeNewComerGiftsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXHomeNewComerGiftsView.h; sourceTree = "<group>"; };
 		9A9C7D7C25BAC344004780F7 /* SYUserInfoBasePopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYUserInfoBasePopView.h; sourceTree = "<group>"; };
 		9A9C7D7D25BAC344004780F7 /* SYUserInfoBasePopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYUserInfoBasePopView.m; sourceTree = "<group>"; };
-		9A9C7D9E25BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoPersonalTagsViewCtrl.h; sourceTree = "<group>"; };
-		9A9C7D9F25BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoPersonalTagsViewCtrl.m; sourceTree = "<group>"; };
+		9A9C7D9E25BB0703004780F7 /* SYMeTagsEditViewCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYMeTagsEditViewCtrl.h; sourceTree = "<group>"; };
+		9A9C7D9F25BB0703004780F7 /* SYMeTagsEditViewCtrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYMeTagsEditViewCtrl.m; sourceTree = "<group>"; };
 		A93DE68ED4848BEEA6927952 /* Pods-ViewDemos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewDemos.debug.xcconfig"; path = "Target Support Files/Pods-ViewDemos/Pods-ViewDemos.debug.xcconfig"; sourceTree = "<group>"; };
 		C037B4E125BBF1CE00419C68 /* MeInfoEditCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeInfoEditCell.h; sourceTree = "<group>"; };
 		C037B4E225BBF1CE00419C68 /* MeInfoEditCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeInfoEditCell.m; sourceTree = "<group>"; };
@@ -148,6 +146,13 @@
 		C037B4ED25BBFC8800419C68 /* MeUserEditModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeUserEditModel.h; sourceTree = "<group>"; };
 		C037B4EE25BBFC8800419C68 /* MeUserEditModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeUserEditModel.m; sourceTree = "<group>"; };
 		D2C87AA8A387A3FD315A91A2 /* Pods-ViewDemosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewDemosTests.release.xcconfig"; path = "Target Support Files/Pods-ViewDemosTests/Pods-ViewDemosTests.release.xcconfig"; sourceTree = "<group>"; };
+		E2318EBC25BD4898004F8F19 /* SYMeTagsEditCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYMeTagsEditCell.h; sourceTree = "<group>"; };
+		E2318EBD25BD4898004F8F19 /* SYMeTagsEditCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYMeTagsEditCell.m; sourceTree = "<group>"; };
+		E2318EC525BD4ABB004F8F19 /* SYMeTagsEditHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYMeTagsEditHeaderView.h; sourceTree = "<group>"; };
+		E2318EC625BD4ABB004F8F19 /* SYMeTagsEditHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYMeTagsEditHeaderView.m; sourceTree = "<group>"; };
+		E2318ECB25BD51C8004F8F19 /* SMMUILayoutCategories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMMUILayoutCategories.h; sourceTree = "<group>"; };
+		E2318ECF25BD5291004F8F19 /* SMMCGExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMMCGExtensions.h; sourceTree = "<group>"; };
+		E2318ED625BD52B5004F8F19 /* SMMCategories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMMCategories.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,8 +199,9 @@
 		9A2E0B9325B8541C0043C942 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				9A1F7F1525B966C70038146E /* SMMCategories.h */,
-				9A1F7F1025B9668C0038146E /* CGExtensions.h */,
+				E2318ED625BD52B5004F8F19 /* SMMCategories.h */,
+				E2318ECB25BD51C8004F8F19 /* SMMUILayoutCategories.h */,
+				E2318ECF25BD5291004F8F19 /* SMMCGExtensions.h */,
 				9A5A441325BAA8F8002FCC08 /* NSArray+EasyMethods.h */,
 				9A5A441125BAA8F8002FCC08 /* NSArray+EasyMethods.m */,
 				9A5A441225BAA8F8002FCC08 /* UIView+ViewSnap.h */,
@@ -229,10 +235,14 @@
 				9A1F7F2B25B96BE00038146E /* SYPopSearchView.m */,
 				9A476EF525B81C06004C9B3F /* SYUserInfoEditPopView.h */,
 				9A476EF625B81C06004C9B3F /* SYUserInfoEditPopView.m */,
-				9A5A43FE25BAA6E1002FCC08 /* SYUserInfoSelectPopView.h */,
-				9A5A43FF25BAA6E1002FCC08 /* SYUserInfoSelectPopView.m */,
-				9A9C7D9E25BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.h */,
-				9A9C7D9F25BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.m */,
+				9A5A43FE25BAA6E1002FCC08 /* SYMeTagsSelectPopView.h */,
+				9A5A43FF25BAA6E1002FCC08 /* SYMeTagsSelectPopView.m */,
+				9A9C7D9E25BB0703004780F7 /* SYMeTagsEditViewCtrl.h */,
+				9A9C7D9F25BB0703004780F7 /* SYMeTagsEditViewCtrl.m */,
+				E2318EBC25BD4898004F8F19 /* SYMeTagsEditCell.h */,
+				E2318EBD25BD4898004F8F19 /* SYMeTagsEditCell.m */,
+				E2318EC525BD4ABB004F8F19 /* SYMeTagsEditHeaderView.h */,
+				E2318EC625BD4ABB004F8F19 /* SYMeTagsEditHeaderView.m */,
 			);
 			path = UserInfoPopView;
 			sourceTree = "<group>";
@@ -646,7 +656,6 @@
 				9A476F1E25B829F3004C9B3F /* UIScreen+EasyMethods.m in Sources */,
 				9A5A441525BAA8F8002FCC08 /* NSArray+EasyMethods.m in Sources */,
 				9A476EC525B81A40004C9B3F /* ViewController.m in Sources */,
-				9A1F7F1125B9668C0038146E /* CGExtensions.h in Sources */,
 				9A5A441625BAA8F8002FCC08 /* UIView+ViewSnap.m in Sources */,
 				9A5A440925BAA867002FCC08 /* KXWgGameResultView.m in Sources */,
 				9A476EBF25B81A40004C9B3F /* AppDelegate.m in Sources */,
@@ -656,15 +665,16 @@
 				9A476F4825B82CFB004C9B3F /* DFUniversityBaseModel.m in Sources */,
 				9A476F3D25B82C5D004C9B3F /* DFProfModel.m in Sources */,
 				9A476F2E25B82BD8004C9B3F /* DFCityBaseModel.m in Sources */,
-				9A9C7DA025BB0703004780F7 /* UserInfoPersonalTagsViewCtrl.m in Sources */,
+				9A9C7DA025BB0703004780F7 /* SYMeTagsEditViewCtrl.m in Sources */,
 				C037B4E325BBF1CE00419C68 /* MeInfoEditCell.m in Sources */,
 				9A5A43FA25BA7FBF002FCC08 /* UIView+EasyMethods.m in Sources */,
-				9A5A440025BAA6E1002FCC08 /* SYUserInfoSelectPopView.m in Sources */,
+				9A5A440025BAA6E1002FCC08 /* SYMeTagsSelectPopView.m in Sources */,
 				9A1F7F2C25B96BE00038146E /* SYPopSearchView.m in Sources */,
 				9A9C7D7E25BAC344004780F7 /* SYUserInfoBasePopView.m in Sources */,
-				9A1F7F1625B966C70038146E /* SMMCategories.h in Sources */,
+				E2318EC725BD4ABB004F8F19 /* SYMeTagsEditHeaderView.m in Sources */,
 				9A476F2F25B82BD8004C9B3F /* DFCityCityModel.m in Sources */,
 				9A476EC225B81A40004C9B3F /* SceneDelegate.m in Sources */,
+				E2318EBE25BD4898004F8F19 /* SYMeTagsEditCell.m in Sources */,
 				9A5A442525BAAB1C002FCC08 /* KXHomeRecommendedView.m in Sources */,
 				C037B4E925BBF28700419C68 /* MeInfoEditController.m in Sources */,
 				C037B4EF25BBFC8800419C68 /* MeUserEditModel.m in Sources */,

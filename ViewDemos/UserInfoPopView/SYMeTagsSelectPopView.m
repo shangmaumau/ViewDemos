@@ -1,18 +1,17 @@
 //
-//  SYUserInfoSelectPopView.m
+//  SYMeTagsSelectPopView.m
 //  ViewDemos
 //
 //  Created by 尚雷勋 on 2021/1/22.
 //
 
-#import "SYUserInfoSelectPopView.h"
-#import "SMMCategories.h"
+#import "SYMeTagsSelectPopView.h"
+#import "SMMUILayoutCategories.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 
-static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
+static NSString *tofuCellIdentifier = @"tofuCellIdentifier";
 
-
-@implementation SYUserInfoTofuModel
+@implementation SYMeTagsTofuModel
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -25,11 +24,11 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
 
 @end
 
-@implementation SYUserInfoTofuTagModel
+@implementation SYMeTagsModel
 
 @end
 
-@implementation SYUserInfoTofuCell
+@implementation SYMeTagsTofuCell
 
 // MARK: - 公开方法
 
@@ -40,7 +39,7 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
     return self;
 }
 
-- (void)updateContentWithModel:(SYUserInfoTofuModel *)model {
+- (void)updateContentWithModel:(SYMeTagsTofuModel *)model {
     _model = model;
     [_tofuButton setTitle:model.name forState:UIControlStateNormal];
     [self changeSelectedButtonState:model.isSelected];
@@ -136,7 +135,7 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
 
 @end
 
-@interface SYUserInfoSelectPopView ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout> {
+@interface SYMeTagsSelectPopView ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout> {
     
     NSUInteger _tagIndex;
 }
@@ -146,12 +145,12 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UIButton *nextButton;
 
-@property (nonatomic, strong) NSArray<SYUserInfoTofuTagModel *> *tofuTagModels;
-@property (nonatomic, strong) NSArray<SYUserInfoTofuModel *> *tofuModels;
+@property (nonatomic, strong) NSArray<SYMeTagsModel *> *tofuTagModels;
+@property (nonatomic, strong) NSArray<SYMeTagsTofuModel *> *tofuModels;
 
 @end
 
-@implementation SYUserInfoSelectPopView
+@implementation SYMeTagsSelectPopView
 
 // MARK: - 公开方法
 
@@ -166,7 +165,7 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
     return self;
 }
 
-- (void)showOnView:(__kindof UIView *)view withModels:(NSArray<SYUserInfoTofuTagModel *> *)list {
+- (void)showOnView:(__kindof UIView *)view withModels:(NSArray<SYMeTagsModel *> *)list {
     _tofuTagModels = list;
     _tagIndex = 0;
     
@@ -174,7 +173,7 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
     [self updateBottomButtonTitle:NSLocalizedString(@"下一步", @"")];
 }
 
-- (void)updateWithModels:(NSArray<SYUserInfoTofuModel *> *)list {
+- (void)updateWithModels:(NSArray<SYMeTagsTofuModel *> *)list {
     _tofuModels = list;
     [_collectionView reloadData];
 }
@@ -197,7 +196,7 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
     _subtitleText.text = NSLocalizedString(@"我是小标题", @"");
     
     _nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_nextButton setBackgroundImage:[UIImage imageNamed:@"df_userinfo_next_btn"] forState:UIControlStateNormal];
+    [_nextButton setBackgroundImage:[UIImage imageNamed:@"sy_userinfo_next_btn"] forState:UIControlStateNormal];
     _nextButton.titleLabel.font = [UIFont systemFontOfSize:16.0 weight:UIFontWeightMedium];
     [_nextButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
@@ -252,7 +251,7 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
     _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     _collectionView.backgroundColor = [UIColor clearColor];
     _collectionView.showsVerticalScrollIndicator = NO;
-    [_collectionView registerClass:[SYUserInfoTofuCell class] forCellWithReuseIdentifier:tofuCellIdentifier];
+    [_collectionView registerClass:[SYMeTagsTofuCell class] forCellWithReuseIdentifier:tofuCellIdentifier];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     _collectionView.contentInset = UIEdgeInsetsMake(0, 30.0*kWidthScale, kUIPadding, 30.0*kWidthScale);
@@ -266,8 +265,8 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    SYUserInfoTofuCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:tofuCellIdentifier forIndexPath:indexPath];
-    SYUserInfoTofuModel *model = _tofuModels[indexPath.row];
+    SYMeTagsTofuCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:tofuCellIdentifier forIndexPath:indexPath];
+    SYMeTagsTofuModel *model = _tofuModels[indexPath.row];
     [cell updateContentWithModel:model];
     
     __weak typeof(self) weakSelf = self;
@@ -304,7 +303,7 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
         return;
     }
     
-    SYUserInfoTofuCell *cell = (SYUserInfoTofuCell *)[_collectionView cellForItemAtIndexPath:indexPath];
+    SYMeTagsTofuCell *cell = (SYMeTagsTofuCell *)[_collectionView cellForItemAtIndexPath:indexPath];
     
     if (isSelected && [self _selectedItemIds].count == 5) {
         
@@ -317,7 +316,7 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
         return;
     }
     
-    SYUserInfoTofuModel *obj = _tofuModels[indexPath.row];
+    SYMeTagsTofuModel *obj = _tofuModels[indexPath.row];
     if (isSelected != obj.isSelected) {
         obj.isSelected = isSelected;
         if (cell) {
@@ -329,7 +328,7 @@ static NSString * tofuCellIdentifier = @"tofuCellIdentifier";
 - (NSArray<NSNumber *> *)_selectedItemIds {
     NSMutableArray<NSNumber *> *ids = [NSMutableArray array];
     
-    for (SYUserInfoTofuModel *_model in _tofuModels) {
+    for (SYMeTagsTofuModel *_model in _tofuModels) {
         if (_model.isSelected) {
             [ids addObject:[NSNumber numberWithUnsignedInteger:_model.identifier]];
         }

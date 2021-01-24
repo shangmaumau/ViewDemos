@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "df_userinfo_next_btn.png",
+      "filename" : "sy_metags_mystyle_icon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "df_userinfo_next_btn@2x.png",
+      "filename" : "sy_metags_mystyle_icon@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "df_userinfo_next_btn@3x.png",
+      "filename" : "sy_metags_mystyle_icon@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

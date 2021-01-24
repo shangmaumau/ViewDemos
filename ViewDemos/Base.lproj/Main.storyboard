@@ -43,6 +43,15 @@
                                     <action selector="infoEdit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XGU-E8-b9z"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dHB-oT-zMb">
+                                <rect key="frame" x="20" y="299" width="157" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="showMeTagsCtrl"/>
+                                <connections>
+                                    <action selector="showViewCtrl:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ygX-6K-Rzd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

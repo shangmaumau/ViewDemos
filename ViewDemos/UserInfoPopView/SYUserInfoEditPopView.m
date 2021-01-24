@@ -7,7 +7,9 @@
 
 #import "SYUserInfoEditPopView.h"
 #import "SYPopSearchView.h"
-#import "SMMCategories.h"
+
+#import "SMMUILayoutCategories.h"
+
 #import "SYLocalJSONManager.h"
 #import "DFCityDataModels.h"
 #import "DFProfDataModels.h"
@@ -61,7 +63,7 @@
     _ageButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     [_ageButton setTitleColor:[UIColor colorWith255R:99 g:85 b:136] forState:UIControlStateNormal];
     _ageButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 8.0);
-    [_ageButton setImage:[UIImage imageNamed:@"df_userinfo_birthday_icon"] forState:UIControlStateNormal];
+    [_ageButton setImage:[UIImage imageNamed:@"sy_userinfo_birthday_icon"] forState:UIControlStateNormal];
     
     _cslaButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _cslaButton.userInteractionEnabled = NO;
@@ -69,7 +71,7 @@
     _cslaButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     [_cslaButton setTitleColor:[UIColor colorWith255R:99 g:85 b:136] forState:UIControlStateNormal];
     _cslaButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 8.0);
-    [_cslaButton setImage:[UIImage imageNamed:@"df_userinfo_cons_icon"] forState:UIControlStateNormal];
+    [_cslaButton setImage:[UIImage imageNamed:@"sy_userinfo_cons_icon"] forState:UIControlStateNormal];
     
     [self addSubview:_ageButton];
     [self addSubview:_cslaButton];
@@ -488,6 +490,7 @@
         {
             _searchView = _contentView;
             _searchView.delegate = self;
+            
             if (_model.dataSource.count > 0) {
                 [_searchView configDataSource:_model.dataSource];
             }

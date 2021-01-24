@@ -2,12 +2,13 @@
 //  SMMCategories.h
 //  ViewDemos
 //
-//  Created by 尚雷勋 on 2021/1/21.
+//  Created by 尚雷勋 on 2021/1/24.
 //
 
-#import "CGExtensions.h"
-#import <Masonry/Masonry.h>
+#ifndef SMMCategories_h
+#define SMMCategories_h
+
+#import "SMMUILayoutCategories.h"
 #import "NSArray+EasyMethods.h"
-#import "UIScreen+EasyMethods.h"
-#import "UIColor+EasyMethods.h"
-#import "UIView+EasyMethods.h"
+
+#endif /* SMMCategories_h */

@@ -1,5 +1,5 @@
 //
-//  SYUserInfoSelectPopView.h
+//  SYMeTagsSelectPopView.h
 //  ViewDemos
 //
 //  Created by 尚雷勋 on 2021/1/22.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SYUserInfoTofuModel : NSObject
+@interface SYMeTagsTofuModel : NSObject
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) NSUInteger identifier;
@@ -18,32 +18,32 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface SYUserInfoTofuCell : UICollectionViewCell
+@interface SYMeTagsTofuCell : UICollectionViewCell
 
-@property (nonatomic, strong) SYUserInfoTofuModel *model;
+@property (nonatomic, strong) SYMeTagsTofuModel *model;
 @property (nonatomic, strong) CAGradientLayer *genderGLLayer;
 @property (nonatomic, strong) UIButton *tofuButton;
 
 @property (nonatomic, copy) void (^selectedCallback)(BOOL isSelected);
 
-- (void)updateContentWithModel:(SYUserInfoTofuModel *)model;
+- (void)updateContentWithModel:(SYMeTagsTofuModel *)model;
 - (void)configSelectedCallback:(void (^)(BOOL isSelected))callback;
 - (void)changeSelectedButtonState:(BOOL)isSelected;
 
 @end
 
 
-@interface SYUserInfoTofuTagModel : NSObject
+@interface SYMeTagsModel : NSObject
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) NSUInteger identifier;
-@property (nonatomic, copy) NSArray<SYUserInfoTofuModel *> *tofus;
+@property (nonatomic, copy) NSArray<SYMeTagsTofuModel *> *tofus;
 
 @end
 
-@interface SYUserInfoSelectPopView : SYUserInfoBasePopView
+@interface SYMeTagsSelectPopView : SYUserInfoBasePopView
 
-- (void)showOnView:(__kindof UIView *)view withModels:(NSArray<SYUserInfoTofuTagModel *> *)list;
+- (void)showOnView:(__kindof UIView *)view withModels:(NSArray<SYMeTagsModel *> *)list;
 
 
 @end

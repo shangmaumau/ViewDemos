@@ -1,11 +1,13 @@
 //
-//  CGExtensions.h
+//  SMMCGExtensions.h
 //  ViewDemos
 //
-//  Created by 尚雷勋 on 2021/1/21.
+//  Created by 尚雷勋 on 2021/1/24.
 //
 
-#import <Foundation/Foundation.h>
+#ifndef SMMCGExtensions_h
+#define SMMCGExtensions_h
+
 #import <CoreGraphics/CGGeometry.h>
 
 CG_INLINE CGRect CGRectNewY(CGFloat y, CGRect rect);
@@ -26,3 +28,5 @@ CGRect CGRectAddY(CGFloat deltaY, CGRect rect) {
     rect.origin = point;
     return rect;
 }
+
+#endif /* SMMCGExtensions_h */

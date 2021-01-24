@@ -33,6 +33,7 @@ typedef NS_ENUM(NSUInteger, PopSearchFilterMode) {
 @interface SYPopSearchView : UIView
 
 @property (nonatomic, nullable, weak) id<PopSearchViewDelegate> delegate;
+@property (nonatomic, assign) PopSearchFilterMode mode;
 
 /// @Note 注意这里的 dataSource 中的元素，要么直接是字符串，要么是可以通过 `title` `name` 键
 /// 获取到值的模型。

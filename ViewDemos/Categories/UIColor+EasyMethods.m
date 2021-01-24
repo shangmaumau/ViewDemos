@@ -25,6 +25,10 @@
     return [UIColor colorWith255R:255.0 g:120.0 b:253.0];
 }
 
++ (UIColor *)doubleFishTextGrayColor {
+    return [UIColor colorWith255R:176.0 g:169.0 b:194.0];
+}
+
 CGFloat jk_colorComponentFrom(NSString *string, NSUInteger start, NSUInteger length) {
     NSString *substring = [string substringWithRange:NSMakeRange(start, length)];
     NSString *fullHex = length == 2 ? substring : [NSString stringWithFormat: @"%@%@", substring, substring];

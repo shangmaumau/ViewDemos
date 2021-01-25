@@ -18,15 +18,11 @@ typedef NS_ENUM(NSUInteger, EditCellType) {
     EditCellTypeNormal
 };
 
-
 @property (nonatomic, strong) UILabel *titleLabel;
-
 @property (nonatomic, strong) UILabel *subTitleLabel;
-
 @property (nonatomic, strong) UILabel *valueLabel;
 
 @property (nonatomic, strong) UIImageView *arrowImageV;
-
 @property (nonatomic, strong) UIImageView *headImageV;
 
 @property (nonatomic, strong) UIView *separator;

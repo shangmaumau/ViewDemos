@@ -8,16 +8,14 @@
 #import "MeInfoEditController.h"
 #import "MeInfoEditCell.h"
 #import "MeUserEditModel.h"
-
 #import <Masonry/Masonry.h>
-#import <MJExtension/MJExtension.h>
 
 @interface MeInfoEditController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray<MeUserEditModel *> *dataArr;
 
-@property (nonatomic, strong) SYUserInfoEditPopView *popEditView;
+@property (nonatomic, strong) SYMeInfoEditPopView *popEditView;
 
 @end
 
@@ -39,7 +37,7 @@
         make.edges.equalTo(self.view);
     }];
     
-    _popEditView = [[SYUserInfoEditPopView alloc] initWithFrame:self.view.bounds];
+    _popEditView = [[SYMeInfoEditPopView alloc] initWithFrame:self.view.bounds];
 }
 
 - (void)configData {
@@ -96,7 +94,7 @@
     
     MeUserEditModel *meModel = self.dataArr[indexPath.row];
     
-    SYUserInfoEditPopModel *popmodel = [SYUserInfoEditPopModel new];
+    SYMeInfoEditPopModel *popmodel = [SYMeInfoEditPopModel new];
     
     popmodel.contentType = meModel.popctype;
     popmodel.titleMode = meModel.poptitlem;
@@ -106,7 +104,7 @@
     [self showPopEditViewWithData:popmodel index:indexPath];
 }
 
-- (void)showPopEditViewWithData:(SYUserInfoEditPopModel *)model index:(NSIndexPath *)indexPath {
+- (void)showPopEditViewWithData:(SYMeInfoEditPopModel *)model index:(NSIndexPath *)indexPath {
     
     __weak typeof(self) weakSelf = self;
     [_popEditView showOnView:self.view withData:model];
@@ -131,7 +129,6 @@
             }
         }
     }];
-    
     
 }
 

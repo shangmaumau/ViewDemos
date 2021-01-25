@@ -7,7 +7,7 @@
 
 #import "ViewController.h"
 
-#import "SYUserInfoEditPopView.h"
+#import "SYMeInfoEditPopView.h"
 #import "SYMeTagsSelectPopView.h"
 #import "MeInfoEditController.h"
 
@@ -17,7 +17,7 @@
 
 @interface ViewController ()
 
-@property (nonatomic, strong) SYUserInfoEditPopView *editPopView;
+@property (nonatomic, strong) SYMeInfoEditPopView *editPopView;
 
 @property (nonatomic, strong) SYMeTagsSelectPopView *selectPopView;
 
@@ -34,7 +34,7 @@
 }
 
 - (void)configViews {
-    _editPopView = [[SYUserInfoEditPopView alloc] initWithFrame:self.view.bounds];
+    _editPopView = [[SYMeInfoEditPopView alloc] initWithFrame:self.view.bounds];
     _selectPopView = [[SYMeTagsSelectPopView alloc] initWithFrame:self.view.bounds];
 }
 
@@ -67,7 +67,7 @@
 
 - (void)__showEditPopView {
     
-    SYUserInfoEditPopModel *model = [SYUserInfoEditPopModel new];
+    SYMeInfoEditPopModel *model = [SYMeInfoEditPopModel new];
 
     model.contentType = PopContentTypeSearchView;
     model.viewName = PopViewNameUniversity;

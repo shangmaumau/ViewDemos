@@ -1,11 +1,11 @@
 //
-//  SYUserInfoEditPopView.m
+//  SYMeInfoEditPopView.m
 //  ViewDemos
 //
 //  Created by 尚雷勋 on 2021/1/20.
 //
 
-#import "SYUserInfoEditPopView.h"
+#import "SYMeInfoEditPopView.h"
 #import "SYPopSearchView.h"
 
 #import "SMMUILayoutCategories.h"
@@ -14,7 +14,7 @@
 #import "DFCityDataModels.h"
 #import "DFProfDataModels.h"
 
-@implementation SYUserInfoEditPopModel
+@implementation SYMeInfoEditPopModel
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -37,7 +37,7 @@
 
 @end
 
-@interface UserInfoBirthdayView : UIView
+@interface MeInfoBirthdayView : UIView
 
 @property (nonatomic, strong) UIButton *ageButton;
 @property (nonatomic, strong) UIButton *cslaButton;
@@ -46,7 +46,7 @@
 
 @end
 
-@implementation UserInfoBirthdayView
+@implementation MeInfoBirthdayView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -97,8 +97,8 @@
     
     dispatch_async(cur, ^{
         // 下面两个方法需要一定时间，如不异步处理，会有卡顿
-        NSString *cslaString = [UserInfoBirthdayView constellationStringFromDate:newDate];
-        NSInteger age = [UserInfoBirthdayView ageFromBirthday:newDate];
+        NSString *cslaString = [MeInfoBirthdayView constellationStringFromDate:newDate];
+        NSInteger age = [MeInfoBirthdayView ageFromBirthday:newDate];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (cslaString != nil) {
@@ -151,7 +151,7 @@
 
 @end
 
-@interface SYUserInfoEditPopView ()<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate, PopSearchViewDelegate> {
+@interface SYMeInfoEditPopView ()<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate, PopSearchViewDelegate> {
     NSUInteger _firstRowIdx;
     NSUInteger _secondRowIdx;
     NSUInteger _thirdRowIdx;
@@ -170,12 +170,12 @@
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, strong) SYPopSearchView *searchView;
-@property (nonatomic, strong) UserInfoBirthdayView *birthdayView;
+@property (nonatomic, strong) MeInfoBirthdayView *birthdayView;
 
 @property (nonatomic, strong) __kindof UIView *contentView;
 @property (nonatomic, strong) __kindof UIView *contentBeginView;
 
-@property (nonatomic, strong) SYUserInfoEditPopModel *lastModel;
+@property (nonatomic, strong) SYMeInfoEditPopModel *lastModel;
 @property (nonatomic, strong) NSArray *pickerData;
 
 @property (nonatomic, strong) id inputData;
@@ -184,7 +184,7 @@
 
 @end
 
-@implementation SYUserInfoEditPopView
+@implementation SYMeInfoEditPopView
 
 // MARK: - 公开方法
 
@@ -199,7 +199,7 @@
     return self;
 }
 
-- (void)showOnView:(__kindof UIView *)view withData:(SYUserInfoEditPopModel *)data {
+- (void)showOnView:(__kindof UIView *)view withData:(SYMeInfoEditPopModel *)data {
     
     if (!data) {
         return;
@@ -341,7 +341,7 @@
 
 - (void)_addBirthdayAddView {
     
-    _birthdayView = [UserInfoBirthdayView new];
+    _birthdayView = [MeInfoBirthdayView new];
     _birthdayView.backgroundColor = [[UIColor doubleFishThemeColor] colorWithAlphaComponent:0.04];
     _birthdayView.layer.cornerRadius = 8.0;
     [self.contentView_c addSubview:_birthdayView];
@@ -533,7 +533,7 @@
     _thirdRowIdx = 0;
 }
 
-- (void)_updateModel:(SYUserInfoEditPopModel *)model {
+- (void)_updateModel:(SYMeInfoEditPopModel *)model {
     _lastModel = _model;
     _model = model;
 }

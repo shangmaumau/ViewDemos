@@ -1,12 +1,12 @@
 //
-//  SYUserInfoEditPopView.h
+//  SYMeInfoEditPopView.h
 //  ViewDemos
 //
 //  Created by 尚雷勋 on 2021/1/20.
 //
 
 #import <UIKit/UIKit.h>
-#import "SYUserInfoBasePopView.h"
+#import "SYMeInfoBasePopView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -36,7 +36,7 @@ typedef NS_ENUM(NSUInteger, PopViewName) {
     PopViewNameUniversity   // 大学，搜索需要定位数据源
 };
 
-@interface SYUserInfoEditPopModel : NSObject
+@interface SYMeInfoEditPopModel : NSObject
 
 @property (nonatomic, copy) NSString *viewTitle;
 @property (nonatomic, copy) NSString *title;
@@ -58,11 +58,11 @@ typedef NS_ENUM(NSUInteger, PopViewName) {
 
 @end
 
-@interface SYUserInfoEditPopView : SYUserInfoBasePopView
+@interface SYMeInfoEditPopView : SYMeInfoBasePopView
 
-@property (nonatomic, strong) SYUserInfoEditPopModel *model;
+@property (nonatomic, strong) SYMeInfoEditPopModel *model;
 
-- (void)showOnView:(__kindof UIView *)view withData:(SYUserInfoEditPopModel *)data;
+- (void)showOnView:(__kindof UIView *)view withData:(SYMeInfoEditPopModel *)data;
 - (void)dismiss;
 - (void)configDoneCallback:(void (^)(id _Nullable data))callback;
 

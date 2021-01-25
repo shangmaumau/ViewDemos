@@ -6,18 +6,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SYUserInfoEditPopView.h"
+#import "SYMeInfoEditPopView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MeUserEditModel : NSObject
 
 @property (nonatomic, strong) NSString *title;
-
 @property (nonatomic, strong) NSString *subTitle;
-
 @property (nonatomic, strong) NSString *value;
-
 @property (nonatomic, strong) NSString *headImage;
 
 @property (nonatomic, assign) PopViewName popname;

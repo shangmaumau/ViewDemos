@@ -18,7 +18,7 @@
 		9A476ED025B81A56004C9B3F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476ECF25B81A56004C9B3F /* main.m */; };
 		9A476EDA25B81A57004C9B3F /* ViewDemosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476ED925B81A57004C9B3F /* ViewDemosTests.m */; };
 		9A476EE525B81A57004C9B3F /* ViewDemosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EE425B81A57004C9B3F /* ViewDemosUITests.m */; };
-		9A476EF725B81C06004C9B3F /* SYUserInfoEditPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EF625B81C06004C9B3F /* SYUserInfoEditPopView.m */; };
+		9A476EF725B81C06004C9B3F /* SYMeInfoEditPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476EF625B81C06004C9B3F /* SYMeInfoEditPopView.m */; };
 		9A476F0625B82050004C9B3F /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A476F0325B8204F004C9B3F /* cities.json */; };
 		9A476F0725B82050004C9B3F /* professions.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A476F0425B8204F004C9B3F /* professions.json */; };
 		9A476F0825B82050004C9B3F /* universities.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A476F0525B82050004C9B3F /* universities.json */; };
@@ -38,7 +38,7 @@
 		9A5A441625BAA8F8002FCC08 /* UIView+ViewSnap.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A441425BAA8F8002FCC08 /* UIView+ViewSnap.m */; };
 		9A5A442525BAAB1C002FCC08 /* KXHomeRecommendedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A442425BAAB1C002FCC08 /* KXHomeRecommendedView.m */; };
 		9A5A442B25BAAB3D002FCC08 /* KXHomeNewComerGiftsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A442925BAAB3C002FCC08 /* KXHomeNewComerGiftsView.m */; };
-		9A9C7D7E25BAC344004780F7 /* SYUserInfoBasePopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C7D7D25BAC344004780F7 /* SYUserInfoBasePopView.m */; };
+		9A9C7D7E25BAC344004780F7 /* SYMeInfoBasePopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C7D7D25BAC344004780F7 /* SYMeInfoBasePopView.m */; };
 		9A9C7DA025BB0703004780F7 /* SYMeTagsEditViewCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C7D9F25BB0703004780F7 /* SYMeTagsEditViewCtrl.m */; };
 		C037B4E325BBF1CE00419C68 /* MeInfoEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C037B4E225BBF1CE00419C68 /* MeInfoEditCell.m */; };
 		C037B4E925BBF28700419C68 /* MeInfoEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = C037B4E825BBF28700419C68 /* MeInfoEditController.m */; };
@@ -94,8 +94,8 @@
 		9A476EE025B81A57004C9B3F /* ViewDemosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViewDemosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A476EE425B81A57004C9B3F /* ViewDemosUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewDemosUITests.m; sourceTree = "<group>"; };
 		9A476EE625B81A57004C9B3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9A476EF525B81C06004C9B3F /* SYUserInfoEditPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYUserInfoEditPopView.h; sourceTree = "<group>"; };
-		9A476EF625B81C06004C9B3F /* SYUserInfoEditPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYUserInfoEditPopView.m; sourceTree = "<group>"; };
+		9A476EF525B81C06004C9B3F /* SYMeInfoEditPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYMeInfoEditPopView.h; sourceTree = "<group>"; };
+		9A476EF625B81C06004C9B3F /* SYMeInfoEditPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYMeInfoEditPopView.m; sourceTree = "<group>"; };
 		9A476F0325B8204F004C9B3F /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
 		9A476F0425B8204F004C9B3F /* professions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = professions.json; sourceTree = "<group>"; };
 		9A476F0525B82050004C9B3F /* universities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = universities.json; sourceTree = "<group>"; };
@@ -134,8 +134,8 @@
 		9A5A442425BAAB1C002FCC08 /* KXHomeRecommendedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXHomeRecommendedView.m; sourceTree = "<group>"; };
 		9A5A442925BAAB3C002FCC08 /* KXHomeNewComerGiftsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXHomeNewComerGiftsView.m; sourceTree = "<group>"; };
 		9A5A442A25BAAB3D002FCC08 /* KXHomeNewComerGiftsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXHomeNewComerGiftsView.h; sourceTree = "<group>"; };
-		9A9C7D7C25BAC344004780F7 /* SYUserInfoBasePopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYUserInfoBasePopView.h; sourceTree = "<group>"; };
-		9A9C7D7D25BAC344004780F7 /* SYUserInfoBasePopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYUserInfoBasePopView.m; sourceTree = "<group>"; };
+		9A9C7D7C25BAC344004780F7 /* SYMeInfoBasePopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYMeInfoBasePopView.h; sourceTree = "<group>"; };
+		9A9C7D7D25BAC344004780F7 /* SYMeInfoBasePopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYMeInfoBasePopView.m; sourceTree = "<group>"; };
 		9A9C7D9E25BB0703004780F7 /* SYMeTagsEditViewCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYMeTagsEditViewCtrl.h; sourceTree = "<group>"; };
 		9A9C7D9F25BB0703004780F7 /* SYMeTagsEditViewCtrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYMeTagsEditViewCtrl.m; sourceTree = "<group>"; };
 		A93DE68ED4848BEEA6927952 /* Pods-ViewDemos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewDemos.debug.xcconfig"; path = "Target Support Files/Pods-ViewDemos/Pods-ViewDemos.debug.xcconfig"; sourceTree = "<group>"; };
@@ -226,25 +226,19 @@
 			path = LocalJSONDatas;
 			sourceTree = "<group>";
 		};
-		9A2E0B9E25B8547A0043C942 /* UserInfoPopView */ = {
+		9A2E0B9E25B8547A0043C942 /* MeInfoPopViews */ = {
 			isa = PBXGroup;
 			children = (
-				9A9C7D7C25BAC344004780F7 /* SYUserInfoBasePopView.h */,
-				9A9C7D7D25BAC344004780F7 /* SYUserInfoBasePopView.m */,
+				9A9C7D7C25BAC344004780F7 /* SYMeInfoBasePopView.h */,
+				9A9C7D7D25BAC344004780F7 /* SYMeInfoBasePopView.m */,
 				9A1F7F2A25B96BE00038146E /* SYPopSearchView.h */,
 				9A1F7F2B25B96BE00038146E /* SYPopSearchView.m */,
-				9A476EF525B81C06004C9B3F /* SYUserInfoEditPopView.h */,
-				9A476EF625B81C06004C9B3F /* SYUserInfoEditPopView.m */,
+				9A476EF525B81C06004C9B3F /* SYMeInfoEditPopView.h */,
+				9A476EF625B81C06004C9B3F /* SYMeInfoEditPopView.m */,
 				9A5A43FE25BAA6E1002FCC08 /* SYMeTagsSelectPopView.h */,
 				9A5A43FF25BAA6E1002FCC08 /* SYMeTagsSelectPopView.m */,
-				9A9C7D9E25BB0703004780F7 /* SYMeTagsEditViewCtrl.h */,
-				9A9C7D9F25BB0703004780F7 /* SYMeTagsEditViewCtrl.m */,
-				E2318EBC25BD4898004F8F19 /* SYMeTagsEditCell.h */,
-				E2318EBD25BD4898004F8F19 /* SYMeTagsEditCell.m */,
-				E2318EC525BD4ABB004F8F19 /* SYMeTagsEditHeaderView.h */,
-				E2318EC625BD4ABB004F8F19 /* SYMeTagsEditHeaderView.m */,
 			);
-			path = UserInfoPopView;
+			path = MeInfoPopViews;
 			sourceTree = "<group>";
 		};
 		9A476EB125B81A40004C9B3F = {
@@ -272,10 +266,11 @@
 		9A476EBC25B81A40004C9B3F /* ViewDemos */ = {
 			isa = PBXGroup;
 			children = (
-				C037B4E025BBF10300419C68 /* MeMain */,
 				9A2E0B9325B8541C0043C942 /* Categories */,
 				9A476F1825B829CD004C9B3F /* Datas */,
-				9A2E0B9E25B8547A0043C942 /* UserInfoPopView */,
+				9A2E0B9E25B8547A0043C942 /* MeInfoPopViews */,
+				C037B4E025BBF10300419C68 /* MeInfoViewCtrl */,
+				9AB47E1225BE56C900346C5C /* MeTagsViewCtrl */,
 				9A476EBD25B81A40004C9B3F /* AppDelegate.h */,
 				9A476EBE25B81A40004C9B3F /* AppDelegate.m */,
 				9A476EC025B81A40004C9B3F /* SceneDelegate.h */,
@@ -388,7 +383,20 @@
 			path = Archived;
 			sourceTree = "<group>";
 		};
-		C037B4E025BBF10300419C68 /* MeMain */ = {
+		9AB47E1225BE56C900346C5C /* MeTagsViewCtrl */ = {
+			isa = PBXGroup;
+			children = (
+				9A9C7D9E25BB0703004780F7 /* SYMeTagsEditViewCtrl.h */,
+				9A9C7D9F25BB0703004780F7 /* SYMeTagsEditViewCtrl.m */,
+				E2318EBC25BD4898004F8F19 /* SYMeTagsEditCell.h */,
+				E2318EBD25BD4898004F8F19 /* SYMeTagsEditCell.m */,
+				E2318EC525BD4ABB004F8F19 /* SYMeTagsEditHeaderView.h */,
+				E2318EC625BD4ABB004F8F19 /* SYMeTagsEditHeaderView.m */,
+			);
+			path = MeTagsViewCtrl;
+			sourceTree = "<group>";
+		};
+		C037B4E025BBF10300419C68 /* MeInfoViewCtrl */ = {
 			isa = PBXGroup;
 			children = (
 				C037B4E125BBF1CE00419C68 /* MeInfoEditCell.h */,
@@ -398,7 +406,7 @@
 				C037B4ED25BBFC8800419C68 /* MeUserEditModel.h */,
 				C037B4EE25BBFC8800419C68 /* MeUserEditModel.m */,
 			);
-			path = MeMain;
+			path = MeInfoViewCtrl;
 			sourceTree = "<group>";
 		};
 		E91DD60CFDDC02B69DD1DEC9 /* Frameworks */ = {
@@ -660,7 +668,7 @@
 				9A5A440925BAA867002FCC08 /* KXWgGameResultView.m in Sources */,
 				9A476EBF25B81A40004C9B3F /* AppDelegate.m in Sources */,
 				9A476ED025B81A56004C9B3F /* main.m in Sources */,
-				9A476EF725B81C06004C9B3F /* SYUserInfoEditPopView.m in Sources */,
+				9A476EF725B81C06004C9B3F /* SYMeInfoEditPopView.m in Sources */,
 				9A5A440825BAA867002FCC08 /* KXWgGameResultShareView.m in Sources */,
 				9A476F4825B82CFB004C9B3F /* DFUniversityBaseModel.m in Sources */,
 				9A476F3D25B82C5D004C9B3F /* DFProfModel.m in Sources */,
@@ -670,7 +678,7 @@
 				9A5A43FA25BA7FBF002FCC08 /* UIView+EasyMethods.m in Sources */,
 				9A5A440025BAA6E1002FCC08 /* SYMeTagsSelectPopView.m in Sources */,
 				9A1F7F2C25B96BE00038146E /* SYPopSearchView.m in Sources */,
-				9A9C7D7E25BAC344004780F7 /* SYUserInfoBasePopView.m in Sources */,
+				9A9C7D7E25BAC344004780F7 /* SYMeInfoBasePopView.m in Sources */,
 				E2318EC725BD4ABB004F8F19 /* SYMeTagsEditHeaderView.m in Sources */,
 				9A476F2F25B82BD8004C9B3F /* DFCityCityModel.m in Sources */,
 				9A476EC225B81A40004C9B3F /* SceneDelegate.m in Sources */,

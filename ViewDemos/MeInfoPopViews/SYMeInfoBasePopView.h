@@ -1,5 +1,5 @@
 //
-//  SYUserInfoBasePopView.h
+//  SYMeInfoBasePopView.h
 //  ViewDemos
 //
 //  Created by 尚雷勋 on 2021/1/22.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SYUserInfoBasePopView : UIView
+@interface SYMeInfoBasePopView : UIView
 
 @property (nonatomic, strong) UIView *backgroundView_c;
 @property (nonatomic, strong) UIView *animateView;

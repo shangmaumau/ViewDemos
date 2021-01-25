@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SYUserInfoBasePopView.h"
+#import "SYMeInfoBasePopView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface SYMeTagsSelectPopView : SYUserInfoBasePopView
+@interface SYMeTagsSelectPopView : SYMeInfoBasePopView
 
 - (void)showOnView:(__kindof UIView *)view withModels:(NSArray<SYMeTagsModel *> *)list;
 

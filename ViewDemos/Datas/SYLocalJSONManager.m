@@ -6,9 +6,9 @@
 //
 
 #import "SYLocalJSONManager.h"
-#import "DFCityDataModels.h"
-#import "DFProfDataModels.h"
-#import "DFUniversityDataModels.h"
+#import "SYMICityModels.h"
+#import "SYMIProfModels.h"
+#import "SYMIUniversityModels.h"
 
 @implementation SYLocalJSONManager
 
@@ -20,11 +20,11 @@
     return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
 }
 
-+ (NSArray<DFCityBaseModel *> *)cities {
++ (NSArray<SYMICityBaseModel *> *)cities {
     NSArray *citiesRawData = [self dataFromLocalJSONWithName:@"cities"];
-    NSMutableArray<DFCityBaseModel *> *models = [NSMutableArray array];
+    NSMutableArray<SYMICityBaseModel *> *models = [NSMutableArray array];
     for (NSUInteger idx = 0; idx < citiesRawData.count; idx++) {
-        DFCityBaseModel *model = [DFCityBaseModel modelObjectWithDictionary:citiesRawData[idx]];
+        SYMICityBaseModel *model = [SYMICityBaseModel modelObjectWithDictionary:citiesRawData[idx]];
         if (model) {
             [models addObject:model];
         }
@@ -32,11 +32,11 @@
     return [models copy];
 }
 
-+ (NSArray<DFProfBaseModel *> *)profs {
++ (NSArray<SYMIProfBaseModel *> *)profs {
     NSArray *profRawData = [self dataFromLocalJSONWithName:@"professions"];
-    NSMutableArray<DFCityBaseModel *> *models = [NSMutableArray array];
+    NSMutableArray<SYMICityBaseModel *> *models = [NSMutableArray array];
     for (NSUInteger idx = 0; idx < profRawData.count; idx++) {
-        DFCityBaseModel *model = [DFCityBaseModel modelObjectWithDictionary:profRawData[idx]];
+        SYMICityBaseModel *model = [SYMICityBaseModel modelObjectWithDictionary:profRawData[idx]];
         if (model) {
             [models addObject:model];
         }
@@ -44,11 +44,11 @@
     return [models copy];
 }
 
-+ (NSArray<DFUniversityBaseModel *> *)universities {
++ (NSArray<SYMIUniversityModel *> *)universities {
     NSArray *univerRawData = [self dataFromLocalJSONWithName:@"universities"];
-    NSMutableArray<DFUniversityBaseModel *> *models = [NSMutableArray array];
+    NSMutableArray<SYMIUniversityModel *> *models = [NSMutableArray array];
     for (NSUInteger idx = 0; idx < univerRawData.count; idx++) {
-        DFUniversityBaseModel *model = [DFUniversityBaseModel modelObjectWithDictionary:univerRawData[idx]];
+        SYMIUniversityModel *model = [SYMIUniversityModel modelObjectWithDictionary:univerRawData[idx]];
         if (model) {
             [models addObject:model];
         }
@@ -60,7 +60,7 @@
     NSArray *univerRawData = [self dataFromLocalJSONWithName:@"universities"];
     NSMutableArray<NSString *> *models = [NSMutableArray array];
     for (NSUInteger idx = 0; idx < univerRawData.count; idx++) {
-        DFUniversityBaseModel *model = [DFUniversityBaseModel modelObjectWithDictionary:univerRawData[idx]];
+        SYMIUniversityModel *model = [SYMIUniversityModel modelObjectWithDictionary:univerRawData[idx]];
         if (model) {
             [models addObject:model.name];
         }

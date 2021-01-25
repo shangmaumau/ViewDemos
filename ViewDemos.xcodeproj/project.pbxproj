@@ -25,11 +25,11 @@
 		9A476F1425B829C3004C9B3F /* SYLocalJSONManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F1325B829C3004C9B3F /* SYLocalJSONManager.m */; };
 		9A476F1E25B829F3004C9B3F /* UIScreen+EasyMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F1D25B829F3004C9B3F /* UIScreen+EasyMethods.m */; };
 		9A476F2425B82A3D004C9B3F /* UIColor+EasyMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F2325B82A3D004C9B3F /* UIColor+EasyMethods.m */; };
-		9A476F2E25B82BD8004C9B3F /* DFCityBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F2C25B82BD8004C9B3F /* DFCityBaseModel.m */; };
-		9A476F2F25B82BD8004C9B3F /* DFCityCityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F2D25B82BD8004C9B3F /* DFCityCityModel.m */; };
-		9A476F3C25B82C5D004C9B3F /* DFProfBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F3A25B82C5D004C9B3F /* DFProfBaseModel.m */; };
-		9A476F3D25B82C5D004C9B3F /* DFProfModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F3B25B82C5D004C9B3F /* DFProfModel.m */; };
-		9A476F4825B82CFB004C9B3F /* DFUniversityBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F4625B82CFB004C9B3F /* DFUniversityBaseModel.m */; };
+		9A476F2E25B82BD8004C9B3F /* SYMICityBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F2C25B82BD8004C9B3F /* SYMICityBaseModel.m */; };
+		9A476F2F25B82BD8004C9B3F /* SYMICitySubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F2D25B82BD8004C9B3F /* SYMICitySubModel.m */; };
+		9A476F3C25B82C5D004C9B3F /* SYMIProfBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F3A25B82C5D004C9B3F /* SYMIProfBaseModel.m */; };
+		9A476F3D25B82C5D004C9B3F /* SYMIProfSubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F3B25B82C5D004C9B3F /* SYMIProfSubModel.m */; };
+		9A476F4825B82CFB004C9B3F /* SYMIUniversityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A476F4625B82CFB004C9B3F /* SYMIUniversityModel.m */; };
 		9A5A43FA25BA7FBF002FCC08 /* UIView+EasyMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A43F925BA7FBF002FCC08 /* UIView+EasyMethods.m */; };
 		9A5A440025BAA6E1002FCC08 /* SYMeTagsSelectPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A43FF25BAA6E1002FCC08 /* SYMeTagsSelectPopView.m */; };
 		9A5A440825BAA867002FCC08 /* KXWgGameResultShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A440525BAA867002FCC08 /* KXWgGameResultShareView.m */; };
@@ -40,9 +40,9 @@
 		9A5A442B25BAAB3D002FCC08 /* KXHomeNewComerGiftsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A442925BAAB3C002FCC08 /* KXHomeNewComerGiftsView.m */; };
 		9A9C7D7E25BAC344004780F7 /* SYMeInfoBasePopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C7D7D25BAC344004780F7 /* SYMeInfoBasePopView.m */; };
 		9A9C7DA025BB0703004780F7 /* SYMeTagsEditViewCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C7D9F25BB0703004780F7 /* SYMeTagsEditViewCtrl.m */; };
-		C037B4E325BBF1CE00419C68 /* MeInfoEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C037B4E225BBF1CE00419C68 /* MeInfoEditCell.m */; };
-		C037B4E925BBF28700419C68 /* MeInfoEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = C037B4E825BBF28700419C68 /* MeInfoEditController.m */; };
-		C037B4EF25BBFC8800419C68 /* MeUserEditModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C037B4EE25BBFC8800419C68 /* MeUserEditModel.m */; };
+		C037B4E325BBF1CE00419C68 /* SYMeInfoEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C037B4E225BBF1CE00419C68 /* SYMeInfoEditCell.m */; };
+		C037B4E925BBF28700419C68 /* SYMeInfoEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = C037B4E825BBF28700419C68 /* SYMeInfoEditController.m */; };
+		C037B4EF25BBFC8800419C68 /* SYMeInfoEditModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C037B4EE25BBFC8800419C68 /* SYMeInfoEditModel.m */; };
 		E2318EBE25BD4898004F8F19 /* SYMeTagsEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2318EBD25BD4898004F8F19 /* SYMeTagsEditCell.m */; };
 		E2318EC725BD4ABB004F8F19 /* SYMeTagsEditHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2318EC625BD4ABB004F8F19 /* SYMeTagsEditHeaderView.m */; };
 		EBA479D32589C0A308207FBA /* Pods_ViewDemosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 632D2DE19D4C92306C1CFFDC /* Pods_ViewDemosTests.framework */; };
@@ -105,19 +105,18 @@
 		9A476F1D25B829F3004C9B3F /* UIScreen+EasyMethods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+EasyMethods.m"; sourceTree = "<group>"; };
 		9A476F2225B82A3D004C9B3F /* UIColor+EasyMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+EasyMethods.h"; sourceTree = "<group>"; };
 		9A476F2325B82A3D004C9B3F /* UIColor+EasyMethods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+EasyMethods.m"; sourceTree = "<group>"; };
-		9A476F2925B82BD8004C9B3F /* DFCityBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFCityBaseModel.h; sourceTree = "<group>"; };
-		9A476F2A25B82BD8004C9B3F /* DFCityDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFCityDataModels.h; sourceTree = "<group>"; };
-		9A476F2B25B82BD8004C9B3F /* DFCityCityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFCityCityModel.h; sourceTree = "<group>"; };
-		9A476F2C25B82BD8004C9B3F /* DFCityBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFCityBaseModel.m; sourceTree = "<group>"; };
-		9A476F2D25B82BD8004C9B3F /* DFCityCityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFCityCityModel.m; sourceTree = "<group>"; };
-		9A476F3725B82C5D004C9B3F /* DFProfDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFProfDataModels.h; sourceTree = "<group>"; };
-		9A476F3825B82C5D004C9B3F /* DFProfBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFProfBaseModel.h; sourceTree = "<group>"; };
-		9A476F3925B82C5D004C9B3F /* DFProfModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFProfModel.h; sourceTree = "<group>"; };
-		9A476F3A25B82C5D004C9B3F /* DFProfBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFProfBaseModel.m; sourceTree = "<group>"; };
-		9A476F3B25B82C5D004C9B3F /* DFProfModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFProfModel.m; sourceTree = "<group>"; };
-		9A476F4525B82CFB004C9B3F /* DFUniversityDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFUniversityDataModels.h; sourceTree = "<group>"; };
-		9A476F4625B82CFB004C9B3F /* DFUniversityBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFUniversityBaseModel.m; sourceTree = "<group>"; };
-		9A476F4725B82CFB004C9B3F /* DFUniversityBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFUniversityBaseModel.h; sourceTree = "<group>"; };
+		9A476F2925B82BD8004C9B3F /* SYMICityBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYMICityBaseModel.h; sourceTree = "<group>"; };
+		9A476F2A25B82BD8004C9B3F /* SYMICityModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYMICityModels.h; sourceTree = "<group>"; };
+		9A476F2B25B82BD8004C9B3F /* SYMICitySubModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYMICitySubModel.h; sourceTree = "<group>"; };
+		9A476F2C25B82BD8004C9B3F /* SYMICityBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYMICityBaseModel.m; sourceTree = "<group>"; };
+		9A476F2D25B82BD8004C9B3F /* SYMICitySubModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYMICitySubModel.m; sourceTree = "<group>"; };
+		9A476F3725B82C5D004C9B3F /* SYMIProfModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYMIProfModels.h; sourceTree = "<group>"; };
+		9A476F3825B82C5D004C9B3F /* SYMIProfBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYMIProfBaseModel.h; sourceTree = "<group>"; };
+		9A476F3925B82C5D004C9B3F /* SYMIProfSubModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYMIProfSubModel.h; sourceTree = "<group>"; };
+		9A476F3A25B82C5D004C9B3F /* SYMIProfBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYMIProfBaseModel.m; sourceTree = "<group>"; };
+		9A476F3B25B82C5D004C9B3F /* SYMIProfSubModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYMIProfSubModel.m; sourceTree = "<group>"; };
+		9A476F4525B82CFB004C9B3F /* SYMIUniversityModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYMIUniversityModels.h; sourceTree = "<group>"; };
+		9A476F4625B82CFB004C9B3F /* SYMIUniversityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYMIUniversityModel.m; sourceTree = "<group>"; };
 		9A5A43F825BA7FBF002FCC08 /* UIView+EasyMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+EasyMethods.h"; sourceTree = "<group>"; };
 		9A5A43F925BA7FBF002FCC08 /* UIView+EasyMethods.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+EasyMethods.m"; sourceTree = "<group>"; };
 		9A5A43FE25BAA6E1002FCC08 /* SYMeTagsSelectPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYMeTagsSelectPopView.h; sourceTree = "<group>"; };
@@ -138,13 +137,14 @@
 		9A9C7D7D25BAC344004780F7 /* SYMeInfoBasePopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYMeInfoBasePopView.m; sourceTree = "<group>"; };
 		9A9C7D9E25BB0703004780F7 /* SYMeTagsEditViewCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYMeTagsEditViewCtrl.h; sourceTree = "<group>"; };
 		9A9C7D9F25BB0703004780F7 /* SYMeTagsEditViewCtrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYMeTagsEditViewCtrl.m; sourceTree = "<group>"; };
+		9AB47E8B25BE96E200346C5C /* SYMIUniversityModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYMIUniversityModel.h; sourceTree = "<group>"; };
 		A93DE68ED4848BEEA6927952 /* Pods-ViewDemos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewDemos.debug.xcconfig"; path = "Target Support Files/Pods-ViewDemos/Pods-ViewDemos.debug.xcconfig"; sourceTree = "<group>"; };
-		C037B4E125BBF1CE00419C68 /* MeInfoEditCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeInfoEditCell.h; sourceTree = "<group>"; };
-		C037B4E225BBF1CE00419C68 /* MeInfoEditCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeInfoEditCell.m; sourceTree = "<group>"; };
-		C037B4E725BBF28700419C68 /* MeInfoEditController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeInfoEditController.h; sourceTree = "<group>"; };
-		C037B4E825BBF28700419C68 /* MeInfoEditController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeInfoEditController.m; sourceTree = "<group>"; };
-		C037B4ED25BBFC8800419C68 /* MeUserEditModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeUserEditModel.h; sourceTree = "<group>"; };
-		C037B4EE25BBFC8800419C68 /* MeUserEditModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeUserEditModel.m; sourceTree = "<group>"; };
+		C037B4E125BBF1CE00419C68 /* SYMeInfoEditCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYMeInfoEditCell.h; sourceTree = "<group>"; };
+		C037B4E225BBF1CE00419C68 /* SYMeInfoEditCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYMeInfoEditCell.m; sourceTree = "<group>"; };
+		C037B4E725BBF28700419C68 /* SYMeInfoEditController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYMeInfoEditController.h; sourceTree = "<group>"; };
+		C037B4E825BBF28700419C68 /* SYMeInfoEditController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYMeInfoEditController.m; sourceTree = "<group>"; };
+		C037B4ED25BBFC8800419C68 /* SYMeInfoEditModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYMeInfoEditModel.h; sourceTree = "<group>"; };
+		C037B4EE25BBFC8800419C68 /* SYMeInfoEditModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYMeInfoEditModel.m; sourceTree = "<group>"; };
 		D2C87AA8A387A3FD315A91A2 /* Pods-ViewDemosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ViewDemosTests.release.xcconfig"; path = "Target Support Files/Pods-ViewDemosTests/Pods-ViewDemosTests.release.xcconfig"; sourceTree = "<group>"; };
 		E2318EBC25BD4898004F8F19 /* SYMeTagsEditCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYMeTagsEditCell.h; sourceTree = "<group>"; };
 		E2318EBD25BD4898004F8F19 /* SYMeTagsEditCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYMeTagsEditCell.m; sourceTree = "<group>"; };
@@ -308,9 +308,9 @@
 		9A476F1825B829CD004C9B3F /* Datas */ = {
 			isa = PBXGroup;
 			children = (
-				9A476F4425B82CFB004C9B3F /* DFUniverModels */,
-				9A476F3625B82C5D004C9B3F /* DFProfModels */,
-				9A476F2825B82BD8004C9B3F /* DFCityModel */,
+				9A476F4425B82CFB004C9B3F /* UniversityModels */,
+				9A476F3625B82C5D004C9B3F /* ProfModels */,
+				9A476F2825B82BD8004C9B3F /* CityModels */,
 				9A2E0B9D25B854490043C942 /* LocalJSONDatas */,
 				9A476F1225B829C3004C9B3F /* SYLocalJSONManager.h */,
 				9A476F1325B829C3004C9B3F /* SYLocalJSONManager.m */,
@@ -318,38 +318,38 @@
 			path = Datas;
 			sourceTree = "<group>";
 		};
-		9A476F2825B82BD8004C9B3F /* DFCityModel */ = {
+		9A476F2825B82BD8004C9B3F /* CityModels */ = {
 			isa = PBXGroup;
 			children = (
-				9A476F2A25B82BD8004C9B3F /* DFCityDataModels.h */,
-				9A476F2925B82BD8004C9B3F /* DFCityBaseModel.h */,
-				9A476F2C25B82BD8004C9B3F /* DFCityBaseModel.m */,
-				9A476F2B25B82BD8004C9B3F /* DFCityCityModel.h */,
-				9A476F2D25B82BD8004C9B3F /* DFCityCityModel.m */,
+				9A476F2A25B82BD8004C9B3F /* SYMICityModels.h */,
+				9A476F2925B82BD8004C9B3F /* SYMICityBaseModel.h */,
+				9A476F2C25B82BD8004C9B3F /* SYMICityBaseModel.m */,
+				9A476F2B25B82BD8004C9B3F /* SYMICitySubModel.h */,
+				9A476F2D25B82BD8004C9B3F /* SYMICitySubModel.m */,
 			);
-			path = DFCityModel;
+			path = CityModels;
 			sourceTree = "<group>";
 		};
-		9A476F3625B82C5D004C9B3F /* DFProfModels */ = {
+		9A476F3625B82C5D004C9B3F /* ProfModels */ = {
 			isa = PBXGroup;
 			children = (
-				9A476F3725B82C5D004C9B3F /* DFProfDataModels.h */,
-				9A476F3825B82C5D004C9B3F /* DFProfBaseModel.h */,
-				9A476F3A25B82C5D004C9B3F /* DFProfBaseModel.m */,
-				9A476F3925B82C5D004C9B3F /* DFProfModel.h */,
-				9A476F3B25B82C5D004C9B3F /* DFProfModel.m */,
+				9A476F3725B82C5D004C9B3F /* SYMIProfModels.h */,
+				9A476F3825B82C5D004C9B3F /* SYMIProfBaseModel.h */,
+				9A476F3A25B82C5D004C9B3F /* SYMIProfBaseModel.m */,
+				9A476F3925B82C5D004C9B3F /* SYMIProfSubModel.h */,
+				9A476F3B25B82C5D004C9B3F /* SYMIProfSubModel.m */,
 			);
-			path = DFProfModels;
+			path = ProfModels;
 			sourceTree = "<group>";
 		};
-		9A476F4425B82CFB004C9B3F /* DFUniverModels */ = {
+		9A476F4425B82CFB004C9B3F /* UniversityModels */ = {
 			isa = PBXGroup;
 			children = (
-				9A476F4525B82CFB004C9B3F /* DFUniversityDataModels.h */,
-				9A476F4725B82CFB004C9B3F /* DFUniversityBaseModel.h */,
-				9A476F4625B82CFB004C9B3F /* DFUniversityBaseModel.m */,
+				9A476F4525B82CFB004C9B3F /* SYMIUniversityModels.h */,
+				9AB47E8B25BE96E200346C5C /* SYMIUniversityModel.h */,
+				9A476F4625B82CFB004C9B3F /* SYMIUniversityModel.m */,
 			);
-			path = DFUniverModels;
+			path = UniversityModels;
 			sourceTree = "<group>";
 		};
 		9A5A440D25BAA884002FCC08 /* GameSettleView */ = {
@@ -399,12 +399,12 @@
 		C037B4E025BBF10300419C68 /* MeInfoViewCtrl */ = {
 			isa = PBXGroup;
 			children = (
-				C037B4E125BBF1CE00419C68 /* MeInfoEditCell.h */,
-				C037B4E225BBF1CE00419C68 /* MeInfoEditCell.m */,
-				C037B4E725BBF28700419C68 /* MeInfoEditController.h */,
-				C037B4E825BBF28700419C68 /* MeInfoEditController.m */,
-				C037B4ED25BBFC8800419C68 /* MeUserEditModel.h */,
-				C037B4EE25BBFC8800419C68 /* MeUserEditModel.m */,
+				C037B4E125BBF1CE00419C68 /* SYMeInfoEditCell.h */,
+				C037B4E225BBF1CE00419C68 /* SYMeInfoEditCell.m */,
+				C037B4E725BBF28700419C68 /* SYMeInfoEditController.h */,
+				C037B4E825BBF28700419C68 /* SYMeInfoEditController.m */,
+				C037B4ED25BBFC8800419C68 /* SYMeInfoEditModel.h */,
+				C037B4EE25BBFC8800419C68 /* SYMeInfoEditModel.m */,
 			);
 			path = MeInfoViewCtrl;
 			sourceTree = "<group>";
@@ -660,7 +660,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A5A442B25BAAB3D002FCC08 /* KXHomeNewComerGiftsView.m in Sources */,
-				9A476F3C25B82C5D004C9B3F /* DFProfBaseModel.m in Sources */,
+				9A476F3C25B82C5D004C9B3F /* SYMIProfBaseModel.m in Sources */,
 				9A476F1E25B829F3004C9B3F /* UIScreen+EasyMethods.m in Sources */,
 				9A5A441525BAA8F8002FCC08 /* NSArray+EasyMethods.m in Sources */,
 				9A476EC525B81A40004C9B3F /* ViewController.m in Sources */,
@@ -670,22 +670,22 @@
 				9A476ED025B81A56004C9B3F /* main.m in Sources */,
 				9A476EF725B81C06004C9B3F /* SYMeInfoEditPopView.m in Sources */,
 				9A5A440825BAA867002FCC08 /* KXWgGameResultShareView.m in Sources */,
-				9A476F4825B82CFB004C9B3F /* DFUniversityBaseModel.m in Sources */,
-				9A476F3D25B82C5D004C9B3F /* DFProfModel.m in Sources */,
-				9A476F2E25B82BD8004C9B3F /* DFCityBaseModel.m in Sources */,
+				9A476F4825B82CFB004C9B3F /* SYMIUniversityModel.m in Sources */,
+				9A476F3D25B82C5D004C9B3F /* SYMIProfSubModel.m in Sources */,
+				9A476F2E25B82BD8004C9B3F /* SYMICityBaseModel.m in Sources */,
 				9A9C7DA025BB0703004780F7 /* SYMeTagsEditViewCtrl.m in Sources */,
-				C037B4E325BBF1CE00419C68 /* MeInfoEditCell.m in Sources */,
+				C037B4E325BBF1CE00419C68 /* SYMeInfoEditCell.m in Sources */,
 				9A5A43FA25BA7FBF002FCC08 /* UIView+EasyMethods.m in Sources */,
 				9A5A440025BAA6E1002FCC08 /* SYMeTagsSelectPopView.m in Sources */,
 				9A1F7F2C25B96BE00038146E /* SYPopSearchView.m in Sources */,
 				9A9C7D7E25BAC344004780F7 /* SYMeInfoBasePopView.m in Sources */,
 				E2318EC725BD4ABB004F8F19 /* SYMeTagsEditHeaderView.m in Sources */,
-				9A476F2F25B82BD8004C9B3F /* DFCityCityModel.m in Sources */,
+				9A476F2F25B82BD8004C9B3F /* SYMICitySubModel.m in Sources */,
 				9A476EC225B81A40004C9B3F /* SceneDelegate.m in Sources */,
 				E2318EBE25BD4898004F8F19 /* SYMeTagsEditCell.m in Sources */,
 				9A5A442525BAAB1C002FCC08 /* KXHomeRecommendedView.m in Sources */,
-				C037B4E925BBF28700419C68 /* MeInfoEditController.m in Sources */,
-				C037B4EF25BBFC8800419C68 /* MeUserEditModel.m in Sources */,
+				C037B4E925BBF28700419C68 /* SYMeInfoEditController.m in Sources */,
+				C037B4EF25BBFC8800419C68 /* SYMeInfoEditModel.m in Sources */,
 				9A476F2425B82A3D004C9B3F /* UIColor+EasyMethods.m in Sources */,
 				9A476F1425B829C3004C9B3F /* SYLocalJSONManager.m in Sources */,
 			);

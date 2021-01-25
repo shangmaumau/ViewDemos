@@ -1,26 +1,26 @@
 //
-//  DFProfBaseModel.m
+//  SYMICityBaseModel.m
 //
 //  Created by 雷勋 尚 on 2021/1/20
 //  Copyright (c) 2021 __MyCompanyName__. All rights reserved.
 //
 
-#import "DFProfBaseModel.h"
-#import "DFProfModel.h"
+#import "SYMICityBaseModel.h"
+#import "SYMICitySubModel.h"
 
 
-NSString *const kDFProfBaseModelId = @"id";
-NSString *const kDFProfBaseModelName = @"name";
-NSString *const kDFProfBaseModelSub = @"sub";
+NSString *const kDFCityBaseModelId = @"id";
+NSString *const kDFCityBaseModelName = @"name";
+NSString *const kDFCityBaseModelSub = @"sub";
 
 
-@interface DFProfBaseModel ()
+@interface SYMICityBaseModel ()
 
 - (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
 
 @end
 
-@implementation DFProfBaseModel
+@implementation SYMICityBaseModel
 
 @synthesize internalBaseClassIdentifier = _internalBaseClassIdentifier;
 @synthesize name = _name;
@@ -39,18 +39,18 @@ NSString *const kDFProfBaseModelSub = @"sub";
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
-            self.internalBaseClassIdentifier = [[self objectOrNilForKey:kDFProfBaseModelId fromDictionary:dict] doubleValue];
-            self.name = [self objectOrNilForKey:kDFProfBaseModelName fromDictionary:dict];
-    NSObject *receivedSub = [dict objectForKey:kDFProfBaseModelSub];
+            self.internalBaseClassIdentifier = [self objectOrNilForKey:kDFCityBaseModelId fromDictionary:dict];
+            self.name = [self objectOrNilForKey:kDFCityBaseModelName fromDictionary:dict];
+    NSObject *receivedSub = [dict objectForKey:kDFCityBaseModelSub];
     NSMutableArray *parsedSub = [NSMutableArray array];
     if ([receivedSub isKindOfClass:[NSArray class]]) {
         for (NSDictionary *item in (NSArray *)receivedSub) {
             if ([item isKindOfClass:[NSDictionary class]]) {
-                [parsedSub addObject:[DFProfModel modelObjectWithDictionary:item]];
+                [parsedSub addObject:[SYMICitySubModel modelObjectWithDictionary:item]];
             }
        }
     } else if ([receivedSub isKindOfClass:[NSDictionary class]]) {
-       [parsedSub addObject:[DFProfModel modelObjectWithDictionary:(NSDictionary *)receivedSub]];
+       [parsedSub addObject:[SYMICitySubModel modelObjectWithDictionary:(NSDictionary *)receivedSub]];
     }
 
     self.sub = [NSArray arrayWithArray:parsedSub];
@@ -64,8 +64,8 @@ NSString *const kDFProfBaseModelSub = @"sub";
 - (NSDictionary *)dictionaryRepresentation
 {
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
-    [mutableDict setValue:[NSNumber numberWithDouble:self.internalBaseClassIdentifier] forKey:kDFProfBaseModelId];
-    [mutableDict setValue:self.name forKey:kDFProfBaseModelName];
+    [mutableDict setValue:self.internalBaseClassIdentifier forKey:kDFCityBaseModelId];
+    [mutableDict setValue:self.name forKey:kDFCityBaseModelName];
     NSMutableArray *tempArrayForSub = [NSMutableArray array];
     for (NSObject *subArrayObject in self.sub) {
         if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
@@ -76,7 +76,7 @@ NSString *const kDFProfBaseModelSub = @"sub";
             [tempArrayForSub addObject:subArrayObject];
         }
     }
-    [mutableDict setValue:[NSArray arrayWithArray:tempArrayForSub] forKey:kDFProfBaseModelSub];
+    [mutableDict setValue:[NSArray arrayWithArray:tempArrayForSub] forKey:kDFCityBaseModelSub];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -100,27 +100,27 @@ NSString *const kDFProfBaseModelSub = @"sub";
 {
     self = [super init];
 
-    self.internalBaseClassIdentifier = [aDecoder decodeDoubleForKey:kDFProfBaseModelId];
-    self.name = [aDecoder decodeObjectForKey:kDFProfBaseModelName];
-    self.sub = [aDecoder decodeObjectForKey:kDFProfBaseModelSub];
+    self.internalBaseClassIdentifier = [aDecoder decodeObjectForKey:kDFCityBaseModelId];
+    self.name = [aDecoder decodeObjectForKey:kDFCityBaseModelName];
+    self.sub = [aDecoder decodeObjectForKey:kDFCityBaseModelSub];
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
 
-    [aCoder encodeDouble:_internalBaseClassIdentifier forKey:kDFProfBaseModelId];
-    [aCoder encodeObject:_name forKey:kDFProfBaseModelName];
-    [aCoder encodeObject:_sub forKey:kDFProfBaseModelSub];
+    [aCoder encodeObject:_internalBaseClassIdentifier forKey:kDFCityBaseModelId];
+    [aCoder encodeObject:_name forKey:kDFCityBaseModelName];
+    [aCoder encodeObject:_sub forKey:kDFCityBaseModelSub];
 }
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    DFProfBaseModel *copy = [[DFProfBaseModel alloc] init];
+    SYMICityBaseModel *copy = [[SYMICityBaseModel alloc] init];
     
     if (copy) {
 
-        copy.internalBaseClassIdentifier = self.internalBaseClassIdentifier;
+        copy.internalBaseClassIdentifier = [self.internalBaseClassIdentifier copyWithZone:zone];
         copy.name = [self.name copyWithZone:zone];
         copy.sub = [self.sub copyWithZone:zone];
     }

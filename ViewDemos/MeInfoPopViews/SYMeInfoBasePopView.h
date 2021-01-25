@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SYMeInfoBasePopView : UIView
 
 @property (nonatomic, strong) UIView *backgroundView_c;
-@property (nonatomic, strong) UIView *animateView;
+@property (nonatomic, strong) UIView *animateView_c;
 /// 默认高度 445.0，在子类中根据需要使用 `mas_updateConstraints` 来修改高度。
 @property (nonatomic, strong) UIView *contentView_c;
 

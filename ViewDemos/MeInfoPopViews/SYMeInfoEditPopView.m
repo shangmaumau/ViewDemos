@@ -11,8 +11,8 @@
 #import "SMMUILayoutCategories.h"
 
 #import "SYLocalJSONManager.h"
-#import "DFCityDataModels.h"
-#import "DFProfDataModels.h"
+#import "SYMICityModels.h"
+#import "SYMIProfModels.h"
 
 @implementation SYMeInfoEditPopModel
 
@@ -279,10 +279,10 @@
     // 键盘在内容之上
     if (CGRectGetMinY(krect) < CGRectGetMaxY(crect)) {
         CGFloat gap = CGRectGetMinY(krect) - CGRectGetMaxY(crect) - 16.0;
-        CGRect newFrame = CGRectAddY(gap, self.animateView.frame);
+        CGRect newFrame = CGRectAddY(gap, self.animateView_c.frame);
         
         [UIView animateWithDuration:0.25 delay:0 options:(7 << 16) animations:^{
-            self.animateView.frame = newFrame;
+            self.animateView_c.frame = newFrame;
         } completion:^(BOOL finished) {
             self->_keyboardIsShowing = YES;
             [self.contentView_c updateConstraintsIfNeeded];
@@ -291,10 +291,10 @@
 }
 
 - (void)__keyboardWillHide:(NSNotification *)notif {
-    CGRect newFrame = CGRectNewY(0, self.animateView.frame);
+    CGRect newFrame = CGRectNewY(0, self.animateView_c.frame);
     
     [UIView animateWithDuration:0.25 delay:0 options:(7 << 16) animations:^{
-        self.animateView.frame = newFrame;
+        self.animateView_c.frame = newFrame;
     } completion:^(BOOL finished) {
         self->_keyboardIsShowing = NO;
         [self.contentView_c updateConstraintsIfNeeded];
@@ -572,8 +572,8 @@
             switch (_model.viewName) {
                 case PopViewNameAddress:
                 {
-                    DFCityBaseModel *baseModel = _pickerData[_firstRowIdx];
-                    DFCityCityModel *cityModel = baseModel.sub[_secondRowIdx];
+                    SYMICityBaseModel *baseModel = _pickerData[_firstRowIdx];
+                    SYMICitySubModel *cityModel = baseModel.sub[_secondRowIdx];
                     NSString *districtName = (NSString *)[cityModel.sub[_thirdRowIdx] valueForKey:@"name"];
                     
                     _inputData = [NSString stringWithFormat:@"%@ %@ %@", baseModel.name, cityModel.name, districtName];
@@ -582,8 +582,8 @@
                 
                 case PopViewNameProfession:
                 {
-                    DFProfBaseModel *baseModel = _pickerData[_firstRowIdx];
-                    DFProfModel *profModel = baseModel.sub[_secondRowIdx];
+                    SYMIProfBaseModel *baseModel = _pickerData[_firstRowIdx];
+                    SYMIProfSubModel *profModel = baseModel.sub[_secondRowIdx];
                     _inputData = [NSString stringWithFormat:@"%@ %@", baseModel.name, profModel.name];
                 }
                     
@@ -845,15 +845,15 @@
                     
                 case 1:
                 {
-                    DFCityBaseModel *baseModel = _pickerData[_firstRowIdx];
+                    SYMICityBaseModel *baseModel = _pickerData[_firstRowIdx];
                     count =  baseModel.sub.count;
                 }
                     break;
                     
                 case 2:
                 {
-                    DFCityBaseModel *baseModel = _pickerData[_firstRowIdx];
-                    DFCityCityModel *subModel = baseModel.sub[_secondRowIdx];
+                    SYMICityBaseModel *baseModel = _pickerData[_firstRowIdx];
+                    SYMICitySubModel *subModel = baseModel.sub[_secondRowIdx];
                     count = subModel.sub.count;
                 }
                     break;
@@ -875,7 +875,7 @@
                     
                 case 1:
                 {
-                    DFProfBaseModel *baseModel = _pickerData[_firstRowIdx];
+                    SYMIProfBaseModel *baseModel = _pickerData[_firstRowIdx];
                     count =  baseModel.sub.count;
                 }
                     break;
@@ -904,23 +904,23 @@
             switch (component) {
                 case 0:
                 {
-                    DFCityBaseModel *baseModel = _pickerData[row];
+                    SYMICityBaseModel *baseModel = _pickerData[row];
                     title = baseModel.name;
                 }
                     break;
                     
                 case 1:
                 {
-                    DFCityBaseModel *baseModel = _pickerData[_firstRowIdx];
-                    DFCityCityModel *subModel = baseModel.sub[row];
+                    SYMICityBaseModel *baseModel = _pickerData[_firstRowIdx];
+                    SYMICitySubModel *subModel = baseModel.sub[row];
                     title = subModel.name;
                 }
                     break;
                     
                 case 2:
                 {
-                    DFCityBaseModel *baseModel = _pickerData[_firstRowIdx];
-                    DFCityCityModel *subModel = baseModel.sub[_secondRowIdx];
+                    SYMICityBaseModel *baseModel = _pickerData[_firstRowIdx];
+                    SYMICitySubModel *subModel = baseModel.sub[_secondRowIdx];
                     title = (NSString *)(subModel.sub[row][@"name"]);
                 }
                     break;
@@ -937,15 +937,15 @@
             switch (component) {
                 case 0:
                 {
-                    DFProfBaseModel *baseModel = _pickerData[row];
+                    SYMIProfBaseModel *baseModel = _pickerData[row];
                     title = baseModel.name;
                 }
                     break;
                     
                 case 1:
                 {
-                    DFProfBaseModel *baseModel = _pickerData[_firstRowIdx];
-                    DFProfModel *subModel = baseModel.sub[row];
+                    SYMIProfBaseModel *baseModel = _pickerData[_firstRowIdx];
+                    SYMIProfSubModel *subModel = baseModel.sub[row];
                     title = subModel.name;
                 }
                     break;

@@ -1,15 +1,14 @@
 //
-//  MeInfoEditCell.m
+//  SYMeInfoEditCell.m
 //  ViewDemos
 //
 //  Created by sam chojine on 2021/1/23.
 //
 
-#import "MeInfoEditCell.h"
-#import <Masonry/Masonry.h>
-#import "UIColor+EasyMethods.h"
+#import "SYMeInfoEditCell.h"
+#import "SMMUILayoutCategories.h"
 
-@implementation MeInfoEditCell
+@implementation SYMeInfoEditCell
 
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -30,7 +29,7 @@
     [self.contentView addSubview:self.valueLabel];
     [self.contentView addSubview:self.headImageV];
     [self.contentView addSubview:self.arrowImageV];
-    [self.contentView addSubview:self.separator];
+    [self addSubview:self.separator];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(16);
@@ -56,10 +55,10 @@
     }];
  
     [self.separator mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(16);
-        make.right.mas_equalTo(14);
+        make.left.mas_equalTo(kUIPadding);
+        make.right.mas_equalTo(-kUIPadding);
         make.height.mas_equalTo(0.5);
-        make.bottom.equalTo(self.contentView.mas_bottom);
+        make.bottom.equalTo(self.mas_bottom);
     }];
     
     [self.headImageV mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -111,7 +110,7 @@
 - (UIView *)separator {
     if (!_separator) {
         _separator = [UIView new];
-        _separator.backgroundColor = [UIColor colorWithHexString:@"#B0A9C2"];
+        _separator.backgroundColor = [[UIColor doubleFishTextGrayColor] colorWithAlphaComponent:0.16];
     }
     return _separator;
 }

@@ -1,5 +1,5 @@
 //
-//  DFProfBaseModel.h
+//  SYMICityBaseModel.h
 //
 //  Created by 雷勋 尚 on 2021/1/20
 //  Copyright (c) 2021 __MyCompanyName__. All rights reserved.
@@ -9,9 +9,9 @@
 
 
 
-@interface DFProfBaseModel : NSObject <NSCoding, NSCopying>
+@interface SYMICityBaseModel : NSObject <NSCoding, NSCopying>
 
-@property (nonatomic, assign) double internalBaseClassIdentifier;
+@property (nonatomic, strong) NSString *internalBaseClassIdentifier;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSArray *sub;
 

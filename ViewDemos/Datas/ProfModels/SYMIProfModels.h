@@ -5,5 +5,5 @@
 //  Copyright (c) 2021 __MyCompanyName__. All rights reserved.
 //
 
-#import "DFCityBaseModel.h"
-#import "DFCityCityModel.h"
+#import "SYMIProfBaseModel.h"
+#import "SYMIProfSubModel.h"

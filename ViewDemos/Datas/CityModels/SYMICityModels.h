@@ -5,4 +5,5 @@
 //  Copyright (c) 2021 __MyCompanyName__. All rights reserved.
 //
 
-#import "DFUniversityBaseModel.h"
+#import "SYMICityBaseModel.h"
+#import "SYMICitySubModel.h"

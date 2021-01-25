@@ -1,24 +1,24 @@
 //
-//  DFProfModel.m
+//  SYMIProfSubModel.m
 //
 //  Created by 雷勋 尚 on 2021/1/20
 //  Copyright (c) 2021 __MyCompanyName__. All rights reserved.
 //
 
-#import "DFProfModel.h"
+#import "SYMIProfSubModel.h"
 
 
 NSString *const kDFProfModelId = @"id";
 NSString *const kDFProfModelName = @"name";
 
 
-@interface DFProfModel ()
+@interface SYMIProfSubModel ()
 
 - (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
 
 @end
 
-@implementation DFProfModel
+@implementation SYMIProfSubModel
 
 @synthesize subIdentifier = _subIdentifier;
 @synthesize name = _name;
@@ -87,7 +87,7 @@ NSString *const kDFProfModelName = @"name";
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    DFProfModel *copy = [[DFProfModel alloc] init];
+    SYMIProfSubModel *copy = [[SYMIProfSubModel alloc] init];
     
     if (copy) {
 

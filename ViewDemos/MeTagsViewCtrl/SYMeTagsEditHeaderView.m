@@ -38,7 +38,7 @@
     CGSize iconsize = CGSizeMake(22.0*kWidthScale, 22.0*kWidthScale);
     [_iconImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.equalTo(@(iconsize));
-        make.left.equalTo(self.mas_left).offset(kUIPadding);
+        make.left.equalTo(self.mas_left).offset(10.0);
         make.centerY.equalTo(self.mas_centerY);
     }];
     
@@ -48,9 +48,9 @@
     }];
     
     [_subtitleText mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_titleText.mas_right).offset(kUIPaddingHalf/2.0);
+        make.left.equalTo(_titleText.mas_right).offset(kUIPaddingHalf/2.0).priority(500);
+        make.right.equalTo(self.mas_right).offset(-kUIPadding).priority(250);
         make.centerY.equalTo(self.mas_centerY);
-        make.right.equalTo(self.mas_right).offset(-kUIPadding);
     }];
 }
 

@@ -51,7 +51,7 @@
     [self addSubview:_seperatorLine];
     
     [_titleText mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView.mas_left).offset(kUIPadding);
+        make.left.equalTo(self.contentView.mas_left).offset(kUIPadding+2.0);
         make.centerY.equalTo(self.contentView.mas_centerY);
     }];
     

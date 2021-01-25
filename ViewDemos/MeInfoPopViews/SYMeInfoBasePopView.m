@@ -17,7 +17,7 @@
     [view addSubview:self];
     
     [UIView animateWithDuration:0.25 delay:0 options:(7 << 16) animations:^{
-        self.animateView.frame = CGRectNewY(0, self.animateView.frame);
+        self.animateView_c.frame = CGRectNewY(0, self.animateView_c.frame);
         self.backgroundView_c.alpha = 1.0;
     } completion:^(BOOL finished) {
         
@@ -27,7 +27,7 @@
 - (void)dismiss {
     
     [UIView animateWithDuration:0.25 delay:0 options:(7 << 16) animations:^{
-        self.animateView.frame = CGRectNewY([UIScreen height_c], self.animateView.frame);
+        self.animateView_c.frame = CGRectNewY([UIScreen height_c], self.animateView_c.frame);
         self.backgroundView_c.alpha = 0;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
@@ -56,7 +56,7 @@
     _backgroundView_c.backgroundColor = [[UIColor doubleFishThemeColor] colorWithAlphaComponent:0.3];
     _backgroundView_c.alpha = 0;
     
-    _animateView = [[UIView alloc] initWithFrame:CGRectMake(0, [UIScreen height_c], self.bounds.size.width, self.bounds.size.height)];
+    _animateView_c = [[UIView alloc] initWithFrame:CGRectMake(0, [UIScreen height_c], self.bounds.size.width, self.bounds.size.height)];
     
     _contentView_c = [UIView new];
     _contentView_c.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.88];
@@ -82,8 +82,8 @@
     [_doneButton addTarget:self action:@selector(doneButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
     [self addSubview:_backgroundView_c];
-    [self addSubview:_animateView];
-    [_animateView addSubview:_contentView_c];
+    [self addSubview:_animateView_c];
+    [_animateView_c addSubview:_contentView_c];
     [_contentView_c addSubview:_viewTitleText];
     [_contentView_c addSubview:_cancelButton];
     [_contentView_c addSubview:_doneButton];
@@ -94,10 +94,10 @@
     
     CGSize csize = CGSizeMake(0, 445.0*kWidthScale);
     [_contentView_c mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(_animateView.mas_width);
+        make.width.equalTo(_animateView_c.mas_width);
         make.height.equalTo(@(csize.height));
-        make.centerX.equalTo(_animateView.mas_centerX);
-        make.bottom.equalTo(_animateView.mas_bottom);
+        make.centerX.equalTo(_animateView_c.mas_centerX);
+        make.bottom.equalTo(_animateView_c.mas_bottom);
     }];
     
     [_viewTitleText mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -13,15 +13,77 @@
 
 @interface UIPictureButton : UIView
 
+@property (nonatomic, strong) UIImageView *icon;
+@property (nonatomic, strong) UILabel *text;
+@property (nonatomic, copy) void (^tapCallback)(void);
+
+- (void)configImage:(UIImage *)image text:(NSString *)text;
+- (void)configTapCallback:(void (^)(void))callback;
+
 @end
 
 @implementation UIPictureButton
 
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self _configSubviews];
+    }
+    return self;
+}
+
+- (void)_configSubviews {
+    
+    _icon = [UIImageView new];
+    _icon.contentMode = UIViewContentModeCenter;
+    
+    _text = [UILabel new];
+    _text.font = [UIFont systemFontOfSize:12.0];
+    // rgba(255, 120, 253, 1)
+    _text.textColor =[UIColor colorWith255R:255 g:120 b:253];
+    _text.textAlignment = NSTextAlignmentCenter;
+    
+    [self addSubview:_icon];
+    [self addSubview:_text];
+    
+    [_icon mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.left.equalTo(self.mas_left);
+        make.right.equalTo(self.mas_right);
+        make.top.equalTo(self.mas_top);
+        make.height.equalTo(self.mas_height).multipliedBy(0.7);
+    }];
+    
+    [_text mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.mas_left);
+        make.right.equalTo(self.mas_right);
+        make.bottom.equalTo(self.mas_bottom);
+        make.height.equalTo(self.mas_height).multipliedBy(0.3);
+    }];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(__tapSelfAction:)];
+    
+    [self addGestureRecognizer:tap];
+}
+
+- (void)configTapCallback:(void (^)(void))callback {
+    _tapCallback = callback;
+}
+
+- (void)configImage:(UIImage *)image text:(NSString *)text {
+    _icon.image = image;
+    _text.text = text;
+}
+
+- (void)__tapSelfAction:(UIGestureRecognizer *)gesture {
+    if (_tapCallback) {
+        _tapCallback();
+    }
+}
 
 @end
 
 
-@interface SYMeInfoHeaderView : UIView
+@interface SYMeTagsHeaderView : UIView
 
 @property (nonatomic, strong) UIView *contentView_c;
 @property (nonatomic, strong) UIImageView *bgImageView;
@@ -29,13 +91,11 @@
 
 @end
 
-@implementation SYMeInfoHeaderView
-
+@implementation SYMeTagsHeaderView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self _configSubviews];
-        
     }
     return self;
 }
@@ -43,12 +103,13 @@
 - (void)_configSubviews {
     
     _contentView_c = [UIView new];
-    _contentView_c.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
-    _contentView_c.layer.cornerRadius = 14.0;
+    _contentView_c.backgroundColor = [[UIColor systemGreenColor] colorWithAlphaComponent:0.4];
+    _contentView_c.layer.cornerRadius = kUIPadding;
     
     _bgImageView = [UIImageView new];
     
     _selectPhotoButton = [UIPictureButton new];
+    [_selectPhotoButton configImage:[UIImage imageNamed:@"sy_userinfo_camera_btn"] text:NSLocalizedString(@"上传照片", @"")];
     
     [self addSubview:_contentView_c];
     
@@ -58,8 +119,8 @@
     [_contentView_c mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top);
         make.height.equalTo(self.mas_height);
-        make.left.equalTo(self.mas_left).offset(kUIPadding);
-        make.right.equalTo(self.mas_right).offset(-kUIPadding);
+        make.left.equalTo(self.mas_left).offset(kUIPadding).priority(250);
+        make.right.equalTo(self.mas_right).offset(-kUIPadding).priority(250);
     }];
     
     [_bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -74,7 +135,6 @@
         make.centerY.equalTo(_contentView_c);
     }];
     
-    
 }
 
 
@@ -85,11 +145,9 @@ static NSString * editCellIdentifier = @"editCellIdentifier";
 @implementation MeTagsRowModel
 
 
-
 @end
 
 @implementation MeTagsSectionModel
-
 
 
 @end
@@ -97,7 +155,7 @@ static NSString * editCellIdentifier = @"editCellIdentifier";
 @interface SYMeTagsEditViewCtrl ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) SYMeInfoHeaderView *headerView;
+@property (nonatomic, strong) SYMeTagsHeaderView *headerView;
 @property (nonatomic, strong) NSArray<MeTagsSectionModel *> *sectionModels;
 
 @end
@@ -106,8 +164,8 @@ static NSString * editCellIdentifier = @"editCellIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
+    self.view.backgroundColor = [UIColor whiteColor];
     
     [self _configSubviews];
     [self _configDataSource];
@@ -117,11 +175,11 @@ static NSString * editCellIdentifier = @"editCellIdentifier";
 
 - (void)_configSubviews {
     
-    _headerView = [[SYMeInfoHeaderView alloc] initWithFrame:CGRectMake(0, 0, 0, 158.5*kWidthScale)];
-    
+    _headerView = [[SYMeTagsHeaderView alloc] initWithFrame:CGRectMake(0, 0, 0, 158.5*kWidthScale)];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.backgroundColor = [UIColor whiteColor];
 //    _tableView.separatorColor = [[UIColor doubleFishTextGrayColor] colorWithAlphaComponent:0.16];
 //    _tableView.separatorInset = UIEdgeInsetsMake(0, kUIPadding, 0, kUIPadding);
     

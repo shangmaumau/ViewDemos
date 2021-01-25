@@ -1,5 +1,5 @@
 //
-//  DFProfModel.h
+//  SYMIUniversityModel.h
 //
 //  Created by 雷勋 尚 on 2021/1/20
 //  Copyright (c) 2021 __MyCompanyName__. All rights reserved.
@@ -9,9 +9,9 @@
 
 
 
-@interface DFProfModel : NSObject <NSCoding, NSCopying>
+@interface SYMIUniversityModel : NSObject <NSCoding, NSCopying>
 
-@property (nonatomic, assign) double subIdentifier;
+@property (nonatomic, assign) double internalBaseClassIdentifier;
 @property (nonatomic, strong) NSString *name;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;

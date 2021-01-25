@@ -1,5 +1,5 @@
 //
-//  MeInfoEditCell.h
+//  SYMeInfoEditCell.h
 //  ViewDemos
 //
 //  Created by sam chojine on 2021/1/23.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MeInfoEditCell : UITableViewCell
+@interface SYMeInfoEditCell : UITableViewCell
 
 typedef NS_ENUM(NSUInteger, EditCellType) {
     /// 头像

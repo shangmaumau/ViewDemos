@@ -7,7 +7,7 @@
 
 #import "SYMeTagsSelectPopView.h"
 #import "SMMUILayoutCategories.h"
-#import <MBProgressHUD/MBProgressHUD.h>
+// #import <MBProgressHUD/MBProgressHUD.h>
 
 static NSString *tofuCellIdentifier = @"tofuCellIdentifier";
 
@@ -338,15 +338,15 @@ static NSString *tofuCellIdentifier = @"tofuCellIdentifier";
 
 - (void)showHUDWithTitle:(NSString *)title {
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.contentView_c animated:YES];
-    hud.mode = MBProgressHUDModeText;
-    hud.label.text = title;
-    hud.label.textColor = [UIColor whiteColor];
-    
-    hud.bezelView.blurEffectStyle = UIBlurEffectStyleDark;
-    hud.bezelView.layer.cornerRadius = kUIPadding;
-    
-    [hud hideAnimated:YES afterDelay:1.0];
+//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.contentView_c animated:YES];
+//    hud.mode = MBProgressHUDModeText;
+//    hud.label.text = title;
+//    hud.label.textColor = [UIColor whiteColor];
+//    
+//    hud.bezelView.blurEffectStyle = UIBlurEffectStyleDark;
+//    hud.bezelView.layer.cornerRadius = kUIPadding;
+//    
+//    [hud hideAnimated:YES afterDelay:1.0];
 }
 
 - (void)updateBottomButtonTitle:(NSString *)newTitle {

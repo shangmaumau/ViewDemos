@@ -9,7 +9,7 @@
 
 #import "SYMeInfoEditPopView.h"
 #import "SYMeTagsSelectPopView.h"
-#import "MeInfoEditController.h"
+#import "SYMeInfoEditController.h"
 
 #import "SYMeTagsEditViewCtrl.h"
 
@@ -59,7 +59,7 @@
 
 - (IBAction)infoEdit:(id)sender {
     
-    MeInfoEditController *meedit = [MeInfoEditController new];
+    SYMeInfoEditController *meedit = [SYMeInfoEditController new];
     meedit.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:meedit animated:YES completion:nil];
     

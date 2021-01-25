@@ -5,5 +5,4 @@
 //  Copyright (c) 2021 __MyCompanyName__. All rights reserved.
 //
 
-#import "DFProfBaseModel.h"
-#import "DFProfModel.h"
+#import "SYMIUniversityModel.h"

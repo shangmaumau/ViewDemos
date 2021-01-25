@@ -1,11 +1,11 @@
 //
-//  DFCityCityModel.m
+//  SYMICitySubModel.m
 //
 //  Created by 雷勋 尚 on 2021/1/20
 //  Copyright (c) 2021 __MyCompanyName__. All rights reserved.
 //
 
-#import "DFCityCityModel.h"
+#import "SYMICitySubModel.h"
 
 
 NSString *const kDFCityCityModelId = @"id";
@@ -13,13 +13,13 @@ NSString *const kDFCityCityModelName = @"name";
 NSString *const kDFCityCityModelSub = @"sub";
 
 
-@interface DFCityCityModel ()
+@interface SYMICitySubModel ()
 
 - (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
 
 @end
 
-@implementation DFCityCityModel
+@implementation SYMICitySubModel
 
 @synthesize subIdentifier = _subIdentifier;
 @synthesize name = _name;
@@ -103,7 +103,7 @@ NSString *const kDFCityCityModelSub = @"sub";
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    DFCityCityModel *copy = [[DFCityCityModel alloc] init];
+    SYMICitySubModel *copy = [[SYMICitySubModel alloc] init];
     
     if (copy) {
 

@@ -9,16 +9,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class DFUniversityBaseModel, DFProfBaseModel, DFCityBaseModel;
+@class SYMIUniversityModel, SYMIProfBaseModel, SYMICityBaseModel;
 
 @interface SYLocalJSONManager : NSObject
 
 
 + (id)dataFromLocalJSONWithName:(NSString *)filename;
 
-+ (NSArray<DFCityBaseModel *> *)cities;
-+ (NSArray<DFProfBaseModel *> *)profs;
-+ (NSArray<DFUniversityBaseModel *> *)universities;
++ (NSArray<SYMICityBaseModel *> *)cities;
++ (NSArray<SYMIProfBaseModel *> *)profs;
++ (NSArray<SYMIUniversityModel *> *)universities;
 + (NSArray<NSString *> *)universities_name;
 
 

@@ -1,24 +1,24 @@
 //
-//  DFUniversityBaseModel.m
+//  SYMIUniversityModel.m
 //
 //  Created by 雷勋 尚 on 2021/1/20
 //  Copyright (c) 2021 __MyCompanyName__. All rights reserved.
 //
 
-#import "DFUniversityBaseModel.h"
+#import "SYMIUniversityModel.h"
 
 
 NSString *const kDFUniversityBaseModelId = @"id";
 NSString *const kDFUniversityBaseModelName = @"name";
 
 
-@interface DFUniversityBaseModel ()
+@interface SYMIUniversityModel ()
 
 - (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
 
 @end
 
-@implementation DFUniversityBaseModel
+@implementation SYMIUniversityModel
 
 @synthesize internalBaseClassIdentifier = _internalBaseClassIdentifier;
 @synthesize name = _name;
@@ -87,7 +87,7 @@ NSString *const kDFUniversityBaseModelName = @"name";
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    DFUniversityBaseModel *copy = [[DFUniversityBaseModel alloc] init];
+    SYMIUniversityModel *copy = [[SYMIUniversityModel alloc] init];
     
     if (copy) {
 

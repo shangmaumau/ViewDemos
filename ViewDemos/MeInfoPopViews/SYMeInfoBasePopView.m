@@ -50,6 +50,19 @@
 
 // MARK: - 配置子视图
 
+- (void)_configBlurViewToView:(__kindof UIView *)view {
+    
+    // view.backgroundColor = [UIColor clearColor];
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    blurView.translatesAutoresizingMaskIntoConstraints = NO;
+    [view insertSubview:blurView atIndex:0];
+    
+    [blurView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(view);
+    }];
+}
+
 - (void)_addBasicSubviews {
     
     _backgroundView_c = [UIView new];

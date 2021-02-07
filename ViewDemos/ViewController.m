@@ -68,9 +68,8 @@
 - (void)__showEditPopView {
     
     SYMeInfoEditPopModel *model = [SYMeInfoEditPopModel new];
-
-    model.contentType = PopContentTypeSearchView;
-    model.viewName = PopViewNameUniversity;
+    
+    model.viewName = PopViewNameAddress;
     
     [_editPopView showOnView:self.view withData:model];
     
